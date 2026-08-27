@@ -54,3 +54,7 @@ browser and which behaviors are verified only in the local fixture replica.
 
 `SYSTEM_PROTOCOL_AUDIT.md` traces labels through frontend events, transport,
 backend state transitions, persistence, projection refresh, and failure safeguards.
+
+`HUMAN_VIEW_ALL_LABEL_AUDIT.md` documents real Chromium rendering across every
+captured admin route, with screenshots and visible-control evidence in
+`visual_audit_screenshots/`.

@@ -1,0 +1,201 @@
+{
+  "generatedAt": "2026-08-27T09:16:36.606Z",
+  "liveAdminUrl": "https://erpresearch-admincsx.merkleon.com/admin.html#/admin/help/pdgz.html",
+  "admin": [
+    {
+      "route": "/admin/index/main.html",
+      "controls": 48,
+      "visibleChars": 369,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 商城统计 applications总量 44540 今日新增applications 0 昨日新增applications 0 用户总量 1775 今日新增用户 0 昨日新增用户 45 订单总量 0 今日新增订单 0 昨日新增订单 0 订单总金额 0 今日新增订单总金额 0 昨日新增订单总金额 0 用户充值 0 今日新增充值 0 昨日新增充值 0 用户提现 50866.83 今日新增提现 0 昨日新增提现 571.9 佣金 0 今日新增佣金 0 昨日新增佣金 0 下级返佣 0 今日新增佣金 0 昨日新增佣金 0 用户总余额 1483621.49(1977360.25) 今日余额宝收益转出 0 今日余额宝收益 0",
+      "screenshot": "visual_audit_screenshots/live_admin_index_main_html.png"
+    },
+    {
+      "route": "/admin/users/index.html",
+      "controls": 248,
+      "visibleChars": 5089,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 会员列表 添加测试账号添加普通账号 条件搜索 用户名 用户ID 手机号码 邀请码找下级 用户邀请码 IP地址 注册时间 状态 有效状态 余额 -  搜 索 导 出 会员信息 上级资料 其他信息 任务量 资金余额 会员状态 操作 ID：4236 邀请码：UBM7GL 手机：4692658129 用户名：Mar 邮箱：-- 上级：仔仔4903 上级邀请码：Z9M2KD 会员等级：VIP1 注册时间：2026年08月26日 21:25:24 注册IP：2600:6c56:6d00:725:89dc:645:f0b7:9702 注册位",
+      "screenshot": "visual_audit_screenshots/live_admin_users_index_html.png"
+    },
+    {
+      "route": "/admin/users/cs_list.html",
+      "controls": 88,
+      "visibleChars": 704,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 客服列表 添加客服 条件搜索 创建时间  搜 索 ID 类型 链接 客服名称 添加时间 操作 20 Chat https://+12133544591 Message To: +12133544591 2026年04月04日 12:43:10 编 辑禁用删 除 23 Telegram https://t.me/ERPResearch86 Telegram Customer Service 1 2026年04月20日 09:15:08 编 辑禁用删 除 24 WhatsApp https://wa.me/+12138497570 ",
+      "screenshot": "visual_audit_screenshots/live_admin_users_cs_list_html.png"
+    },
+    {
+      "route": "/admin/users/level.html",
+      "controls": 67,
+      "visibleChars": 687,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 会员等级 ID 名称 图标 邀请人数 普通佣金 比例(%) 联单佣金 比例(%) 抢单最小余额 接单次数 提现次数 提现最小金额 提现最大金额 提现手续费 操作 1 VIP1 0 0.5000 5.0000 50.00 40 5 10.00 9999.00 0 编辑禁 用会员描述 2 VIP2 0 1.0000 10.0000 50.00 45 4 10.00 9999.00 0 编辑禁 用会员描述 3 VIP3 0 1.5000 15.0000 50.00 50 4 10.00 9999.00 0 编辑禁 用会员描述 4 VIP",
+      "screenshot": "visual_audit_screenshots/live_admin_users_level_html.png"
+    },
+    {
+      "route": "/admin/users/login_history.html",
+      "controls": 110,
+      "visibleChars": 1907,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 登录历史  刷新数据 用户名 手机号 登录IP 登录状态 设备类型 登录时间  搜 索 批量删除 清空历史 用户信息 登录时间 登录IP 登录位置 设备信息 状态 操作 用户ID：4146 用户名：Ioakim 手机号：2146019192 2026年08月27日 02:00:50 2607:fb91:4084:8e51:f5f7:a879:a47e:a9dc 美国 德克萨斯州 沃思堡 设备：mobile 浏览器：Safari 604.1 系统：iOS 18.7 成功 详情统计删除 用户ID：4155 用户名：Asull7",
+      "screenshot": "visual_audit_screenshots/live_admin_users_login_history_html.png"
+    },
+    {
+      "route": "/admin/user/index.html",
+      "controls": 64,
+      "visibleChars": 356,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 基础配置 系统参数配置 菜单管理 日志管理 权限管理 访问权限管理 系统用户管理 系统用户管理 添加用户删除用户 条件搜索 用户账号 联系手机 联系邮箱 使用状态 登录时间  搜 索 用户账号 联系手机 登录次数 使用状态 创建时间 登录时间 admin - 9693 使用中 2025年02月19日 22:44:16 2026年08月27日 09:16:10 密 码编 辑禁 用删 除 共 1 条记录，每页显示 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 条，共 1 页当前显示第 1 页。",
+      "screenshot": "visual_audit_screenshots/live_admin_user_index_html.png"
+    },
+    {
+      "route": "/admin/auth/index.html",
+      "controls": 68,
+      "visibleChars": 394,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 基础配置 系统参数配置 菜单管理 日志管理 权限管理 访问权限管理 系统用户管理 系统权限管理 添加权限删除权限 条件搜索 权限名称 权限描述 使用状态 创建时间  搜 索 权限信息 创建时间 使用状态 权限名称：所有权限 权限描述：所有权限 日期：2026年04月10日 时间：22:24:09 使用中 编 辑授 权禁 用删 除 权限名称：公共权限 权限描述：所有权限都有 日期：2024年06月04日 时间：20:21:02 使用中 编 辑授 权禁 用删 除 共 2 条记录，每页显示 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 条，共 1 页当前显示第 1 页。",
+      "screenshot": "visual_audit_screenshots/live_admin_auth_index_html.png"
+    },
+    {
+      "route": "/admin/menu/index.html",
+      "controls": 436,
+      "visibleChars": 3084,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 基础配置 系统参数配置 菜单管理 日志管理 权限管理 访问权限管理 系统用户管理 系统菜单管理 添加菜单删除菜单 刷 新 后台首页 /admin/index/main.html 使用中 添 加编 辑禁 用删 除 角色 # 使用中 添 加编 辑禁 用删 除 ├ 会员管理 # 使用中 添 加编 辑禁 用删 除 ├ ├ 会员列表 /admin/users/index.html 使用中 添 加编 辑禁 用删 除 ├ ├ 联单任务 /admin/plots/index.html 使用中 添 加编 辑禁 用删 除 ├ ├ 会员等级 /admin/users/level.html 使用中 添 加编 辑禁 用删 除 ├ ├ 登录历史 /admin/users/login_history.",
+      "screenshot": "visual_audit_screenshots/live_admin_menu_index_html.png"
+    },
+    {
+      "route": "/admin/oplog/index.html",
+      "controls": 90,
+      "visibleChars": 1126,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 基础配置 系统参数配置 菜单管理 日志管理 权限管理 访问权限管理 系统用户管理 系统操作日志 清理日志删除日志 条件搜索 操作账号 操作节点 操作行为 操作描述 位置地址 操作时间 用户id  搜 索 操作权限 操作行为 操作人 用户id 操作数据 操作时间 admin admin/login/index 系统管理 用户登录系统成功 admin 0 日期：2026年08月27日 时间：09:16:10 删 除 admin admin/login/index 系统管理 用户登录系统成功 admin 0 日期：2026年08月27日 时间：09:10:42 删 除 admin admin/login/index 系统管理 用户登录系统成功 admin 0 日期：2026年",
+      "screenshot": "visual_audit_screenshots/live_admin_oplog_index_html.png"
+    },
+    {
+      "route": "/admin/account/acclog.html",
+      "controls": 65,
+      "visibleChars": 1195,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 资金记录 条件搜索 手机号码 用户名 发起时间 类型  搜 索 ID 用户手机 用户名 订单号 类型 金额 时间 576527 9384634041 Asull7 CO202608271158334155950 提现 支出 -12.95 2026年08月26日 23:58:33 576526 5418902615 tholmee SG202608271134554008659 抢单返还本金 收入 +41.10 2026年08月26日 23:34:57 576525 01234567890 xiaocheng SG20260827",
+      "screenshot": "visual_audit_screenshots/live_admin_account_acclog_html.png"
+    },
+    {
+      "route": "/admin/account/adjustlog.html",
+      "controls": 64,
+      "visibleChars": 1216,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 上下分记录 条件搜索 用户ID 手机号码 管理员用户名 发起时间  搜 索 记录ID 用户信息 操作金额 原余额 修改后余额 管理员 备注 时间 3195 ID: 4176 Evonnaj88 8047795023 +54.00 -53.33 0.67 10000 admin 2026年08月27日 01:56:07 3194 ID: 4236 Mar 4692658129 +70.00 10.00 80.00 10000 admin 2026年08月27日 01:40:48 3193 ID: 3963 Rhia415 4155",
+      "screenshot": "visual_audit_screenshots/live_admin_account_adjustlog_html.png"
+    },
+    {
+      "route": "/admin/deal/order_list.html",
+      "controls": 64,
+      "visibleChars": 1184,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin Applications管理 交易控制 订单列表 applications列表 上下分记录 条件搜索 用户ID 手机号码 管理员用户名 发起时间  搜 索 记录ID 用户信息 操作金额 原余额 修改后余额 管理员 备注 时间 3195 ID: 4176 Evonnaj88 8047795023 +54.00 -53.33 0.67 10000 admin 2026年08月27日 01:56:07 3194 ID: 4236 Mar 4692658129 +70.00 10.00 80.00 10000 admin 2026年08月27日 01:40:48 3193 ID: 3963 Rhia415 4155710517 +360.00 -359.50 0.50 1000",
+      "screenshot": "visual_audit_screenshots/live_admin_deal_order_list_html.png"
+    },
+    {
+      "route": "/admin/deal/deal_console.html",
+      "controls": 70,
+      "visibleChars": 259,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin Applications管理 交易控制 订单列表 applications列表 交易控制 基础设置 匹配范围 匹配范围：40% ~ 90%。 提现时间 - 如8点到23点,可以输入 8 - 23 也可以输入8:00-23:00 抢单时间 - 如8点到23点,可以输入 8 - 23 也可以输入8:00-23:00 客服时间 客服服务时间说明，如：客服时间：9:00-18:00 周一至周五 保存配置",
+      "screenshot": "visual_audit_screenshots/live_admin_deal_deal_console_html.png"
+    },
+    {
+      "route": "/admin/deal/deposit_list.html",
+      "controls": 100,
+      "visibleChars": 2021,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 提现列表 条件搜索 批量通过批量拒绝 订单号 用户名称 手机号码 发起时间 订单状态  搜 索 导 出 订单号 提现用户 餘額 提现金额 收款信息 时间 操作 CO202608271158334155950 账号：Asull7 电话：9384634041 上级：Yixin 80 提现金额：12.95 手续费率：0% 实际到账：12.95 BTC: bc1qp8v0jazcgceg3e4zw426arp8gpwwgheyslrz56 2026年08月26日 23:58:33 - 通过驳回 CO202608271108334236",
+      "screenshot": "visual_audit_screenshots/live_admin_deal_deposit_list_html.png"
+    },
+    {
+      "route": "/admin/deal/deposit_list_test.html",
+      "controls": 58,
+      "visibleChars": 191,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 提现列表 条件搜索 批量通过批量拒绝 订单号 用户名称 手机号码 发起时间 订单状态  搜 索 导 出 没有记录哦",
+      "screenshot": "visual_audit_screenshots/live_admin_deal_deposit_list_test_html.png"
+    },
+    {
+      "route": "/admin/deal/goods_list.html",
+      "controls": 88,
+      "visibleChars": 2069,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin Applications管理 交易控制 订单列表 applications列表 商品管理 导入商品添加商品 条件搜索 商品ID 商品名称 分类 商品价格 -  搜 索 商品ID 商品名称 商品价格 店铺名称 添加时间 状态 1 Digital Camera (black) ¥1.00 2024年12月27日 18:11:17 编辑删除 2 Black and white a Lil' Bougie decorative ironing patch (7.62 cm) ¥4.20 2024年12月27日 16:38:34 编辑删除 3 Double nose ring for single pierced nose ring, ladies twist nose ring",
+      "screenshot": "visual_audit_screenshots/live_admin_deal_goods_list_html.png"
+    },
+    {
+      "route": "/admin/checkin/member_checkin_log.html",
+      "controls": 51,
+      "visibleChars": 165,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 用户签到记录 条件搜索 手机号码 签到日期  搜 索 没有记录哦",
+      "screenshot": "visual_audit_screenshots/live_admin_checkin_member_checkin_log_html.png"
+    },
+    {
+      "route": "/admin/config/info.html",
+      "controls": 63,
+      "visibleChars": 310,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 基础配置 系统参数配置 菜单管理 日志管理 权限管理 访问权限管理 系统用户管理 系统参数配置 系统参数配置：修改基础配置谷歌验证码 上级佣金比例 一级： 新用户注册赠送金额 新用户注册赠送金额 用户信用分低于下面的值禁止提现 默认0 表示信用分不影响提现 提现余额要保留的金额 提现后账户余额至少保留该金额，默认60，填0表示不限制 注册用户的默认信用值 默认100 网站名称 Website 网站名称及网站图标，将显示在浏览器的标签上 管理程序名称 Name 管理程序名称，将显示在后台左上角标题",
+      "screenshot": "visual_audit_screenshots/live_admin_config_info_html.png"
+    },
+    {
+      "route": "/admin/plots/index.html",
+      "controls": 82,
+      "visibleChars": 1104,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 会员管理 会员列表 联单任务 会员等级 登录历史 用户签到记录 财务管理 提现管理 测试账号提现 0 资金记录 上下分记录 客服管理 客服列表 用户联单任务列表 条件搜索 手机号码 用户名字 创建时间  搜 索 Id 用户账号 用户名称 开始单号 任务数量 总金额 订单类型 状态 创建时间 操作 1385 2312312321 Maya79381 20 0 / 2 635.50 普通连单 进行中 2026年08月25日 00:52:19 查看取消 1260 79107910 Maya7910 14 0 / 2 592.90 普通连单 进行中 2026年08月20日 15:11:36 查看取消 1184 12457896541 Maya20223 14 0 / 2 592",
+      "screenshot": "visual_audit_screenshots/live_admin_plots_index_html.png"
+    },
+    {
+      "route": "/admin/help/active.html",
+      "controls": 52,
+      "visibleChars": 271,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 首页文本 首页轮播公告 全局公告管理 证书展示 条款 事件 常见问题 关于我们 协议管理 活动管理 添加活动 ID 语言 标题 发表时间 查看内容 14 英语 FAQ 2026年07月26日 15:11:50 编辑删除 共 1 条记录，每页显示 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 条，共 1 页当前显示第 1 页。",
+      "screenshot": "visual_audit_screenshots/live_admin_help_active_html.png"
+    },
+    {
+      "route": "/admin/help/agreement.html",
+      "controls": 54,
+      "visibleChars": 340,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 首页文本 首页轮播公告 全局公告管理 证书展示 条款 事件 常见问题 关于我们 协议管理 全局协议管理 添加协议 ID 语言 标题 类型 发表时间 查看内容 2 英语 使用条款 隐私政策 2026年04月19日 13:06:50 编辑删除 1 英语 Registration Agreement 使用条款 2026年04月19日 13:03:04 编辑删除 共 2 条记录，每页显示 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 条，共 1 页当前显示第 1 页。",
+      "screenshot": "visual_audit_screenshots/live_admin_help_agreement_html.png"
+    },
+    {
+      "route": "/admin/help/banner.html",
+      "controls": 51,
+      "visibleChars": 331,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 首页文本 首页轮播公告 全局公告管理 证书展示 条款 事件 常见问题 关于我们 协议管理 新增 语言 内容 操作 英语 Welcome to AppFollow! We are open from 10:00 . to 22:00 . For more information, please contact Organization Support on Telegram, which is how you will be notified of any updates or upgrades to the platform. 编辑删除",
+      "screenshot": "visual_audit_screenshots/live_admin_help_banner_html.png"
+    },
+    {
+      "route": "/admin/help/helplottery.html",
+      "controls": 52,
+      "visibleChars": 273,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 首页文本 首页轮播公告 全局公告管理 证书展示 条款 事件 常见问题 关于我们 协议管理 关于我们 添加关于我们 ID 语言 标题 发表时间 查看内容 5 英语 关于我们 2026年04月18日 15:56:56 编辑删除 共 1 条记录，每页显示 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 条，共 1 页当前显示第 1 页。",
+      "screenshot": "visual_audit_screenshots/live_admin_help_helplottery_html.png"
+    },
+    {
+      "route": "/admin/help/infomation.html",
+      "controls": 52,
+      "visibleChars": 271,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 首页文本 首页轮播公告 全局公告管理 证书展示 条款 事件 常见问题 关于我们 协议管理 资讯管理 添加证书 ID 语言 标题 发表时间 查看内容 3 英语 证书展示 2026年04月20日 08:48:54 编辑删除 共 1 条记录，每页显示 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 条，共 1 页当前显示第 1 页。",
+      "screenshot": "visual_audit_screenshots/live_admin_help_infomation_html.png"
+    },
+    {
+      "route": "/admin/help/jianjie.html",
+      "controls": 52,
+      "visibleChars": 275,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 首页文本 首页轮播公告 全局公告管理 证书展示 条款 事件 常见问题 关于我们 协议管理 简介管理 添加简介 ID 语言 标题 发表时间 查看内容 1675 英语 Event 2026年04月20日 09:32:19 编辑删除 共 1 条记录，每页显示 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 条，共 1 页当前显示第 1 页。",
+      "screenshot": "visual_audit_screenshots/live_admin_help_jianjie_html.png"
+    },
+    {
+      "route": "/admin/help/notice.html",
+      "controls": 52,
+      "visibleChars": 306,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 首页文本 首页轮播公告 全局公告管理 证书展示 条款 事件 常见问题 关于我们 协议管理 全局公告管理 添加全局公告 ID 语言 标题 类型 发表时间 查看内容 1 英语 Special Reward Announcement 彈窗公告 2026年04月20日 09:03:10 编辑删除 共 1 条记录，每页显示 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 条，共 1 页当前显示第 1 页。",
+      "screenshot": "visual_audit_screenshots/live_admin_help_notice_html.png"
+    },
+    {
+      "route": "/admin/help/pdgz.html",
+      "controls": 52,
+      "visibleChars": 306,
+      "text": "erpresearchV001 后台首页 角色 交易 文章管理 基础配置 待完成订单 1080 提现 10 admin 首页文本 首页轮播公告 全局公告管理 证书展示 条款 事件 常见问题 关于我们 协议管理 全局公告管理 添加全局公告 ID 语言 标题 类型 发表时间 查看内容 1 英语 Special Reward Announcement 彈窗公告 2026年04月20日 09:03:10 编辑删除 共 1 条记录，每页显示 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 条，共 1 页当前显示第 1 页。",
+      "screenshot": "visual_audit_screenshots/live_admin_help_pdgz_html.png"
+    }
+  ],
+  "client": {
+    "controls": 6,
+    "visibleChars": 221,
+    "text": "Welcome to E Sign In Enter your username and password to access Username Password ✓ Remember me Forgot password? Sign In Don't have an account yet? Sign up Can't sign in? Contact Support ERP | © 2026. All Rights Reserved.",
+    "screenshot": "visual_audit_screenshots/live_client_home.png"
+  }
+}
