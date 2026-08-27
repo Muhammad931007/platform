@@ -1,12 +1,35 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { handleApiRequest, readDb, writeDb } = require('./api_handler');
 
 const PORT = 8080;
 const PUBLIC_DIR = path.resolve(__dirname);
 const LOCAL_ADMIN_USERNAME = process.env.LOCAL_ADMIN_USERNAME || 'admin';
 const LOCAL_ADMIN_PASSWORD = process.env.LOCAL_ADMIN_PASSWORD || '';
+const adminSessions = new Set();
+const LOCAL_ADMIN_SKEY = (() => {
+  try {
+    const loginHtml = fs.readFileSync(path.join(__dirname, 'admin', 'login', 'index.html'), 'utf8');
+    return (loginHtml.match(/name=["']skey["'][^>]*value=["']([^"']+)/i) || [])[1] || '';
+  } catch (_) { return ''; }
+})();
+
+function cookieValue(req, name) {
+  const cookies = String(req.headers.cookie || '').split(';');
+  const entry = cookies.map(item => item.trim()).find(item => item.startsWith(name + '='));
+  return entry ? decodeURIComponent(entry.slice(name.length + 1)) : '';
+}
+
+function isAdminAuthenticated(req) {
+  const token = cookieValue(req, 'local_admin_session');
+  return Boolean(token && adminSessions.has(token));
+}
+
+function md5(value) {
+  return crypto.createHash('md5').update(String(value)).digest('hex');
+}
 
 function sendJson(res, payload, status = 200) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
@@ -153,18 +176,50 @@ const server = http.createServer((req, res) => {
 
     // 2. Admin Login Action
     if (pathname === '/admin/login/index.html' && req.method === 'POST') {
-      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-      if (!LOCAL_ADMIN_PASSWORD || bodyData.username !== LOCAL_ADMIN_USERNAME || bodyData.password !== LOCAL_ADMIN_PASSWORD) {
+      // admin.js removes skey from the submitted form after hashing. Recover the
+      // page's hidden key so the captured visual login form can be verified.
+      const loginSkey = bodyData.skey || LOCAL_ADMIN_SKEY;
+      const expectedHash = loginSkey ? md5(md5(LOCAL_ADMIN_PASSWORD) + loginSkey) : '';
+      const passwordMatches = bodyData.password === LOCAL_ADMIN_PASSWORD || (expectedHash && bodyData.password === expectedHash);
+      if (!LOCAL_ADMIN_PASSWORD || bodyData.username !== LOCAL_ADMIN_USERNAME || !passwordMatches) {
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
         return res.end(JSON.stringify({
           code: 0,
           msg: 'Invalid administrator credentials. Set LOCAL_ADMIN_PASSWORD before starting the local server.'
         }));
       }
+      const session = crypto.randomBytes(24).toString('hex');
+      adminSessions.add(session);
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Set-Cookie': `local_admin_session=${encodeURIComponent(session)}; Path=/; HttpOnly; SameSite=Lax`
+      });
       return res.end(JSON.stringify({
         code: 1,
         msg: '登录成功，正在进入系统...',
         url: '/admin.html#/admin/index/main.html?spm=m-1'
       }));
+    }
+
+    // The captured shell uses a GET action for logout. Clear the local session
+    // and send the browser back to the real login page.
+    if (pathname === '/admin/login/out.html') {
+      const session = cookieValue(req, 'local_admin_session');
+      if (session) adminSessions.delete(session);
+      res.writeHead(302, {
+        Location: '/admin/login/index.html',
+        'Set-Cookie': 'local_admin_session=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax'
+      });
+      return res.end();
+    }
+
+    // Do not expose the admin shell or its data pages without a local session.
+    // Static assets remain public so the login page can render its visual form.
+    const isLoginPage = pathname === '/admin/login/index.html' || pathname === '/admin/login/index.htm' || pathname === '/admin/login.html';
+    const isAdminPage = pathname === '/admin.html' || pathname.startsWith('/admin/');
+    if (isAdminPage && !isLoginPage && !isAdminAuthenticated(req)) {
+      res.writeHead(302, { Location: '/admin/login/index.html' });
+      return res.end();
     }
 
     // 3. API Routing (shared with Client)
