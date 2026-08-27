@@ -4,6 +4,7 @@ const path = require('path');
 // Keep all local state beside the server so the Visual folder can be moved as
 // one unit without rewriting source files.
 const DB_PATH = path.join(__dirname, 'data', 'db.json');
+const DB_BACKUP_PATH = path.join(__dirname, 'data', 'db.json.bak');
 
 // Initialize Database if not exists
 function initDb() {
@@ -110,7 +111,11 @@ function readDb() {
 }
 
 function writeDb(data) {
-  fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
+  const serialized = JSON.stringify(data, null, 2) + '\n';
+  const tempPath = DB_PATH + '.tmp';
+  fs.writeFileSync(tempPath, serialized, 'utf8');
+  if (fs.existsSync(DB_PATH)) fs.copyFileSync(DB_PATH, DB_BACKUP_PATH);
+  fs.renameSync(tempPath, DB_PATH);
 }
 
 function ensureDbShape(db) {
