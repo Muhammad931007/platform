@@ -56,8 +56,8 @@ function localMemberRow(user) {
   const email = escapeHtml(user.email || '--');
   const balance = escapeHtml(Number(user.balance || 0).toFixed(2));
   const status = Number(user.status) === 0 ? '冻结' : '正常';
-  const action = (label, url) => `<a href="javascript:void(0)" data-modal="${url}" class="local-action">${label}</a>`;
-  return `<tr class="local-fixture-row"><td>${id}</td><td><div>ID: ${id}<br>邀请码: ${invite}<br>手机: ${phone}<br>用户名: <strong>${username}</strong><br>邮箱: ${email}</div></td><td>上级: --<br>上级邀请码: --</td><td>会员等级: VIP1<br>注册时间: 本地测试<br>注册IP: 127.0.0.1<br>注册位置: Local<br>信誉分: 100<br>最后上线IP: 127.0.0.1<br>最后上线位置: Local<br>最后上线时间: 刚刚</td><td>已完成: 0<br>总任务量: 0<br>已接单: 0<br>已重置: 0<br>已签到: 否</td><td>总资产: ${balance}<br>资产加利润: ${balance}<br>余额: ${balance}<br>充值: 0.00<br>提现: 0.00<br>收益: 0.00<br>连单金额: 0.00</td><td>在线<br>会员状态: ${status}<br>冻结: 否<br>普通账号<br>历史订单完成量: 0</td><td>${action('基础资料','/admin/users/edit_users/'+id+'.html')} ${action('加扣款','/admin/users/add_money/'+id+'.html')} ${action('钱包','/admin/users/wallet/'+id+'.html')} ${action('重置任务','/admin/users/reset_deal_cnt.html?id='+id)} ${action('重置佣金','/admin/users/reset_deal_reward.html?id='+id)} ${action('添加连单','/admin/users/add_deal/'+id+'.html')} ${action('普通方式','/admin/users/normal/'+id+'.html')} ${action('账变信息','/admin/users/account_log.html?id='+id)} ${action('连单列表','/admin/users/deal_list.html?id='+id)} ${action('改单数','/admin/users/change_deal_cnt/'+id+'.html')} ${action('查看团队','/admin/users/team.html?id='+id)} ${action('登录历史','/admin/users/login_history.html?id='+id)} ${action('禁用','/admin/users/edit_users_status/'+id+'/0.html')} ${action('禁止提现','/admin/users/withdraw_forbid/'+id+'.html')} ${action('发送通知','/admin/users/notice/'+id+'.html')} ${action('配置奖励金','/admin/users/reward_bonus/'+id+'.html')}</td></tr>`;
+  const action = (label, url, kind = 'modal') => `<a href="javascript:void(0)" data-${kind}="${url}" data-title="${label}" class="layui-btn layui-btn-sm local-action">${label}</a>`;
+  return `<tr class="local-fixture-row"><td>${id}</td><td><div>ID: ${id}<br>邀请码: ${invite}<br>手机: ${phone}<br>用户名: <strong>${username}</strong><br>邮箱: ${email}</div></td><td>上级: --<br>上级邀请码: --</td><td>会员等级: VIP1<br>注册时间: 本地测试<br>注册IP: 127.0.0.1<br>注册位置: Local<br>信誉分: 100<br>最后上线IP: 127.0.0.1<br>最后上线位置: Local<br>最后上线时间: 刚刚</td><td>已完成: 0<br>总任务量: 0<br>已接单: 0<br>已重置: 0<br>已签到: 否</td><td>总资产: ${balance}<br>资产加利润: ${balance}<br>余额: ${balance}<br>充值: 0.00<br>提现: 0.00<br>收益: 0.00<br>连单金额: 0.00</td><td>在线<br>会员状态: ${status}<br>冻结: 否<br>普通账号<br>历史订单完成量: 0</td><td>${action('基础资料','/admin/users/edit_users.html?id='+id)} ${action('加扣款','/admin/users/adjust.html?id='+id)} ${action('钱包','/admin/users/edit_users_bk.html?uid='+id)} ${action('重置任务','/admin/users/reset_deal_cnt.html?id='+id,'open')} ${action('重置佣金','/admin/users/reset_deal_reward.html?id='+id,'open')} ${action('添加连单','/admin/plots/add.html?uid='+id,'open')} ${action('普通方式','/admin/plots/add_old.html?uid='+id,'open')} ${action('账变信息','/admin/users/caiwu.html?id='+id,'open')} ${action('连单列表','/admin/plots/liandan_list.html?uid='+id,'open')} ${action('改单数','/admin/users/set_deal_cnt.html?id='+id)} ${action('查看团队','/admin/users/myteams.html?uid='+id,'open')} ${action('登录历史','/admin/users/login_history.html?uid='+id,'open')} ${action('禁用','/admin/users/edit_users_status/2/'+id+'.html','open')} ${action('禁止提现','/admin/users/edit_withdral_message.html?id='+id)} ${action('发送通知','/admin/users/send_notice.html?id='+id,'open')} ${action('配置奖励金','/admin/users/set_reward_bonus.html?id='+id)}</td></tr>`;
 }
 
 function localMemberPage(db) {
@@ -108,7 +108,20 @@ function handleAdminAction(req, res, pathname, query, body, db, hasStaticFile) {
   if (req.method !== 'GET') {
     if (!isKnownAction) {
       if (pathname.startsWith('/admin/') && !hasStaticFile) {
-        return sendJson(res, { code: 1, msg: 'Form submitted in the local replica', data: { changed: 0 } });
+        const ids = valueList(body, query);
+        const targets = (db.users || []).filter(user => ids.includes(String(user.id)));
+        let changed = 0;
+        for (const user of targets) {
+          for (const field of ['username', 'tel', 'email', 'invitecode', 'balance', 'credit']) {
+            if (body[field] !== undefined && body[field] !== '') { user[field] = body[field]; changed++; }
+          }
+          if (body.amount !== undefined && body.amount !== '') {
+            const amount = Number(body.amount) || 0;
+            user.balance = (Number(user.balance || 0) + amount).toFixed(2); changed++;
+          }
+        }
+        if (changed) writeDb(db);
+        return sendJson(res, { code: 1, msg: 'Action completed in the local replica', data: { changed, ids } });
       }
       return sendJson(res, { code: 404, msg: `Unsupported local admin action: ${pathname}` }, 404);
     }
@@ -145,8 +158,11 @@ function handleAdminAction(req, res, pathname, query, body, db, hasStaticFile) {
   if (pathname.startsWith('/admin/') && pathname.endsWith('.html')) {
     const title = pathname.split('/').pop().replace(/\.html$/i, '').replace(/[-_]/g, ' ');
     const safeTitle = title.replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+    const id = escapeHtml(query.get('id') || query.get('uid') || '');
+    const isEdit = /edit_users|adjust|add_money|wallet|edit_users_bk|set_deal_cnt|reward_bonus/i.test(pathname);
+    const fields = isEdit ? `<div class="layui-form-item"><label class="layui-form-label">用户名</label><div class="layui-input-block"><input class="layui-input" name="username" placeholder="用户名"></div></div><div class="layui-form-item"><label class="layui-form-label">手机</label><div class="layui-input-block"><input class="layui-input" name="tel" placeholder="手机"></div></div><div class="layui-form-item"><label class="layui-form-label">邮箱</label><div class="layui-input-block"><input class="layui-input" name="email" placeholder="邮箱"></div></div><div class="layui-form-item"><label class="layui-form-label">邀请码</label><div class="layui-input-block"><input class="layui-input" name="invitecode" placeholder="邀请码"></div></div><div class="layui-form-item"><label class="layui-form-label">金额</label><div class="layui-input-block"><input class="layui-input" name="amount" type="number" step="0.01" placeholder="输入金额，可正可负"></div></div>` : `<div class="layui-form-item"><label class="layui-form-label">备注</label><div class="layui-input-block"><input class="layui-input" name="remark" placeholder="填写备注"></div></div>`;
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-    return res.end(`<!doctype html><html><head><meta charset="utf-8"><title>${safeTitle}</title><link rel="stylesheet" href="/static/plugs/layui/css/layui.css"></head><body class="layui-padding-3"><div class="layui-card"><div class="layui-card-header">${safeTitle}</div><div class="layui-card-body"><form method="post" action="${pathname}"><p class="color-desc">Local replica form. Submit to apply this action to local fixture data.</p><input type="hidden" name="id" value="${query.get('id') || ''}"><button class="layui-btn" type="submit">Save locally</button></form></div></div></body></html>`);
+    return res.end(`<!doctype html><html><head><meta charset="utf-8"><title>${safeTitle}</title><link rel="stylesheet" href="/static/plugs/layui/css/layui.css"></head><body class="layui-padding-3"><div class="layui-card"><div class="layui-card-header">${safeTitle}</div><div class="layui-card-body"><form class="layui-form" method="post" action="${pathname}"><input type="hidden" name="id" value="${id}">${fields}<div class="layui-form-item"><div class="layui-input-block"><button class="layui-btn" type="submit">保存</button></div></div></form></div></div></body></html>`);
   }
   return false;
 }
