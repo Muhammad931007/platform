@@ -68,6 +68,7 @@ function localMemberPage(db) {
   // The captured table has seven columns; remove any legacy leading ID cell
   // from older generated rows so the fixture aligns with its header.
   const rows = (db.users || []).map(localMemberRow).join('').replace(/(<tr class="local-fixture-row">)<td>[^<]*<\/td>/g, '$1');
+  html = html.replace(/<head([^>]*)>/i, `<head$1><style>.local-fixture-row>td{vertical-align:top!important;padding:10px 8px!important;line-height:1.8;white-space:normal}.local-fixture-row>td:nth-child(1){min-width:190px}.local-fixture-row>td:nth-child(2){min-width:150px}.local-fixture-row>td:nth-child(7){width:400px;min-width:400px}.local-fixture-row .local-action{display:inline-block!important;margin:5px 4px 0 0!important;line-height:28px!important;padding:0 8px!important}</style>`);
   html = html.replace(/<tbody>/i, `<tbody>${rows}`);
   return html;
 }
@@ -347,7 +348,7 @@ const server = http.createServer((req, res) => {
     // Put the bundled local fixture at the top of the member table so every
     // member action can be exercised from a fresh portable install.
     if (pathname === '/admin/users/index.html' && req.method === 'GET') {
-      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
       return res.end(localMemberPage(db));
     }
 
@@ -358,7 +359,7 @@ const server = http.createServer((req, res) => {
         let html = fs.readFileSync(sourcePath, 'utf8');
         if (/<body[^>]*>/i.test(html)) html = html.replace(/<body([^>]*)>/i, `<body$1>${panel}`);
         else html = panel + html;
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
         return res.end(html);
       }
     }
