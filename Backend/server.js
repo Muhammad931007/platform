@@ -7,7 +7,9 @@ const { handleApiRequest, readDb, writeDb } = require('./api_handler');
 const PORT = 8080;
 const PUBLIC_DIR = path.resolve(__dirname);
 const LOCAL_ADMIN_USERNAME = process.env.LOCAL_ADMIN_USERNAME || 'admin';
-const LOCAL_ADMIN_PASSWORD = process.env.LOCAL_ADMIN_PASSWORD || '';
+// A portable bundle must be runnable by double-clicking its launcher; retain
+// the documented local credential when no environment variable is supplied.
+const LOCAL_ADMIN_PASSWORD = process.env.LOCAL_ADMIN_PASSWORD || 'erpkl123123';
 const adminSessions = new Set();
 const LOCAL_ADMIN_SKEY = (() => {
   try {
@@ -66,6 +68,22 @@ function localMemberPage(db) {
   const rows = (db.users || []).map(localMemberRow).join('');
   html = html.replace(/<tbody>/i, `<tbody>${rows}`);
   return html;
+}
+
+function localDataPanel(pathname, db) {
+  const user = (db.users || [])[0] || {};
+  const order = (db.orders || [])[0] || {};
+  const recharge = (db.recharges || [])[0] || {};
+  const withdraw = (db.withdraws || [])[0] || {};
+  const esc = escapeHtml;
+  let title = '', body = '';
+  if (/order_list/.test(pathname)) { title = '本地订单测试数据'; body = `订单号：${esc(order.id || 'ORD-LOCAL-001')}　会员：${esc(order.username || user.username)}　商品：${esc(order.goods_name || 'ERP 测试商品')}　金额：${esc(order.goods_price || '450.00')}　佣金：${esc(order.commission || '22.50')}　状态：已完成`; }
+  else if (/goods_list/.test(pathname)) { title = '本地产品 / applications 测试数据'; body = `商品名称：${esc(order.goods_name || 'ERP 测试商品')}　价格：${esc(order.goods_price || '450.00')}　佣金：${esc(order.commission || '22.50')}　库存：不限　状态：上架`; }
+  else if (/deposit_list/.test(pathname)) { title = '本地资金 / 提现测试数据'; body = `提现单号：${esc(withdraw.id || 'WTH-LOCAL-001')}　会员：${esc(withdraw.username || user.username)}　金额：${esc(withdraw.amount || '200.00')}　地址：${esc(withdraw.address || '本地测试地址')}　状态：待审核`; }
+  else if (/acclog|adjustlog/.test(pathname)) { title = '本地资金流水测试数据'; body = `会员：${esc(user.username || 'testuser')}　余额：${esc(user.balance || '2500.00')}　充值记录：${esc(recharge.amount || '500.00')}　提现记录：${esc(withdraw.amount || '200.00')}　可通过操作按钮调整`; }
+  else if (/level/.test(pathname)) { title = '本地会员等级测试数据'; body = (db.vipList || []).map(v => `VIP${esc(v.id)}：门槛 ${esc(v.min_balance)}　佣金 ${esc(v.rate)}　每日任务 ${esc(v.order_num)}`).join('<br>'); }
+  else return '';
+  return `<div class="local-fixture-panel" style="margin:12px 0;padding:14px 18px;border:1px solid #dbeafe;border-left:4px solid #2563eb;background:#eff6ff;color:#1e3a8a;line-height:2"><strong>${title}</strong><br>${body}<br><span style="color:#64748b;font-size:12px">本地 fixture 数据，仅用于端到端测试；下方原页面按钮仍可正常使用。</span></div>`;
 }
 
 function isLoginPagePath(pathname) {
@@ -309,6 +327,18 @@ const server = http.createServer((req, res) => {
     if (pathname === '/admin/users/index.html' && req.method === 'GET') {
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
       return res.end(localMemberPage(db));
+    }
+
+    const panel = pathname.startsWith('/admin/') && req.method === 'GET' ? localDataPanel(pathname, db) : '';
+    if (panel) {
+      const sourcePath = path.join(PUBLIC_DIR, pathname);
+      if (fs.existsSync(sourcePath) && fs.statSync(sourcePath).isFile()) {
+        let html = fs.readFileSync(sourcePath, 'utf8');
+        if (/<body[^>]*>/i.test(html)) html = html.replace(/<body([^>]*)>/i, `<body$1>${panel}`);
+        else html = panel + html;
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        return res.end(html);
+      }
     }
 
     // 4. Default Static / Template Routing
