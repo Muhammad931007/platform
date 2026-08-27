@@ -1,0 +1,148 @@
+<div class="layui-fluid padding-20">
+    <!-- 顶部数据概览卡片 -->
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md3 layui-col-sm6">
+            <div class="layui-card" style="border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <div class="layui-card-header" style="font-weight: bold; color: #555;">
+                    <i class="fa fa-users text-primary padding-right-5"></i> 总会员数
+                    <span class="layui-badge layui-bg-blue layui-layout-right" style="top: 12px; right: 15px;">实时</span>
+                </div>
+                <div class="layui-card-body" style="padding: 15px 20px;">
+                    <div style="font-size: 28px; font-weight: bold; color: #1E9FFF;">1,280</div>
+                    <div class="text-muted font-s12 margin-top-5">今日新增: <span style="color: #009688;">+34 人</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-md3 layui-col-sm6">
+            <div class="layui-card" style="border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <div class="layui-card-header" style="font-weight: bold; color: #555;">
+                    <i class="fa fa-money text-success padding-right-5"></i> 今日充值总额
+                    <span class="layui-badge layui-bg-green layui-layout-right" style="top: 12px; right: 15px;">USDT</span>
+                </div>
+                <div class="layui-card-body" style="padding: 15px 20px;">
+                    <div style="font-size: 28px; font-weight: bold; color: #5FB878;">$ 48,250.00</div>
+                    <div class="text-muted font-s12 margin-top-5">待审核: <span style="color: #FF5722;" class="deposit">0</span> 笔</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-md3 layui-col-sm6">
+            <div class="layui-card" style="border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <div class="layui-card-header" style="font-weight: bold; color: #555;">
+                    <i class="fa fa-shopping-cart text-warning padding-right-5"></i> 今日匹配订单
+                    <span class="layui-badge layui-bg-orange layui-layout-right" style="top: 12px; right: 15px;">Task</span>
+                </div>
+                <div class="layui-card-body" style="padding: 15px 20px;">
+                    <div style="font-size: 28px; font-weight: bold; color: #FFB800;">3,612</div>
+                    <div class="text-muted font-s12 margin-top-5">完成率: <span style="color: #009688;">99.2%</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-md3 layui-col-sm6">
+            <div class="layui-card" style="border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <div class="layui-card-header" style="font-weight: bold; color: #555;">
+                    <i class="fa fa-shield text-danger padding-right-5"></i> 待提现审核
+                    <span class="layui-badge layui-bg-red layui-layout-right" style="top: 12px; right: 15px;">Pending</span>
+                </div>
+                <div class="layui-card-body" style="padding: 15px 20px;">
+                    <div style="font-size: 28px; font-weight: bold; color: #FF5722;">6 笔</div>
+                    <div class="text-muted font-s12 margin-top-5">总金额: <span style="color: #FF5722;">$ 8,120.00</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 数据图表 & 系统信息 -->
+    <div class="layui-row layui-col-space15 margin-top-15">
+        <div class="layui-col-md8">
+            <div class="layui-card">
+                <div class="layui-card-header font-weight-bold">
+                    <i class="fa fa-line-chart padding-right-5"></i> 近 7 天平台运营趋势
+                </div>
+                <div class="layui-card-body">
+                    <div id="trendChart" style="width: 100%; height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-md4">
+            <div class="layui-card">
+                <div class="layui-card-header font-weight-bold">
+                    <i class="fa fa-info-circle padding-right-5"></i> 系统运行环境
+                </div>
+                <div class="layui-card-body" style="padding: 0;">
+                    <table class="layui-table" lay-skin="nob" style="margin: 0;">
+                        <colgroup><col width="120"><col></colgroup>
+                        <tbody>
+                            <tr><td>系统名称</td><td><span class="layui-badge layui-bg-blue">erpresearch 独立系统</span></td></tr>
+                            <tr><td>管理框架</td><td>ThinkAdmin V001 (LayUI)</td></tr>
+                            <tr><td>前端架构</td><td>Vue.js + Uni-App Client</td></tr>
+                            <tr><td>后端接口</td><td>/myapi (RESTful)</td></tr>
+                            <tr><td>通信协议</td><td>HTTPS / WebSocket</td></tr>
+                            <tr><td>运行状态</td><td><span class="layui-badge layui-bg-green"><i class="fa fa-check-circle"></i> 正常运行中</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="layui-card margin-top-15">
+                <div class="layui-card-header font-weight-bold">
+                    <i class="fa fa-flash padding-right-5"></i> 快捷操作
+                </div>
+                <div class="layui-card-body">
+                    <div class="layui-btn-container">
+                        <button class="layui-btn layui-btn-sm layui-btn-primary" onclick="layer.msg('进入会员管理')"><i class="fa fa-user-plus"></i> 添加会员</button>
+                        <button class="layui-btn layui-btn-sm layui-btn-normal" onclick="layer.msg('进入订单生成')"><i class="fa fa-plus-circle"></i> 发布任务</button>
+                        <button class="layui-btn layui-btn-sm layui-btn-warm" onclick="layer.msg('清理缓存成功')"><i class="fa fa-trash"></i> 清理缓存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+require(['echarts'], function (echarts) {
+    var chartDom = document.getElementById('trendChart');
+    if (!chartDom) return;
+    var myChart = echarts.init(chartDom);
+    var option = {
+        tooltip: { trigger: 'axis' },
+        legend: { data: ['充值金额 ($)', '任务订单数', '新增会员'] },
+        grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['08-20', '08-21', '08-22', '08-23', '08-24', '08-25', '08-26']
+        },
+        yAxis: { type: 'value' },
+        series: [
+            {
+                name: '充值金额 ($)',
+                type: 'line',
+                smooth: true,
+                data: [12000, 18500, 24000, 31000, 28000, 39000, 48250],
+                itemStyle: { color: '#5FB878' }
+            },
+            {
+                name: '任务订单数',
+                type: 'line',
+                smooth: true,
+                data: [1200, 1900, 2300, 2800, 3100, 3400, 3612],
+                itemStyle: { color: '#FFB800' }
+            },
+            {
+                name: '新增会员',
+                type: 'line',
+                smooth: true,
+                data: [15, 22, 18, 29, 31, 28, 34],
+                itemStyle: { color: '#1E9FFF' }
+            }
+        ]
+    };
+    myChart.setOption(option);
+    window.addEventListener('resize', function(){ myChart.resize(); });
+});
+</script>

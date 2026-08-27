@@ -1,0 +1,852 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>会员列表<div class="pull-right"><button data-modal='/admin/users/add_users.html' data-title="添加测试账号" class='layui-btn'>添加测试账号</button><button data-modal='/admin/users/add_users_general.html' data-title="添加普通账号" class='layui-btn layui-btn-danger'>添加普通账号</button></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><div class="think-box-shadow" style="overflow: auto;"><fieldset><legend>条件搜索</legend><form
+    class="layui-form layui-form-pane form-search"
+    action="/admin/users/index.html"
+    onsubmit="return false"
+    method="get"
+    autocomplete="off"
+  ><div class="layui-form-item layui-inline"><label class="layui-form-label">用户名</label><div class="layui-input-inline"><input
+          name="username"
+          value=""
+          placeholder="请输入用户名"
+          class="layui-input"
+        /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">用户ID</label><div class="layui-input-inline"><input
+          name="id"
+          value=""
+          placeholder="请输入用户ID"
+          class="layui-input"
+        /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">手机号码</label><div class="layui-input-inline"><input
+          name="tel"
+          value=""
+          placeholder="手机号码"
+          class="layui-input"
+        /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">邀请码找下级</label><div class="layui-input-inline"><input
+          name="pinvite_code"
+          value=""
+          placeholder="邀请码找下级"
+          class="layui-input"
+        /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">用户邀请码</label><div class="layui-input-inline"><input
+          name="invite_code"
+          value=""
+          placeholder="用户邀请码"
+          class="layui-input"
+        /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">IP地址</label><div class="layui-input-inline"><input
+          name="ip"
+          value=""
+          placeholder="请输入IP地址"
+          class="layui-input"
+        /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">注册时间</label><div class="layui-input-inline"><input
+          data-date-range
+          name="addtime"
+          value=""
+          placeholder="请选择注册时间"
+          class="layui-input"
+        /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">状态</label><div class="layui-input-inline"><select name="is_jia" id="selectList"><option value="">所有状态</option><option value="-1">普通账户</option><option value="1">测试账户</option></select></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">有效状态</label><div class="layui-input-inline"><select name="status" id="selectList1"><option value="">所有状态</option><option value="1">有效</option><option value="2">禁用</option></select></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">余额</label><div class="layui-input-inline" style="width: 80px"><input
+          name="balance_min"
+          type="number"
+          value=""
+          autocomplete="off"
+          class="layui-input"
+          placeholder="开始"
+        /></div><div class="layui-form-mid margin-top-5" style="padding: 0 !important">
+        -
+      </div><div class="layui-input-inline" style="width: 80px"><input
+          name="balance_max"
+          type="number"
+          value=""
+          autocomplete="off"
+          class="layui-input"
+          placeholder="结束"
+        /></div></div><div class="layui-form-item layui-inline"><button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索
+      </button><a href="/admin/users/daochu.html" class="layui-btn layui-btn-danger"
+        ><i class="layui-icon">&#xe615;</i> 导 出</a
+      ></div></form></fieldset><script>
+  var test = "0";
+  var test1 = "0";
+  $("#selectList")
+    .find("option[value=" + test + "]")
+    .prop("selected", true);
+  $("#selectList1")
+    .find("option[value=" + test1 + "]")
+    .prop("selected", true);
+  form.render();
+</script><table class="layui-table margin-top-15" style="overflow: auto;" ><thead><tr><th lay-data="{field:'tel'}" class='text-left'>会员信息</th><th lay-data="{field:'balance'}" class='text-left'>上级资料</th><th lay-data="{field:'deal_count'}" class='text-left'>其他信息</th><th  class='text-left'>任务量</th><th  class='text-left'>资金余额</th><th class='text-left'>会员状态</th><th class='text-left'>操作</th></tr></thead><tbody><tr class="uid-4191"><td class='text-left nowrap'>
+                ID：4191<br>
+                邀请码：M7DL2Q<br>
+                手机：6823828067<br>
+                用户名：Kiara.94<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：小白3<br>
+                上级邀请码：R25FJ4</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 23:04:17<br>
+                注册IP：2607:fb92:2c85:7a38:94a8:78fe:148c:6d79<br>
+                注册位置：<span class="isp">美国 田纳西州 孟菲斯</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：2607:fb92:2c85:7a38:94a8:78fe:148c:6d79<br>
+                最后上线位置：<span class="last_login_isp">美国 田纳西州 孟菲斯</span><br>
+                最后上线时间：2026年08月26日 07:36:10<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">40</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">40</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4191'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4191'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="Kiara.94钱包" data-modal="/admin/users/edit_users_bk.html?uid=4191">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4191' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4191">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4191' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4191">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4191'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4191'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4191'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4191'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4191'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4191"  data-value="id#4191">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=M7DL2Q'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4191'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4191'  data-value="id#4191">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【6823828067】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4191">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4191.html" data-value="id#4191;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4191&is_withdrawal_blocked=2"  data-value="id#4191;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4191' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4191">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4191'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4191'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4191'>配置奖励金</a></div></td></tr><tr class="uid-4190"><td class='text-left nowrap'>
+                ID：4190<br>
+                邀请码：JYTNZB<br>
+                手机：6814895925<br>
+                用户名：Hsnyder94<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：xiaocheng<br>
+                上级邀请码：RCEGXW</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 22:06:19<br>
+                注册IP：2607:fb90:db1e:46ca:7d36:fe50:8b5e:5352<br>
+                注册位置：<span class="isp">美国 宾夕法尼亚州 匹兹堡</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：2607:fb90:db1e:46ca:7d36:fe50:8b5e:5352<br>
+                最后上线位置：<span class="last_login_isp">美国 宾夕法尼亚州 匹兹堡</span><br>
+                最后上线时间：2026年08月25日 23:05:25<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">40</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">40</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4190'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4190'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="Hsnyder94钱包" data-modal="/admin/users/edit_users_bk.html?uid=4190">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4190' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4190">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4190' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4190">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4190'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4190'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4190'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4190'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4190'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4190"  data-value="id#4190">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=JYTNZB'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4190'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4190'  data-value="id#4190">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【6814895925】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4190">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4190.html" data-value="id#4190;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4190&is_withdrawal_blocked=2"  data-value="id#4190;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4190' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4190">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4190'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4190'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4190'>配置奖励金</a></div></td></tr><tr class="uid-4189"><td class='text-left nowrap'>
+                ID：4189<br>
+                邀请码：Z4VBNM<br>
+                手机：0123456789<br>
+                用户名：baiwan<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：Firstuser<br>
+                上级邀请码：P7UA8N</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 21:53:09<br>
+                注册IP：2405:3800:9cd:177e:bd17:9036:1ce6:89c1<br>
+                注册位置：<span class="isp">马来西亚 檳城 威省</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：2405:3800:9cd:177e:bd17:9036:1ce6:89c1<br>
+                最后上线位置：<span class="last_login_isp">马来西亚 檳城 威省</span><br>
+                最后上线时间：2026年08月26日 08:06:36<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">1</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">2</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4189'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4189'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="baiwan钱包" data-modal="/admin/users/edit_users_bk.html?uid=4189">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4189' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4189">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4189' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4189">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4189'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4189'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4189'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4189'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4189'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4189"  data-value="id#4189">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=Z4VBNM'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4189'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4189'  data-value="id#4189">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【0123456789】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4189">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4189.html" data-value="id#4189;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4189&is_withdrawal_blocked=2"  data-value="id#4189;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4189' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4189">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4189'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4189'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4189'>配置奖励金</a></div></td></tr><tr class="uid-4188"><td class='text-left nowrap'>
+                ID：4188<br>
+                邀请码：CNKHYG<br>
+                手机：8435574594<br>
+                用户名：Luluglobal<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：Yixin<br>
+                上级邀请码：6DFG5S</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 19:37:33<br>
+                注册IP：2607:fb90:5304:4435:b728:27a4:a17f:8ec3<br>
+                注册位置：<span class="isp">美国 北卡罗来纳州 夏洛特</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：2607:fb90:5304:4435:b728:27a4:a17f:8ec3<br>
+                最后上线位置：<span class="last_login_isp">美国 北卡罗来纳州 夏洛特</span><br>
+                最后上线时间：2026年08月25日 19:43:59<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">0</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">0</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4188'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4188'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="Luluglobal钱包" data-modal="/admin/users/edit_users_bk.html?uid=4188">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4188' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4188">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4188' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4188">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4188'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4188'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4188'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4188'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4188'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4188"  data-value="id#4188">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=CNKHYG'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4188'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4188'  data-value="id#4188">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【8435574594】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4188">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4188.html" data-value="id#4188;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4188&is_withdrawal_blocked=2"  data-value="id#4188;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4188' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4188">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4188'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4188'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4188'>配置奖励金</a></div></td></tr><tr class="uid-4187"><td class='text-left nowrap'>
+                ID：4187<br>
+                邀请码：MGFY26<br>
+                手机：4785211875<br>
+                用户名：EvaBuck<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：仔仔4903<br>
+                上级邀请码：Z9M2KD</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 18:37:13<br>
+                注册IP：2600:6c5a:107f:833f:1ce9:66bd:bd30:765c<br>
+                注册位置：<span class="isp">美国 喬治亞州 米利奇维尔</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：2600:6c5a:107f:833f:1ce9:66bd:bd30:765c<br>
+                最后上线位置：<span class="last_login_isp">美国 喬治亞州 米利奇维尔</span><br>
+                最后上线时间：2026年08月25日 20:10:02<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">0</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">1</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4187'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4187'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="EvaBuck钱包" data-modal="/admin/users/edit_users_bk.html?uid=4187">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4187' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4187">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4187' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4187">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4187'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4187'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4187'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4187'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4187'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4187"  data-value="id#4187">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=MGFY26'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4187'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4187'  data-value="id#4187">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【4785211875】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4187">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4187.html" data-value="id#4187;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4187&is_withdrawal_blocked=2"  data-value="id#4187;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4187' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4187">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4187'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4187'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4187'>配置奖励金</a></div></td></tr><tr class="uid-4186"><td class='text-left nowrap'>
+                ID：4186<br>
+                邀请码：E4SGRV<br>
+                手机：9122762992<br>
+                用户名：Yaxj74<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：Nana999<br>
+                上级邀请码：UPESCF</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 18:34:49<br>
+                注册IP：16.56.22.55<br>
+                注册位置：<span class="isp">美国 喬治亞州 亚特兰大</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：16.56.22.55<br>
+                最后上线位置：<span class="last_login_isp">美国 喬治亞州 亚特兰大</span><br>
+                最后上线时间：2026年08月25日 19:25:01<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">40</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">40</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4186'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4186'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="Yaxj74钱包" data-modal="/admin/users/edit_users_bk.html?uid=4186">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4186' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4186">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4186' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4186">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4186'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4186'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4186'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4186'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4186'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4186"  data-value="id#4186">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=E4SGRV'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4186'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4186'  data-value="id#4186">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【9122762992】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4186">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4186.html" data-value="id#4186;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4186&is_withdrawal_blocked=2"  data-value="id#4186;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4186' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4186">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4186'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4186'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4186'>配置奖励金</a></div></td></tr><tr class="uid-4185"><td class='text-left nowrap'>
+                ID：4185<br>
+                邀请码：RCWVY4<br>
+                手机：3155465157<br>
+                用户名：Jessica Renef<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：啊杰1916<br>
+                上级邀请码：NVQPUK</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 18:20:01<br>
+                注册IP：105.119.39.50<br>
+                注册位置：<span class="isp">尼日利亚 奧約州 伊巴丹</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：105.119.39.50<br>
+                最后上线位置：<span class="last_login_isp">尼日利亚 奧約州 伊巴丹</span><br>
+                最后上线时间：2026年08月25日 22:18:36<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">40</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">40</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4185'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4185'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="Jessica Renef钱包" data-modal="/admin/users/edit_users_bk.html?uid=4185">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4185' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4185">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4185' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4185">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4185'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4185'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4185'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4185'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4185'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4185"  data-value="id#4185">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=RCWVY4'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4185'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4185'  data-value="id#4185">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【3155465157】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4185">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4185.html" data-value="id#4185;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4185&is_withdrawal_blocked=2"  data-value="id#4185;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4185' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4185">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4185'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4185'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4185'>配置奖励金</a></div></td></tr><tr class="uid-4184"><td class='text-left nowrap'>
+                ID：4184<br>
+                邀请码：YQFEKZ<br>
+                手机：9179750504<br>
+                用户名：Michael4<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：李昂666<br>
+                上级邀请码：DMJQ5K</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 18:14:39<br>
+                注册IP：76.110.82.249<br>
+                注册位置：<span class="isp">美国 佛罗里达州 邁阿密</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：76.110.82.249<br>
+                最后上线位置：<span class="last_login_isp">美国 佛罗里达州 邁阿密</span><br>
+                最后上线时间：2026年08月25日 19:52:48<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">0</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">0</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4184'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4184'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="Michael4钱包" data-modal="/admin/users/edit_users_bk.html?uid=4184">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4184' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4184">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4184' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4184">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4184'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4184'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4184'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4184'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4184'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4184"  data-value="id#4184">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=YQFEKZ'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4184'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4184'  data-value="id#4184">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【9179750504】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4184">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4184.html" data-value="id#4184;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4184&is_withdrawal_blocked=2"  data-value="id#4184;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4184' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4184">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4184'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4184'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4184'>配置奖励金</a></div></td></tr><tr class="uid-4183"><td class='text-left nowrap'>
+                ID：4183<br>
+                邀请码：TMAC98<br>
+                手机：2672538667<br>
+                用户名：Rebelgirl<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：米娜999<br>
+                上级邀请码：Q9FPKV</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 18:07:32<br>
+                注册IP：2601:47:4a04:5080:2cae:a427:2627:1b1d<br>
+                注册位置：<span class="isp">美国 宾夕法尼亚州 費城</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：2601:47:4a04:5080:1d8c:3f18:d4dd:e5e8<br>
+                最后上线位置：<span class="last_login_isp">美国 宾夕法尼亚州 費城</span><br>
+                最后上线时间：2026年08月26日 07:49:21<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">40</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">40</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div>                会员头像：
+                    <img src="https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/f7f7e1c25503face/b59e971d4597cfd9.jpeg" 
+                         style="width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; cursor: pointer;" 
+                         alt="会员头像" 
+                         onclick="layer.photos({
+                             photos: {
+                                 'data': [{
+                                     'src': 'https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/f7f7e1c25503face/b59e971d4597cfd9.jpeg'
+                                 }]
+                             },
+                             anim: 5
+                         })"
+                    ></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4183'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4183'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="Rebelgirl钱包" data-modal="/admin/users/edit_users_bk.html?uid=4183">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4183' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4183">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4183' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4183">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4183'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4183'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4183'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4183'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4183'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4183"  data-value="id#4183">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=TMAC98'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4183'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4183'  data-value="id#4183">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【2672538667】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4183">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4183.html" data-value="id#4183;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4183&is_withdrawal_blocked=2"  data-value="id#4183;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4183' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4183">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4183'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4183'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4183'>配置奖励金</a></div></td></tr><tr class="uid-4182"><td class='text-left nowrap'>
+                ID：4182<br>
+                邀请码：2BZXKA<br>
+                手机：4424146646<br>
+                用户名：carlos1991<br>
+                邮箱：--<br></td><td class='text-left nowrap'>
+                上级：仔仔4903<br>
+                上级邀请码：Z9M2KD</td><td class='text-left nowrap'>
+                会员等级：VIP1<br>
+                注册时间：2026年08月25日 17:52:36<br>
+                注册IP：47.151.226.161<br>
+                注册位置：<span class="isp">美国 加利福尼亚州 維克多維爾</span><br>
+                信誉分： <span class="score">100</span><br>
+                最后上线IP：47.151.226.161<br>
+                最后上线位置：<span class="last_login_isp">美国 加利福尼亚州 維克多維爾</span><br>
+                最后上线时间：2026年08月25日 20:00:54<br></td><td class='text-left nowrap'>
+                已完成：<span class="dealcount">40</span></br>
+                总任务量：<span class="ordernum">40</span></br>
+                已接单：<span class="ordergot">40</span></br>                已重置： <span class="reset_count"></span></br>
+                已签到： <span class="days"></span></td><td class='text-left nowrap'>                总资产： <span style="color:green" class="total_asset"></span><br>                资产加利润： <span style="color:green" class="total_balance"></span><br>                余额：
+                <span  class="balance"></span><br>                充值： <span style="color:green"  class="total_cz"></span><br>                提现：<span style="color:green"  class="withdraw"></span><br>                收益：<span style="color:green"  class="profit"></span><br>                连单金额：<div class="lian_amounts" style="color:blue"></div></td><!--td class='text-left nowrap'>0</td--><!--            <td class='text-left nowrap'>--><!--            </td>--><td class='text-left nowrap'><span class="login_status">                    离线
+                    </span></br>
+                会员状态：
+                <span style="color:blue">有效</span></br>
+                冻结：<span style="color:green"  class="freeze_balance"></span><br><a class="layui-btn layui-btn-normal layui-btn-xs" >普通账号</a></br>
+                历史订单完成量：<span class="history_dealcount"></span><br><div class="pending_rewards"></div></br></td><td class='text-right' style="width: 400px; min-width: 400px;" ><div><a  data-dbclick class="layui-btn layui-btn-sm  margin-top-5" data-title="基础资料" data-modal='/admin/users/edit_users.html?id=4182'>基础资料</a><a   class="layui-btn layui-btn-sm  margin-top-5" data-title="加扣款" data-modal='/admin/users/adjust.html?id=4182'>加扣款</a><a  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="carlos1991钱包" data-modal="/admin/users/edit_users_bk.html?uid=4182">钱包</a><a class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-title="重置当日任务量" 
+                    data-action='/admin/users/reset_deal_cnt.html?id=4182' data-confirm="确定要【重置当日任务量】吗？" data-value="id#4182">重置任务</a><a style='background:red;'  class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5"
+                     data-title="重置佣金收益" data-action='/admin/users/reset_deal_reward.html?id=4182' data-confirm="确定要【重置佣金收益】吗？" data-value="id#4182">重置佣金</a><a  class="layui-btn layui-btn-sm  margin-top-5" data-open='/admin/plots/add.html?uid=4182'>添加连单</a><a  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-open='/admin/plots/add_old.html?uid=4182'>普通方式</a><!-- <a  class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-open='/admin/plots/add_special.html?uid=4182'>特殊订单</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="账变信息" data-reload="true" data-open='/admin/users/caiwu.html?id=4182'>账变信息</a><a   class="layui-btn layui-btn-sm layui-btn-normal  margin-top-5" data-open='/admin/plots/liandan_list.html?uid=4182'>连单列表</a><a style ="background-color:tomato"  class="layui-btn layui-btn-sm layui-btn-normal margin-top-5"
+                     data-title="改单数"  data-modal="/admin/users/set_deal_cnt.html?id=4182"  data-value="id#4182">改单数</a><a data-dbclick class="layui-btn layui-btn-sm margin-top-5" data-title="查看团队" data-reload="true" data-open='/admin/users/myteams.html?pinvite_code=2BZXKA'>查看团队</a><a class="layui-btn layui-btn-sm layui-btn-primary margin-top-5" data-title="登录历史" data-open='/admin/users/login_history.html?uid=4182'>登录历史</a><!-- <a id="giftmodal" style ="background-color: tomato;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="显示礼物弹窗" 
+                    data-action='/admin/users/show_gift_modal.html?id=4182'  data-value="id#4182">显示礼物</a> --><!-- <a class="margin-left-5 margin-top-5 layui-btn layui-btn-sm" data-title="用户【4424146646】补签"
+                           data-modal="/admin/checkin/signcheckin.html?spm=m-62-63-119&uid=4182">
+                            补签/打卡
+                        </a> --><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-action="/admin/users/edit_users_status/2/4182.html" data-value="id#4182;status#2" style='background:red;'>禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm margin-top-5" data-modal="/admin/users/edit_withdral_message.html?id=4182&is_withdrawal_blocked=2"  data-value="id#4182;is_withdrawal_blocked#2" style='background:red;'>禁止提现</a><!-- <a style ="margin-top: 5px;  background: black;" class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="撤销重置当日任务量" data-action='/admin/users/revert_reset_deal_cnt.html?id=4182' data-confirm="确定要【撤销重置当日任务量】吗？" data-value="id#4182">撤销重置当日任务量</a> --><a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="发送通知" data-open='/admin/users/send_notice.html?id=4182'>发送通知</a><!-- <a class="layui-btn layui-btn-sm layui-btn-normal margin-top-5" data-title="设置条款" data-open='/admin/help/user_pdgz.html?uid=4182'>设置条款</a> --><a class="layui-btn layui-btn-sm layui-btn-danger margin-top-5" data-title="配置奖励金" data-modal='/admin/users/set_reward_bonus.html?id=4182'>配置奖励金</a></div></td></tr></tbody></table><script>
+        function del_user(id){
+            layer.confirm("确认要删除吗，删除后不能恢复",{ title: "删除确认" },function(index){
+                $.ajax({
+                    type: 'POST',
+                    url: "/admin/users/delete_user.html",
+                    data: {
+                        'id': id,
+                        '_csrf_': "csrf6a8ed961b3729"
+                    },
+                    success:function (res) {
+                        layer.msg(res.info,{time:2500});
+                        location.reload();
+                    }
+                });
+            },function(){});
+        }
+
+        function cancelReward(rewardId){
+            layer.confirm("确认要取消这个奖励金吗？", { title: "取消奖励金" }, function(index){
+                $.ajax({
+                    type: 'POST',
+                    url: "/admin/users/cancel_reward_bonus.html",
+                    data: {
+                        'reward_id': rewardId,
+                        '_csrf_': "csrf6a8ed961b394a"
+                    },
+                    success:function (res) {
+                        layer.msg(res.info, {time:2500});
+                        if(res.code === 0) {
+                            location.reload();
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        }
+
+        function confirmReward(rewardId){
+            layer.confirm("确认这个奖励金吗？确认后用户可以继续做单，奖励金需由管理员手动发放至用户余额。", { title: "确认奖励金" }, function(index){
+                $.ajax({
+                    type: 'POST',
+                    url: "/admin/users/confirm_reward_bonus.html",
+                    data: {
+                        'reward_id': rewardId,
+                        '_csrf_': "csrf6a8ed961b3963"
+                    },
+                    success:function (res) {
+                        layer.msg(res.info, {time:2500});
+                        if(res.code === 0) {
+                            location.reload();
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        }
+
+        function grantReward(rewardId){
+            layer.confirm("确认要发放这个奖励金到用户余额吗？", { title: "发放奖励金" }, function(index){
+                $.ajax({
+                    type: 'POST',
+                    url: "/admin/users/grant_reward_bonus.html",
+                    data: {
+                        'reward_id': rewardId,
+                        '_csrf_': "csrf6a8ed961b3975"
+                    },
+                    success:function (res) {
+                        layer.msg(res.info, {time:2500});
+                        if(res.code === 0) {
+                            location.reload();
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        }
+    </script><script>                 let listData = [{"id":4191,"tel":"6823828067","username":"Kiara.94","nickname":"6823828067","email":"","lixibao_balance":"0.00","id_status":0,"ip":"2607:fb92:2c85:7a38:94a8:78fe:148c:6d79","is_jia":0,"addtime":1787713457,"invite_code":"M7DL2Q","freeze_balance":"0.00","status":1,"balance":"80.42","headpic":"","is_withdrawal_blocked":1,"last_login_time":1787744170,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":40,"lottery_times":0,"parent_name":"\u5c0f\u767d3","pinvite_code":"R25FJ4","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"2607:fb92:2c85:7a38:94a8:78fe:148c:6d79","reset_count":1,"gift_modal":0,"token":"d0f9b13924bf7e22defc9dbe8f5d147068615","plots":null,"lian_plots":[],"total_cz":70,"withdraw":19,"profit":19.42,"history_deal_count":80,"pending_rewards":[],"ordergot":0,"checkin":null,"days":0,"isp":"\u7f8e\u56fd \u7530\u7eb3\u897f\u5dde \u5b5f\u83f2\u65af","last_login_isp":"\u7f8e\u56fd \u7530\u7eb3\u897f\u5dde \u5b5f\u83f2\u65af","total_asset":"80.42","login_status":false},{"id":4190,"tel":"6814895925","username":"Hsnyder94","nickname":"6814895925","email":"","lixibao_balance":"0.00","id_status":0,"ip":"2607:fb90:db1e:46ca:7d36:fe50:8b5e:5352","is_jia":0,"addtime":1787709979,"invite_code":"JYTNZB","freeze_balance":"0.00","status":1,"balance":"80.00","headpic":"","is_withdrawal_blocked":1,"last_login_time":1787713525,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":40,"lottery_times":0,"parent_name":"xiaocheng","pinvite_code":"RCEGXW","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"2607:fb90:db1e:46ca:7d36:fe50:8b5e:5352","reset_count":1,"gift_modal":0,"token":"a618c6b4705784b3e616400260c8f30248823","plots":null,"lian_plots":[],"total_cz":70,"withdraw":20.41,"profit":20.41,"history_deal_count":80,"pending_rewards":[],"ordergot":0,"checkin":null,"days":0,"isp":"\u7f8e\u56fd \u5bbe\u5915\u6cd5\u5c3c\u4e9a\u5dde \u5339\u5179\u5821","last_login_isp":"\u7f8e\u56fd \u5bbe\u5915\u6cd5\u5c3c\u4e9a\u5dde \u5339\u5179\u5821","total_asset":"80.00","login_status":false},{"id":4189,"tel":"0123456789","username":"baiwan","nickname":"0123456789","email":"","lixibao_balance":"0.00","id_status":0,"ip":"2405:3800:9cd:177e:bd17:9036:1ce6:89c1","is_jia":0,"addtime":1787709189,"invite_code":"Z4VBNM","freeze_balance":"0.00","status":1,"balance":"110.34","headpic":"","is_withdrawal_blocked":1,"last_login_time":1787745996,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":1,"lottery_times":0,"parent_name":"Firstuser","pinvite_code":"P7UA8N","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"2405:3800:9cd:177e:bd17:9036:1ce6:89c1","reset_count":0,"gift_modal":0,"token":"f1b378f399562075d045eeca65e0599a49380","plots":null,"lian_plots":[],"total_cz":100,"withdraw":0,"profit":0.34,"history_deal_count":1,"pending_rewards":[],"ordergot":1,"checkin":null,"days":0,"isp":"\u9a6c\u6765\u897f\u4e9a \u6ab3\u57ce \u5a01\u7701","last_login_isp":"\u9a6c\u6765\u897f\u4e9a \u6ab3\u57ce \u5a01\u7701","total_asset":"110.34","login_status":false},{"id":4188,"tel":"8435574594","username":"Luluglobal","nickname":"8435574594","email":"","lixibao_balance":"0.00","id_status":0,"ip":"2607:fb90:5304:4435:b728:27a4:a17f:8ec3","is_jia":0,"addtime":1787701053,"invite_code":"CNKHYG","freeze_balance":"0.00","status":1,"balance":"10.00","headpic":"","is_withdrawal_blocked":1,"last_login_time":1787701439,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":0,"lottery_times":0,"parent_name":"Yixin","pinvite_code":"6DFG5S","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"2607:fb90:5304:4435:b728:27a4:a17f:8ec3","reset_count":0,"gift_modal":0,"token":"e7ca86d0fc7d8fc56d8374b56aee3b5715892","plots":null,"lian_plots":[],"total_cz":0,"withdraw":0,"profit":0,"history_deal_count":0,"pending_rewards":[],"ordergot":0,"checkin":null,"days":0,"isp":"\u7f8e\u56fd \u5317\u5361\u7f57\u6765\u7eb3\u5dde \u590f\u6d1b\u7279","last_login_isp":"\u7f8e\u56fd \u5317\u5361\u7f57\u6765\u7eb3\u5dde \u590f\u6d1b\u7279","total_asset":"10.00","login_status":false},{"id":4187,"tel":"4785211875","username":"EvaBuck","nickname":"4785211875","email":"","lixibao_balance":"0.00","id_status":0,"ip":"2600:6c5a:107f:833f:1ce9:66bd:bd30:765c","is_jia":0,"addtime":1787697433,"invite_code":"MGFY26","freeze_balance":"0.00","status":1,"balance":"80.00","headpic":"","is_withdrawal_blocked":1,"last_login_time":1787703002,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":0,"lottery_times":0,"parent_name":"\u4ed4\u4ed44903","pinvite_code":"Z9M2KD","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"2600:6c5a:107f:833f:1ce9:66bd:bd30:765c","reset_count":0,"gift_modal":0,"token":"c8623b8c8ce458940b236918a44a50e689203","plots":null,"lian_plots":[],"total_cz":70,"withdraw":0,"profit":0,"history_deal_count":0,"pending_rewards":[],"ordergot":1,"checkin":null,"days":0,"isp":"\u7f8e\u56fd \u55ac\u6cbb\u4e9e\u5dde \u7c73\u5229\u5947\u7ef4\u5c14","last_login_isp":"\u7f8e\u56fd \u55ac\u6cbb\u4e9e\u5dde \u7c73\u5229\u5947\u7ef4\u5c14","total_asset":"80.00","login_status":false},{"id":4186,"tel":"9122762992","username":"Yaxj74","nickname":"9122762992","email":"","lixibao_balance":"0.00","id_status":0,"ip":"16.56.22.55","is_jia":0,"addtime":1787697289,"invite_code":"E4SGRV","freeze_balance":"0.00","status":1,"balance":"80.00","headpic":"","is_withdrawal_blocked":1,"last_login_time":1787700301,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":40,"lottery_times":0,"parent_name":"Nana999","pinvite_code":"UPESCF","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"16.56.22.55","reset_count":1,"gift_modal":0,"token":"1f3ab8e8e367e01c0353b0786788e56642185","plots":null,"lian_plots":[],"total_cz":70,"withdraw":21.03,"profit":21.03,"history_deal_count":80,"pending_rewards":[],"ordergot":0,"checkin":null,"days":0,"isp":"\u7f8e\u56fd \u55ac\u6cbb\u4e9e\u5dde \u4e9a\u7279\u5170\u5927","last_login_isp":"\u7f8e\u56fd \u55ac\u6cbb\u4e9e\u5dde \u4e9a\u7279\u5170\u5927","total_asset":"80.00","login_status":false},{"id":4185,"tel":"3155465157","username":"Jessica Renef","nickname":"3155465157","email":"","lixibao_balance":"0.00","id_status":0,"ip":"105.119.39.50","is_jia":0,"addtime":1787696401,"invite_code":"RCWVY4","freeze_balance":"0.00","status":1,"balance":"80.16","headpic":"","is_withdrawal_blocked":1,"last_login_time":1787710716,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":40,"lottery_times":0,"parent_name":"\u554a\u67701916","pinvite_code":"NVQPUK","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"105.119.39.50","reset_count":1,"gift_modal":0,"token":"28631f6ff4b2dd6415fcee6b0c1b923428996","plots":null,"lian_plots":[],"total_cz":70,"withdraw":20,"profit":20.16,"history_deal_count":80,"pending_rewards":[],"ordergot":0,"checkin":null,"days":0,"isp":"\u5c3c\u65e5\u5229\u4e9a \u5967\u7d04\u5dde \u4f0a\u5df4\u4e39","last_login_isp":"\u5c3c\u65e5\u5229\u4e9a \u5967\u7d04\u5dde \u4f0a\u5df4\u4e39","total_asset":"80.16","login_status":false},{"id":4184,"tel":"9179750504","username":"Michael4","nickname":"9179750504","email":"","lixibao_balance":"0.00","id_status":0,"ip":"76.110.82.249","is_jia":0,"addtime":1787696079,"invite_code":"YQFEKZ","freeze_balance":"0.00","status":1,"balance":"80.00","headpic":"","is_withdrawal_blocked":1,"last_login_time":1787701968,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":0,"lottery_times":0,"parent_name":"\u674e\u6602666","pinvite_code":"DMJQ5K","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"76.110.82.249","reset_count":0,"gift_modal":0,"token":"5c0c489fb71b6ebcd40414fa8917b70b30661","plots":null,"lian_plots":[],"total_cz":70,"withdraw":0,"profit":0,"history_deal_count":0,"pending_rewards":[],"ordergot":0,"checkin":null,"days":0,"isp":"\u7f8e\u56fd \u4f5b\u7f57\u91cc\u8fbe\u5dde \u9081\u963f\u5bc6","last_login_isp":"\u7f8e\u56fd \u4f5b\u7f57\u91cc\u8fbe\u5dde \u9081\u963f\u5bc6","total_asset":"80.00","login_status":false},{"id":4183,"tel":"2672538667","username":"Rebelgirl","nickname":"2672538667","email":"","lixibao_balance":"0.00","id_status":0,"ip":"2601:47:4a04:5080:2cae:a427:2627:1b1d","is_jia":0,"addtime":1787695652,"invite_code":"TMAC98","freeze_balance":"0.00","status":1,"balance":"80.00","headpic":"https:\/\/pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev\/f7f7e1c25503face\/b59e971d4597cfd9.jpeg","is_withdrawal_blocked":1,"last_login_time":1787744961,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":40,"lottery_times":0,"parent_name":"\u7c73\u5a1c999","pinvite_code":"Q9FPKV","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"2601:47:4a04:5080:1d8c:3f18:d4dd:e5e8","reset_count":1,"gift_modal":0,"token":"f190d336cee8ab86af7b157c68a07cfc34990","plots":null,"lian_plots":[],"total_cz":70,"withdraw":20.61,"profit":20.61,"history_deal_count":80,"pending_rewards":[],"ordergot":0,"checkin":null,"days":0,"isp":"\u7f8e\u56fd \u5bbe\u5915\u6cd5\u5c3c\u4e9a\u5dde \u8cbb\u57ce","last_login_isp":"\u7f8e\u56fd \u5bbe\u5915\u6cd5\u5c3c\u4e9a\u5dde \u8cbb\u57ce","total_asset":"80.00","login_status":false},{"id":4182,"tel":"4424146646","username":"carlos1991","nickname":"4424146646","email":"","lixibao_balance":"0.00","id_status":0,"ip":"47.151.226.161","is_jia":0,"addtime":1787694756,"invite_code":"2BZXKA","freeze_balance":"0.00","status":1,"balance":"80.00","headpic":"","is_withdrawal_blocked":1,"last_login_time":1787702454,"isvalid":1,"gift_balance":"0.00","isbao":0,"islian":0,"issplit":0,"deal_count":40,"lottery_times":0,"parent_name":"\u4ed4\u4ed44903","pinvite_code":"Z9M2KD","levelname":"VIP1","ordernum":40,"score":100,"last_login_ip":"47.151.226.161","reset_count":1,"gift_modal":0,"token":"518c0e87f92e0f3070892c29c996a60444181","plots":null,"lian_plots":[],"total_cz":70,"withdraw":20.67,"profit":20.67,"history_deal_count":80,"pending_rewards":[],"ordergot":0,"checkin":null,"days":0,"isp":"\u7f8e\u56fd \u52a0\u5229\u798f\u5c3c\u4e9a\u5dde \u7dad\u514b\u591a\u7dad\u723e","last_login_isp":"\u7f8e\u56fd \u52a0\u5229\u798f\u5c3c\u4e9a\u5dde \u7dad\u514b\u591a\u7dad\u723e","total_asset":"80.00","login_status":false}];   
+ 
+                 listData.forEach(function(res) {
+                        let currow = $(".uid-" + res.id);
+
+                      // 处理余额和财务信息
+                        const freezeBalance = parseFloat(res.freeze_balance) || 0;
+                        const balance = parseFloat(res.balance) || 0;
+                        const totalCz = parseFloat(res.total_cz) || 0;
+                        const withdraw = parseFloat(res.withdraw) || 0;
+                        const profit = parseFloat(res.profit) || 0;
+                        const totalAsset = parseFloat(res.total_asset) || 0;
+
+                        const score = res.score
+                        const reset_count = res.reset_count
+                        const days = res.days
+                        const login_status = res.login_status
+                        const last_login_isp = res.last_login_isp
+
+                        $(currow).find(".total_balance").html((freezeBalance + balance).toFixed(2));
+                        $(currow).find(".total_cz").html(totalCz.toFixed(2));
+                        $(currow).find(".freeze_balance").html(freezeBalance.toFixed(2));
+                        $(currow).find(".withdraw").html(withdraw.toFixed(2));
+                        $(currow).find(".profit").html(profit.toFixed(2));
+                        $(currow).find(".balance").html(balance.toFixed(2));
+                        $(currow).find(".total_asset").html(totalAsset.toFixed(2));
+
+                        // 设置余额颜色
+                        $(currow).find(".balance").css("color", balance >= 0 ? "green" : "red");
+
+                        // 处理其他信息
+                        $(currow).find(".isp").html(res.isp || "");
+                        $(currow).find(".last_login_isp").html(last_login_isp || "");
+
+
+                        $(currow).find(".score").html(score || 0);
+                        $(currow).find(".reset_count").html((reset_count || 0) + '次');
+
+                        $(currow).find(".days").html((days || 0) + '天');
+
+                        $(currow).find(".login_status").html(login_status=="1" ? '在线' : '离线');
+
+                        // 设置登录状态颜色
+                        let loginStatusElem = $(currow).find(".login_status");
+                        loginStatusElem.css("color", login_status=='1' ? "red" : "gray");
+
+                        // 历史订单完成量
+                        const historyDealCount = parseInt(res.history_deal_count || res.history_dealcount || res.total_deal_count || res.deal_count) || 0;
+                        $(currow).find(".history_dealcount").html(historyDealCount);
+
+                        // 处理奖励金显示
+                        let rewardsHtml = '';
+                        if (res.pending_rewards && res.pending_rewards.length > 0) {
+                            res.pending_rewards.forEach(function(reward, index) {
+                                const amount = parseFloat(reward.amount).toFixed(2);
+                                const triggerCount = reward.trigger_order_count || 0;
+                                const triggerInfo = triggerCount > 0 ? ` (触发单数：${triggerCount})` : '';
+                                const status = parseInt(reward.status);
+                                if (status === 0) {
+                                    rewardsHtml += `<span style="color: #ff9900; font-weight: bold;">待确认</span>奖励金${index + 1}：<span style="color: #ff6600; font-weight: bold;">${amount}元</span>${triggerInfo}
+                                        <a href="javascript:void(0);" onclick="confirmReward(${reward.id})" style="color: #52c41a; font-size: 12px; margin-left: 5px; font-weight: bold;">[确认]</a><a href="javascript:void(0);" onclick="cancelReward(${reward.id})" style="color: #999; font-size: 12px; margin-left: 5px;">[取消]</a><br>`;
+                                } else if (status === 3) {
+                                    rewardsHtml += `<span style="color: #52c41a; font-weight: bold;">已确认</span>奖励金${index + 1}：<span style="color: #ff6600; font-weight: bold;">${amount}元</span>${triggerInfo}
+                                        <a href="javascript:void(0);" onclick="grantReward(${reward.id})" style="color: #1890ff; font-size: 12px; margin-left: 5px; font-weight: bold;">[手动发放]</a><a href="javascript:void(0);" onclick="cancelReward(${reward.id})" style="color: #999; font-size: 12px; margin-left: 5px;">[取消]</a><br>`;
+                                } else if (status === 2) {
+                                    rewardsHtml += `<span style="color: #e60000; font-weight: bold;">待发放</span>奖励金${index + 1}：<span style="color: #ff6600; font-weight: bold;">${amount}元</span>${triggerInfo}
+                                        <a href="javascript:void(0);" onclick="grantReward(${reward.id})" style="color: #1890ff; font-size: 12px; margin-left: 5px; font-weight: bold;">[发放]</a><a href="javascript:void(0);" onclick="cancelReward(${reward.id})" style="color: #999; font-size: 12px; margin-left: 5px;">[取消]</a><br>`;
+                                }
+                            });
+                        }
+                        $(currow).find(".pending_rewards").html(rewardsHtml);
+
+                        // 处理连单金额显示
+                        let lianAmountsHtml = '';
+                        if (res.lian_plots && res.lian_plots.length > 0) {
+                            res.lian_plots.forEach(function(plot, index) {
+                                const amount = parseFloat(plot.amount) || 0;
+                                lianAmountsHtml += `连单${index + 1}: ${amount.toFixed(2)}<br>`;
+                            });
+                        } else {
+                            lianAmountsHtml = '--';
+                        }
+                        $(currow).find(".lian_amounts").html(lianAmountsHtml);
+
+                        let giftmodal =  $(currow).find("#giftmodal")
+                        if(giftmodal){
+                            giftmodal.html(res.gift_modal?'取消礼物':'显示礼物');
+                            giftmodal.css("background-color", res.gift_modal ? "grey" : "tomato");   
+                            giftmodal.attr('data-action',!!res.gift_modal?`/admin/users/show_gift_modal.html?id=${res.id}&cancel=true`
+                            :`/admin/users/show_gift_modal.html?id=${res.id}`);
+
+                            giftmodal.attr('data-confirm',!!res.gift_modal?'确定要【取消显示礼物弹窗】吗?':'确定要【显示礼物弹窗】吗?' );
+                        }
+
+                 })              
+
+
+
+      
+ 
+        
+        // if(!window.timer10){
+        //     window.timer10 = setTimeout(()=>{
+        //         getlist()
+        //     },5000);   
+        // }else{
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        //     window.timer10 = setTimeout(()=>{
+        //         getlist()
+        //     },5000);  
+        // }
+
+
+        let uids = "[4191,4190,4189,4188,4187,4186,4185,4184,4183,4182]";
+        if(!window.timer){
+            window.timer = setInterval(getlist,16000);
+        }else{
+            clearInterval(window.timer)
+            window.timer = null
+            window.timer = setInterval(getlist,16000);
+        }
+
+        // getlist();
+        function getlist(){
+            $.form.load('admin/users/getUserList', {uids:uids}, 'post', function (ret) {
+                // console.log(ret)
+                if(ret&&ret.code === 1){
+                    let data = ret.data
+                    if(data&&data.length){
+                        data.forEach(function(info) {
+                        // 确保info是一个对象
+                        if (typeof info !== 'object') return;
+
+                        let currow = $(".uid-" + info.id);
+
+                        // 确保currow存在
+                        if (currow.length === 0) return;
+
+                        // 格式化并显示dealcount
+                        const dealCount = parseInt(info.deal_count) || 0;
+                        const ordernum = parseInt(info.ordernum) || 0;
+                        const orderGot = parseInt(info.ordergot) || 0;
+                        $(currow).find(".dealcount").html(dealCount);
+                        $(currow).find(".ordernum").html(ordernum);
+                        $(currow).find(".ordergot").html(dealCount + orderGot);
+
+                        // 历史订单完成量
+                        const historyDealCount2 = parseInt(info.history_deal_count || info.history_dealcount || info.total_deal_count || info.deal_count) || 0;
+                        $(currow).find(".history_dealcount").html(historyDealCount2);
+
+                        // 处理奖励金显示 (动态更新)
+                        let rewardsHtml = '';
+                        if (info.pending_rewards && info.pending_rewards.length > 0) {
+                            info.pending_rewards.forEach(function(reward, index) {
+                                const amount = parseFloat(reward.amount).toFixed(2);
+                                const triggerCount = reward.trigger_order_count || 0;
+                                const triggerInfo = triggerCount > 0 ? ` (触发单数：${triggerCount})` : '';
+                                const status = parseInt(reward.status);
+                                if (status === 0) {
+                                    rewardsHtml += `<span style="color: #ff9900; font-weight: bold;">待确认</span>奖励金${index + 1}：<span style="color: #ff6600; font-weight: bold;">${amount}元</span>${triggerInfo}
+                                        <a href="javascript:void(0);" onclick="confirmReward(${reward.id})" style="color: #52c41a; font-size: 12px; margin-left: 5px; font-weight: bold;">[确认]</a><a href="javascript:void(0);" onclick="cancelReward(${reward.id})" style="color: #999; font-size: 12px; margin-left: 5px;">[取消]</a><br>`;
+                                } else if (status === 3) {
+                                    rewardsHtml += `<span style="color: #52c41a; font-weight: bold;">已确认</span>奖励金${index + 1}：<span style="color: #ff6600; font-weight: bold;">${amount}元</span>${triggerInfo}
+                                        <a href="javascript:void(0);" onclick="grantReward(${reward.id})" style="color: #1890ff; font-size: 12px; margin-left: 5px; font-weight: bold;">[手动发放]</a><a href="javascript:void(0);" onclick="cancelReward(${reward.id})" style="color: #999; font-size: 12px; margin-left: 5px;">[取消]</a><br>`;
+                                } else if (status === 2) {
+                                    rewardsHtml += `<span style="color: #e60000; font-weight: bold;">待发放</span>奖励金${index + 1}：<span style="color: #ff6600; font-weight: bold;">${amount}元</span>${triggerInfo}
+                                        <a href="javascript:void(0);" onclick="grantReward(${reward.id})" style="color: #1890ff; font-size: 12px; margin-left: 5px; font-weight: bold;">[发放]</a><a href="javascript:void(0);" onclick="cancelReward(${reward.id})" style="color: #999; font-size: 12px; margin-left: 5px;">[取消]</a><br>`;
+                                } else {
+                                    rewardsHtml += `待领取奖励金${index + 1}：<span style="color: #ff6600; font-weight: bold;">${amount}元</span>${triggerInfo}
+                                        <a href="javascript:void(0);" onclick="cancelReward(${reward.id})" style="color: #999; font-size: 12px; margin-left: 5px;">[取消]</a><br>`;
+                                }
+                            });
+                        }
+                        $(currow).find(".pending_rewards").html(rewardsHtml);
+
+                        // 处理plots信息
+                        if (info.lian_plots && info.lian_plots.length > 0) {
+                            let plotsHtml = '联单开始/当前完成/联单总数 <br>';
+                            info.lian_plots.forEach(function(plot, index) {
+                                plotsHtml += `<div style="margin-bottom: 3px;">
+                                    连单${index + 1}: <span class="layui-badge-rim layui-bg-blue">${plot.start_num || 0}</span> /
+                                    <span class="margin-left-5 color-green">${plot.cur_num || 0}</span> /
+                                    <span>${plot.totalcnt || 0}</span></div>`;
+                            });
+                            $(currow).find(".plots").html(plotsHtml);
+                        } else {
+                            $(currow).find(".plots").html('--');
+                        }
+
+                        // 处理余额和财务信息
+                        const freezeBalance = parseFloat(info.freeze_balance) || 0;
+                        const balance = parseFloat(info.balance) || 0;
+                        const totalCz = parseFloat(info.total_cz) || 0;
+                        const withdraw = parseFloat(info.withdraw) || 0;
+                        const profit = parseFloat(info.profit) || 0;
+                        const totalAsset = parseFloat(info.total_asset) || 0;
+
+                        $(currow).find(".total_balance").html((freezeBalance + balance).toFixed(2));
+                        $(currow).find(".total_cz").html(totalCz.toFixed(2));
+                        $(currow).find(".freeze_balance").html(freezeBalance.toFixed(2));
+                        $(currow).find(".withdraw").html(withdraw.toFixed(2));
+                        $(currow).find(".profit").html(profit.toFixed(2));
+                        $(currow).find(".balance").html(balance.toFixed(2));
+                        $(currow).find(".total_asset").html(totalAsset.toFixed(2));
+
+                        $(currow).find(".isp").html(info.isp || "");
+                        $(currow).find(".last_login_isp").html(info.last_login_isp);
+
+                        // 设置余额颜色
+                        $(currow).find(".balance").css("color", balance >= 0 ? "green" : "red");
+
+                        // 处理其他信息
+                        $(currow).find(".score").html(info.score || 0);
+                        $(currow).find(".reset_count").html((info.reset_count || 0) + '次');
+                        $(currow).find(".days").html((info.days || 0) + '天');
+                        $(currow).find(".login_status").html(info.login_status=="1" ? '在线' : '离线');
+
+                        // 设置登录状态颜色
+                        let loginStatusElem = $(currow).find(".login_status");
+                        loginStatusElem.css("color", info.login_status=='1' ? "red" : "gray");
+
+                        // 处理连单金额显示
+                        let lianAmountsHtml = '';
+                        if (info.lian_plots && info.lian_plots.length > 0) {
+                            info.lian_plots.forEach(function(plot, index) {
+                                const amount = parseFloat(plot.amount) || 0;
+                                lianAmountsHtml += `连单${index + 1}: ${amount.toFixed(2)}<br>`;
+                            });
+                        } else {
+                            lianAmountsHtml = '--';
+                        }
+                        $(currow).find(".lian_amounts").html(lianAmountsHtml);
+
+                        let giftmodal =  $(currow).find("#giftmodal")
+                        if(giftmodal){
+                            giftmodal.html(info.gift_modal?'取消礼物':'显示礼物');
+                            giftmodal.css("background-color", info.gift_modal ? "grey" : "tomato");   
+                            giftmodal.attr('data-action',!!info.gift_modal?`/admin/users/show_gift_modal.html?id=${info.id}&cancel=true`
+                            :`/admin/users/show_gift_modal.html?id=${info.id}`);
+
+                            giftmodal.attr('data-confirm',!!info.gift_modal?'确定要【取消显示礼物弹窗】吗?':'确定要【显示礼物弹窗】吗?' );
+                        }
+
+                      });
+                    }
+                
+                }
+                return false;
+            }, false);
+        }
+
+
+        // debugger;
+       /* var table = layui.table;
+        //转换静态表格
+        var limit = Number('');
+        if(limit==0) limit=20;
+        table.init('tab', {
+            cellMinWidth:120,
+            skin: 'line,row',
+            size: 'lg',
+            limit: limit
+        });*/
+    </script><div class='pagination-container nowrap'><span>共 1730 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/users/index.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/users/index.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/users/index.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/users/index.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/users/index.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/users/index.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/users/index.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/users/index.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/users/index.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/users/index.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/users/index.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/users/index.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/users/index.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/users/index.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/users/index.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/users/index.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/users/index.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/users/index.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/users/index.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/users/index.html?limit=200&page=1' >200</option></select> 条，共 173 页当前显示第 1 页。</span><ul class="pagination"><li class="disabled"><span>&laquo;</span></li> <li class="active"><span>1</span></li><li><a data-open="/admin/users/index.html?page=2" onclick="return false" href="/admin/users/index.html?page=2">2</a></li><li><a data-open="/admin/users/index.html?page=3" onclick="return false" href="/admin/users/index.html?page=3">3</a></li><li><a data-open="/admin/users/index.html?page=4" onclick="return false" href="/admin/users/index.html?page=4">4</a></li><li><a data-open="/admin/users/index.html?page=5" onclick="return false" href="/admin/users/index.html?page=5">5</a></li><li><a data-open="/admin/users/index.html?page=6" onclick="return false" href="/admin/users/index.html?page=6">6</a></li><li><a data-open="/admin/users/index.html?page=7" onclick="return false" href="/admin/users/index.html?page=7">7</a></li><li><a data-open="/admin/users/index.html?page=8" onclick="return false" href="/admin/users/index.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a data-open="/admin/users/index.html?page=172" onclick="return false" href="/admin/users/index.html?page=172">172</a></li><li><a data-open="/admin/users/index.html?page=173" onclick="return false" href="/admin/users/index.html?page=173">173</a></li> <li><a data-open="/admin/users/index.html?page=2" onclick="return false" href="/admin/users/index.html?page=2">&raquo;</a></li></ul></div></div></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/users/index.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

@@ -1,0 +1,124 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "testuser",
+      "password": "password123",
+      "paypwd": "123456",
+      "tel": "+1234567890",
+      "invitecode": "ERP888",
+      "token": "mock_token_user_1",
+      "expiretime": 1999999999,
+      "balance": "2500.00",
+      "freeze_balance": "0.00",
+      "today_income": "0.00",
+      "total_income": "1580.00",
+      "vip_level": 1,
+      "credit": 100,
+      "gender": "Male",
+      "headimg": "/static/branding/erpresearch-logo-dark.png",
+      "usdt_address": "TQn9Y2khEsLJW1ChVWFMSMeSTow5KaxnSE",
+      "usdt_type": "TRC20",
+      "created_at": "2026-08-26T11:29:32.608Z",
+      "today_order_count": 0,
+      "status": "2",
+      "online": true,
+      "last_online_at": "2026-08-27T05:37:01.408Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-20260826-001",
+      "user_id": 1,
+      "username": "testuser",
+      "goods_name": "SAP S/4HANA Cloud ERP Suite Enterprise License",
+      "goods_pic": "/static/qietu/image-1.png.webp",
+      "goods_price": "450.00",
+      "commission": "22.50",
+      "status": 1,
+      "created_at": "2026-08-26T11:29:32.609Z"
+    },
+    {
+      "id": "ORD-20260826-002",
+      "user_id": 1,
+      "username": "testuser",
+      "goods_name": "Oracle NetSuite Cloud ERP Analytics & Optimization Module",
+      "goods_pic": "/static/qietu/image-1.png.webp",
+      "goods_price": "680.00",
+      "commission": "34.00",
+      "status": 1,
+      "created_at": "2026-08-26T11:29:32.609Z"
+    }
+  ],
+  "recharges": [
+    {
+      "id": "REC-20260826-001",
+      "user_id": 1,
+      "username": "testuser",
+      "amount": "500.00",
+      "currency": "USDT-TRC20",
+      "txid": "0x78a1bc945920ea13b190f84501239912da059b",
+      "status": 1,
+      "created_at": "2026-08-26T11:29:32.609Z"
+    }
+  ],
+  "withdraws": [
+    {
+      "id": "WTH-20260826-001",
+      "user_id": 1,
+      "username": "testuser",
+      "amount": "200.00",
+      "address": "TQn9Y2khEsLJW1ChVWFMSMeSTow5KaxnSE",
+      "status": 0,
+      "created_at": "2026-08-26T11:29:32.609Z"
+    }
+  ],
+  "config": {
+    "site_name": "erpresearch",
+    "notice": "Welcome to erpresearch independent ERP system! Please complete daily matching orders on time.",
+    "telegram": "https://t.me/erpresearch_support",
+    "whatsapp": "https://wa.me/1234567890",
+    "livechat": "https://erpresearchprime.com/support",
+    "usdt_trc20": "TQn9Y2khEsLJW1ChVWFMSMeSTow5KaxnSE",
+    "usdt_erc20": "0x71C67Ed375375B3fF4A5E4459C3D129486c47864"
+  },
+  "vipList": [
+    {
+      "id": 1,
+      "name": "VIP 1",
+      "min_balance": "100.00",
+      "rate": "0.005",
+      "order_num": 30,
+      "desc": "30 orders per day, 0.5% commission"
+    },
+    {
+      "id": 2,
+      "name": "VIP 2",
+      "min_balance": "500.00",
+      "rate": "0.007",
+      "order_num": 40,
+      "desc": "40 orders per day, 0.7% commission"
+    },
+    {
+      "id": 3,
+      "name": "VIP 3",
+      "min_balance": "2000.00",
+      "rate": "0.009",
+      "order_num": 50,
+      "desc": "50 orders per day, 0.9% commission"
+    },
+    {
+      "id": 4,
+      "name": "VIP 4",
+      "min_balance": "5000.00",
+      "rate": "0.012",
+      "order_num": 60,
+      "desc": "60 orders per day, 1.2% commission"
+    }
+  ],
+  "news": [],
+  "help": [],
+  "certificates": [],
+  "checkins": [],
+  "rewardClaims": []
+}

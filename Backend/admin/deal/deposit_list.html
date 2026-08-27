@@ -1,0 +1,138 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>提现列表<div class="pull-right"></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><div class="think-box-shadow"><fieldset><legend>条件搜索</legend><form class="layui-form layui-form-pane form-search" action="/admin/deal/deposit_list.html" onsubmit="return false" method="get" autocomplete="off"><div class="layui-form-item layui-inline" style="margin-right: 10px"><button  data-action='/admin/deal/do_deposit2.html' data-csrf="csrf6a8ed96352871" data-rule="id#{key}" class='layui-btn layui-btn-sm '>批量通过</button><button data-action='/admin/deal/do_deposit3.html' data-csrf="csrf6a8ed96352aaa" data-rule="id#{key}" class='layui-btn layui-btn-sm layui-btn-danger'>批量拒绝</button></div><div class="layui-form-item layui-inline"><label class="layui-form-label">订单号</label><div class="layui-input-inline"><input name="oid" value="" placeholder="请输入订单号" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">用户名称</label><div class="layui-input-inline"><input name="username" value="" placeholder="请输入用户名称" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">手机号码</label><div class="layui-input-inline"><input name="tel" value="" placeholder="请输入手机号码" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">发起时间</label><div class="layui-input-inline"><input data-date-range name="addtime" value="" placeholder="请选择发起时间" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">订单状态</label><div class="layui-input-inline"><select class="layui-select" name="status"><option value="0"  selected >全部</option><option value="1" >待处理</option><option value="2" >已通过</option><option value="3" >已驳回</option><option value="4" >支付中</option></select></div></div><div class="layui-form-item layui-inline"><button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索</button><a href="/admin/deal/daochu.html?oid=&username=&addtime=&status=" class="layui-btn layui-btn-danger" ><i class="layui-icon">&#xe615;</i> 导 出</a></div></form></fieldset><script>form.render()</script><table class="layui-table margin-top-15" lay-skin="line"><thead><tr><th class='list-table-check-td think-checkbox'><input data-auto-none data-check-target='.list-check-box' type='checkbox'></th><th class='text-left nowrap'>订单号</th><th class='text-left nowrap'>提现用户</th><!-- <th class='text-left nowrap'>手机号</th> --><th class='text-left nowrap'>餘額</th><th class='text-left nowrap'>提现金额</th><th class='text-left nowrap'>收款信息</th><th class='text-left nowrap'>时间</th><!--  <th class='text-left nowrap'>方式</th><th class='text-left nowrap'>二维码</th>--><!--            <th class='text-left nowrap'>订单状态</th>--><th class='text-left nowrap'>操作</th></tr></thead><tbody><tr><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='CO202608261208334070247' type='checkbox'></td><td class='text-left nowrap'>CO202608261208334070247</td><td class='text-left nowrap'>账号：Sylvester25</br>电话：15408199304<br>上级：xiaocheng</td><td class='text-left nowrap'>80.72</td><td class='text-left nowrap'>
+                提现金额：37.00<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：37.00<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">ETH:</span><br>0x3Da794FD030F112D39Ee2A7abAB23fb2b79c0B99</td><td class='text-left nowrap'>2026年08月26日 00:08:33<br>-</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>待审核</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><a class="layui-btn layui-btn-sm"  data-action="/admin/deal/deposit_success.html"  data-confirm="確定要審核通過【CO202608261208334070247】" data-value="id#CO202608261208334070247;status#2">通过</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-modal='/admin/deal/deposit_fail.html?id=CO202608261208334070247' data-title="驳回【CO202608261208334070247】" >驳回</a><br><span class="color-desc font-w1"></span></td></tr><tr><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='CO202608261145144191312' type='checkbox'></td><td class='text-left nowrap'>CO202608261145144191312</td><td class='text-left nowrap'>账号：Kiara.94</br>电话：6823828067<br>上级：小白3</td><td class='text-left nowrap'>80.42</td><td class='text-left nowrap'>
+                提现金额：19.00<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：19.00<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">BTC:</span><br>bc1qd3h6qykawsk4hw4vhkf7y3cyhp534zqp5h5ma3</td><td class='text-left nowrap'>2026年08月25日 23:45:14<br>-</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>待审核</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><a class="layui-btn layui-btn-sm"  data-action="/admin/deal/deposit_success.html"  data-confirm="確定要審核通過【CO202608261145144191312】" data-value="id#CO202608261145144191312;status#2">通过</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-modal='/admin/deal/deposit_fail.html?id=CO202608261145144191312' data-title="驳回【CO202608261145144191312】" >驳回</a><br><span class="color-desc font-w1"></span></td></tr><tr><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='CO202608261128384174186' type='checkbox'></td><td class='text-left nowrap'>CO202608261128384174186</td><td class='text-left nowrap'>账号：Ben2026</br>电话：5172123521<br>上级：小白3</td><td class='text-left nowrap'>80</td><td class='text-left nowrap'>
+                提现金额：20.89<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：20.89<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">BTC:</span><br>bc1qjdygjyt4pgujfjl7hghq6f7js6y5v6lev5mqat</td><td class='text-left nowrap'>2026年08月25日 23:28:38<br>-</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>待审核</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><a class="layui-btn layui-btn-sm"  data-action="/admin/deal/deposit_success.html"  data-confirm="確定要審核通過【CO202608261128384174186】" data-value="id#CO202608261128384174186;status#2">通过</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-modal='/admin/deal/deposit_fail.html?id=CO202608261128384174186' data-title="驳回【CO202608261128384174186】" >驳回</a><br><span class="color-desc font-w1"></span></td></tr><tr><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='CO202608260730184182485' type='checkbox'></td><td class='text-left nowrap'>CO202608260730184182485</td><td class='text-left nowrap'>账号：carlos1991</br>电话：4424146646<br>上级：仔仔4903</td><td class='text-left nowrap'>80</td><td class='text-left nowrap'>
+                提现金额：20.67<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：20.67<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">BTC:</span><br>bc1qw9gw4y00904lx3y0tj73c2qvsasfdcxngcm9p3</td><td class='text-left nowrap'>2026年08月25日 19:30:18<br>-</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>待审核</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><a class="layui-btn layui-btn-sm"  data-action="/admin/deal/deposit_success.html"  data-confirm="確定要審核通過【CO202608260730184182485】" data-value="id#CO202608260730184182485;status#2">通过</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-modal='/admin/deal/deposit_fail.html?id=CO202608260730184182485' data-title="驳回【CO202608260730184182485】" >驳回</a><br><span class="color-desc font-w1"></span></td></tr><tr><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='CO202608260644544178581' type='checkbox'></td><td class='text-left nowrap'>CO202608260644544178581</td><td class='text-left nowrap'>账号：Benjamin1</br>电话：16283099620<br>上级：村长1</td><td class='text-left nowrap'>80</td><td class='text-left nowrap'>
+                提现金额：19.67<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：19.67<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">ETH:</span><br>0x47a42dbd399ec5bb247e713533ffe098dadbd212</td><td class='text-left nowrap'>2026年08月25日 18:44:54<br>-</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>待审核</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><a class="layui-btn layui-btn-sm"  data-action="/admin/deal/deposit_success.html"  data-confirm="確定要審核通過【CO202608260644544178581】" data-value="id#CO202608260644544178581;status#2">通过</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-modal='/admin/deal/deposit_fail.html?id=CO202608260644544178581' data-title="驳回【CO202608260644544178581】" >驳回</a><br><span class="color-desc font-w1"></span></td></tr><tr><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='CO202608260551504145236' type='checkbox'></td><td class='text-left nowrap'>CO202608260551504145236</td><td class='text-left nowrap'>账号：Cherlynn55</br>电话：4097286854<br>上级：村长1</td><td class='text-left nowrap'>80.66</td><td class='text-left nowrap'>
+                提现金额：20.00<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：20.00<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">USDC:</span><br>bc1q09r7d4f3cq0l78ku3g5wmyddxa0vs0v76e2wlz</td><td class='text-left nowrap'>2026年08月25日 17:51:50<br>-</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>待审核</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><a class="layui-btn layui-btn-sm"  data-action="/admin/deal/deposit_success.html"  data-confirm="確定要審核通過【CO202608260551504145236】" data-value="id#CO202608260551504145236;status#2">通过</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-modal='/admin/deal/deposit_fail.html?id=CO202608260551504145236' data-title="驳回【CO202608260551504145236】" >驳回</a><br><span class="color-desc font-w1"></span></td></tr><tr><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='CO202608220252332970996' type='checkbox'></td><td class='text-left nowrap'>CO202608220252332970996</td><td class='text-left nowrap'>账号：Pb1029</br>电话：6784778134<br>上级：老默666</td><td class='text-left nowrap'>82.22</td><td class='text-left nowrap'>
+                提现金额：28900.00<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：28900.00<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">BTC:</span><br>bc1qcuu9tgqup0wmp0u9myuldv0zectx8h0qvrh76j</td><td class='text-left nowrap'>2026年08月21日 14:52:33<br>-</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>待审核</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><a class="layui-btn layui-btn-sm"  data-action="/admin/deal/deposit_success.html"  data-confirm="確定要審核通過【CO202608220252332970996】" data-value="id#CO202608220252332970996;status#2">通过</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-modal='/admin/deal/deposit_fail.html?id=CO202608220252332970996' data-title="驳回【CO202608220252332970996】" >驳回</a><br><span class="color-desc font-w1"></span></td></tr><tr><td class='list-table-check-td think-checkbox'></td><td class='text-left nowrap'>CO202608261103304190920</td><td class='text-left nowrap'>账号：Hsnyder94</br>电话：6814895925<br>上级：xiaocheng</td><td class='text-left nowrap'>80</td><td class='text-left nowrap'>
+                提现金额：20.41<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：20.41<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">ETH:</span><br>0x923dd99eb9533FAf82A52Ca7Cb071dD377879eD7</td><td class='text-left nowrap'>2026年08月25日 23:03:30<br>2026年08月25日 23:32:26</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>审核通过</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><span class="color-green">审核通过</span><br><span class="color-desc">admin: 手动审核</span></td></tr><tr><td class='list-table-check-td think-checkbox'></td><td class='text-left nowrap'>CO202608260944304185162</td><td class='text-left nowrap'>账号：Jessica Renef</br>电话：3155465157<br>上级：啊杰1916</td><td class='text-left nowrap'>80.16</td><td class='text-left nowrap'>
+                提现金额：20.00<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：20.00<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">BTC:</span><br>bc1qhr9chawk5qgr86rmehcutnq6p2wam50tdkxr5e</td><td class='text-left nowrap'>2026年08月25日 21:44:30<br>2026年08月25日 21:57:06</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>审核通过</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><span class="color-green">审核通过</span><br><span class="color-desc">admin: 手动审核</span></td></tr><tr><td class='list-table-check-td think-checkbox'></td><td class='text-left nowrap'>CO202608260808264183558</td><td class='text-left nowrap'>账号：Rebelgirl</br>电话：2672538667<br>上级：米娜999</td><td class='text-left nowrap'>80</td><td class='text-left nowrap'>
+                提现金额：20.61<span class="margin-left-5"><!--(0)--></span><br>
+                手续费率：0% <br>
+                实际到账：20.61<span class="color-green margin-left-5"><!--( 0)--></span><br></td><td class='text-left nowrap'><span class="color-green">ETH:</span><br>0x0C9252b459ef97A3E477Dd4e06cA481755265fF8</td><td class='text-left nowrap'>2026年08月25日 20:08:26<br>2026年08月25日 20:29:14</td><!--<td class='text-left nowrap'></td><td class='text-left nowrap'></td>--><!--<td class='text-left nowrap'>审核通过</td>--><td class='text-left wrap' style="width:200px; word-wrap: break-word"><span class="color-green">审核通过</span><br><span class="color-desc">admin: 手动审核</span></td></tr></tbody></table><div class='pagination-container nowrap'><span>共 1085 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/deal/deposit_list.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/deal/deposit_list.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/deal/deposit_list.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/deal/deposit_list.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/deal/deposit_list.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/deal/deposit_list.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/deal/deposit_list.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/deal/deposit_list.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/deal/deposit_list.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/deal/deposit_list.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/deal/deposit_list.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/deal/deposit_list.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/deal/deposit_list.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/deal/deposit_list.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/deal/deposit_list.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/deal/deposit_list.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/deal/deposit_list.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/deal/deposit_list.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/deal/deposit_list.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/deal/deposit_list.html?limit=200&page=1' >200</option></select> 条，共 109 页当前显示第 1 页。</span><ul class="pagination"><li class="disabled"><span>&laquo;</span></li> <li class="active"><span>1</span></li><li><a data-open="/admin/deal/deposit_list.html?page=2" onclick="return false" href="/admin/deal/deposit_list.html?page=2">2</a></li><li><a data-open="/admin/deal/deposit_list.html?page=3" onclick="return false" href="/admin/deal/deposit_list.html?page=3">3</a></li><li><a data-open="/admin/deal/deposit_list.html?page=4" onclick="return false" href="/admin/deal/deposit_list.html?page=4">4</a></li><li><a data-open="/admin/deal/deposit_list.html?page=5" onclick="return false" href="/admin/deal/deposit_list.html?page=5">5</a></li><li><a data-open="/admin/deal/deposit_list.html?page=6" onclick="return false" href="/admin/deal/deposit_list.html?page=6">6</a></li><li><a data-open="/admin/deal/deposit_list.html?page=7" onclick="return false" href="/admin/deal/deposit_list.html?page=7">7</a></li><li><a data-open="/admin/deal/deposit_list.html?page=8" onclick="return false" href="/admin/deal/deposit_list.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a data-open="/admin/deal/deposit_list.html?page=108" onclick="return false" href="/admin/deal/deposit_list.html?page=108">108</a></li><li><a data-open="/admin/deal/deposit_list.html?page=109" onclick="return false" href="/admin/deal/deposit_list.html?page=109">109</a></li> <li><a data-open="/admin/deal/deposit_list.html?page=2" onclick="return false" href="/admin/deal/deposit_list.html?page=2">&raquo;</a></li></ul></div></div></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/deal/deposit_list.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

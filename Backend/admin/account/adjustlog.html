@@ -1,0 +1,148 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>上下分记录<div class="pull-right"></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><div class="think-box-shadow"><fieldset><legend>条件搜索</legend><form
+      class="layui-form layui-form-pane form-search"
+      action="/admin/account/adjustlog.html"
+      onsubmit="return false"
+      method="get"
+      autocomplete="off"
+    ><div class="layui-form-item layui-inline"><label class="layui-form-label">用户ID</label><div class="layui-input-inline"><input
+            name="user_id"
+            value=""
+            placeholder="请输入用户ID"
+            class="layui-input"
+          /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">手机号码</label><div class="layui-input-inline"><input
+            name="tel"
+            value=""
+            placeholder="请输入手机号码"
+            class="layui-input"
+          /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">管理员用户名</label><div class="layui-input-inline"><input
+            name="sysusername"
+            value=""
+            placeholder="管理员用户名"
+            class="layui-input"
+          /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">发起时间</label><div class="layui-input-inline"><input
+            data-date-range
+            name="create_at"
+            value=""
+            placeholder="请选择发起时间"
+            class="layui-input"
+          /></div></div><div class="layui-form-item layui-inline"><button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索
+        </button></div></form></fieldset><script>
+    form.render();
+  </script><table class="layui-table margin-top-15" lay-skin="line"><thead><tr><th class="text-left nowrap">记录ID</th><th class="text-left nowrap">用户信息</th><th class="text-left nowrap">操作金额</th><th class="text-left nowrap">原余额</th><th class="text-left nowrap">修改后余额</th><th class="text-left nowrap">管理员</th><th class="text-left nowrap">备注</th><th class="text-left nowrap">时间</th></tr></thead><tbody><tr><td class="text-left nowrap">3122</td><td class="text-left nowrap">
+          ID: 4191<br />Kiara.94<br />6823828067</td><td class="text-left nowrap"><span class="color-green">+70.00</span></td><td class="text-left nowrap">10.00</td><td class="text-left nowrap">80.00</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月26日 03:15:09</td></tr><tr><td class="text-left nowrap">3121</td><td class="text-left nowrap">
+          ID: 4190<br />Hsnyder94<br />6814895925</td><td class="text-left nowrap"><span class="color-green">+70.00</span></td><td class="text-left nowrap">10.00</td><td class="text-left nowrap">80.00</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月26日 02:15:23</td></tr><tr><td class="text-left nowrap">3120</td><td class="text-left nowrap">
+          ID: 4189<br />baiwan<br />0123456789</td><td class="text-left nowrap"><span class="color-green">+100.00</span></td><td class="text-left nowrap">10.00</td><td class="text-left nowrap">110.00</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月26日 02:06:41</td></tr><tr><td class="text-left nowrap">3119</td><td class="text-left nowrap">
+          ID: 4164<br />Maya99304<br />123467985</td><td class="text-left nowrap"><span class="color-red">-781.03</span></td><td class="text-left nowrap">781.03</td><td class="text-left nowrap">0.00</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月26日 01:23:58</td></tr><tr><td class="text-left nowrap">3118</td><td class="text-left nowrap">
+          ID: 4181<br />Maya03336<br />1772100202</td><td class="text-left nowrap"><span class="color-red">-759.71</span></td><td class="text-left nowrap">759.71</td><td class="text-left nowrap">0.00</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月25日 23:52:25</td></tr><tr><td class="text-left nowrap">3117</td><td class="text-left nowrap">
+          ID: 4181<br />Maya03336<br />1772100202</td><td class="text-left nowrap"><span class="color-green">+265.00</span></td><td class="text-left nowrap">-264.57</td><td class="text-left nowrap">0.43</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月25日 23:01:16</td></tr><tr><td class="text-left nowrap">3116</td><td class="text-left nowrap">
+          ID: 4187<br />EvaBuck<br />4785211875</td><td class="text-left nowrap"><span class="color-green">+70.00</span></td><td class="text-left nowrap">10.00</td><td class="text-left nowrap">80.00</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月25日 22:54:56</td></tr><tr><td class="text-left nowrap">3115</td><td class="text-left nowrap">
+          ID: 4184<br />Michael4<br />9179750504</td><td class="text-left nowrap"><span class="color-green">+70.00</span></td><td class="text-left nowrap">10.00</td><td class="text-left nowrap">80.00</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月25日 22:52:27</td></tr><tr><td class="text-left nowrap">3114</td><td class="text-left nowrap">
+          ID: 4183<br />Rebelgirl<br />2672538667</td><td class="text-left nowrap"><span class="color-green">+70.00</span></td><td class="text-left nowrap">10.00</td><td class="text-left nowrap">80.00</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月25日 22:46:40</td></tr><tr><td class="text-left nowrap">3113</td><td class="text-left nowrap">
+          ID: 4186<br />Yaxj74<br />9122762992</td><td class="text-left nowrap"><span class="color-green">+70.00</span></td><td class="text-left nowrap">10.00</td><td class="text-left nowrap">80.00</td><td class="text-left nowrap">10000<br />admin</td><td class="text-left wrap"></td><td class="text-left nowrap">2026年08月25日 22:42:38</td></tr></tbody></table><div class='pagination-container nowrap'><span>共 3122 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/account/adjustlog.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/account/adjustlog.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/account/adjustlog.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/account/adjustlog.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/account/adjustlog.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/account/adjustlog.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/account/adjustlog.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/account/adjustlog.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/account/adjustlog.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/account/adjustlog.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/account/adjustlog.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/account/adjustlog.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/account/adjustlog.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/account/adjustlog.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/account/adjustlog.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/account/adjustlog.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/account/adjustlog.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/account/adjustlog.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/account/adjustlog.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/account/adjustlog.html?limit=200&page=1' >200</option></select> 条，共 313 页当前显示第 1 页。</span><ul class="pagination"><li class="disabled"><span>&laquo;</span></li> <li class="active"><span>1</span></li><li><a data-open="/admin/account/adjustlog.html?page=2" onclick="return false" href="/admin/account/adjustlog.html?page=2">2</a></li><li><a data-open="/admin/account/adjustlog.html?page=3" onclick="return false" href="/admin/account/adjustlog.html?page=3">3</a></li><li><a data-open="/admin/account/adjustlog.html?page=4" onclick="return false" href="/admin/account/adjustlog.html?page=4">4</a></li><li><a data-open="/admin/account/adjustlog.html?page=5" onclick="return false" href="/admin/account/adjustlog.html?page=5">5</a></li><li><a data-open="/admin/account/adjustlog.html?page=6" onclick="return false" href="/admin/account/adjustlog.html?page=6">6</a></li><li><a data-open="/admin/account/adjustlog.html?page=7" onclick="return false" href="/admin/account/adjustlog.html?page=7">7</a></li><li><a data-open="/admin/account/adjustlog.html?page=8" onclick="return false" href="/admin/account/adjustlog.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a data-open="/admin/account/adjustlog.html?page=312" onclick="return false" href="/admin/account/adjustlog.html?page=312">312</a></li><li><a data-open="/admin/account/adjustlog.html?page=313" onclick="return false" href="/admin/account/adjustlog.html?page=313">313</a></li> <li><a data-open="/admin/account/adjustlog.html?page=2" onclick="return false" href="/admin/account/adjustlog.html?page=2">&raquo;</a></li></ul></div></div></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/account/adjustlog.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>系统管理后台 · erpresearch</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="shortcut icon" href="https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/75152ac94ede3978/8287e726ea537e7b.png">
+    <link rel="stylesheet" href="/static/plugs/awesome/fonts.css?at=0826">
+    <link rel="stylesheet" href="/static/plugs/layui/css/layui.css?at=0826">
+    <link rel="stylesheet" href="/static/theme/css/console.css?at=0826">
+    <script>window.ROOT_URL = '';</script>
+    <script src="/static/plugs/jquery/pace.min.js"></script>
+    <script src="/static/plugs/layui/layui.all.js"></script>
+    <script src="/static/plugs/require/require.js"></script>
+    <script src="/static/admin.js"></script>
+    <style>
+        .layui-layout-admin .layui-logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: #20222A;
+            line-height: 50px;
+        }
+        .layui-layout-admin .layui-logo span {
+            font-size: 12px;
+            padding-left: 5px;
+            color: #1E9FFF;
+        }
+        .layui-badge-dot {
+            position: absolute;
+            top: 15px;
+            margin-left: -5px;
+        }
+        .top-stat-item {
+            display: inline-block;
+            margin-right: 15px;
+            color: #c2c2c2;
+            font-size: 13px;
+        }
+        .top-stat-item span {
+            color: #FF5722;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin layui-layout-left-hide">
+    <!-- 头部区域 -->
+    <div class="layui-header notselect">
+        <a href="/admin.html" class="layui-logo layui-elip">
+            erpresearch<span>V001</span>
+        </a>
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item" lay-unselect>
+                <a class="text-center" data-target-menu-type>
+                    <i class="layui-icon layui-icon-shrink-right font-s18"></i>
+                </a>
+            </li>
+            <li class="layui-nav-item layui-this">
+                <a data-menu-node="m-1" data-open="/admin/index/main.html">
+                    <i class="fa fa-dashboard padding-right-5"></i><span>控制台</span>
+                </a>
+            </li>
+            <li class="layui-nav-item">
+                <a data-menu-node="m-2" data-open="/admin/index/main.html">
+                    <i class="fa fa-users padding-right-5"></i><span>会员管理</span>
+                </a>
+            </li>
+            <li class="layui-nav-item">
+                <a data-menu-node="m-3" data-open="/admin/index/main.html">
+                    <i class="fa fa-shopping-cart padding-right-5"></i><span>订单管理</span>
+                </a>
+            </li>
+            <li class="layui-nav-item">
+                <a data-menu-node="m-4" data-open="/admin/index/main.html">
+                    <i class="fa fa-money padding-right-5"></i><span>财务中心</span>
+                </a>
+            </li>
+            <li class="layui-nav-item">
+                <a data-menu-node="m-5" data-open="/admin/index/main.html">
+                    <i class="fa fa-cogs padding-right-5"></i><span>系统配置</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                <div class="top-stat-item">
+                    充值待审: <span class="deposit">0</span>
+                </div>
+                <div class="top-stat-item">
+                    今日订单: <span class="order">0</span>
+                </div>
+            </li>
+            <li class="layui-nav-item" lay-unselect>
+                <a data-reload title="刷新页面">
+                    <i class="layui-icon layui-icon-refresh-3 font-s18"></i>
+                </a>
+            </li>
+            <li class="layui-nav-item" lay-unselect>
+                <a class="text-center" data-target-full>
+                    <i class="layui-icon layui-icon-screen-full font-s18"></i>
+                </a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/75152ac94ede3978/8287e726ea537e7b.png" class="layui-nav-img">
+                    <span>Admin</span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a data-open="/admin/index/main.html"><i class="layui-icon layui-icon-user"></i> 个人中心</a></dd>
+                    <dd><a data-open="/admin/index/main.html"><i class="layui-icon layui-icon-password"></i> 修改密码</a></dd>
+                    <hr>
+                    <dd><a href="/admin/login/index.html"><i class="layui-icon layui-icon-logout"></i> 退出登录</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 左侧菜单区域 -->
+    <div class="layui-side layui-bg-black notselect">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-filter="admin-menu">
+                <!-- 控制台子菜单 -->
+                <li class="layui-nav-item layui-nav-itemed" data-submenu-layout="m-1">
+                    <a href="javascript:;"><i class="fa fa-dashboard padding-right-5"></i><span>控制台</span></a>
+                    <dl class="layui-nav-child">
+                        <dd class="layui-this"><a data-menu-node="m-1-1" data-open="/admin/index/main.html"><i class="fa fa-tachometer padding-right-5"></i><span>数据概览</span></a></dd>
+                    </dl>
+                </li>
+                <!-- 会员管理子菜单 -->
+                <li class="layui-nav-item" data-submenu-layout="m-2">
+                    <a href="javascript:;"><i class="fa fa-users padding-right-5"></i><span>用户管理</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a data-menu-node="m-2-1" data-open="/admin/index/main.html"><i class="fa fa-user padding-right-5"></i><span>会员列表</span></a></dd>
+                        <dd><a data-menu-node="m-2-2" data-open="/admin/index/main.html"><i class="fa fa-level-up padding-right-5"></i><span>VIP等级设置</span></a></dd>
+                    </dl>
+                </li>
+                <!-- 订单管理子菜单 -->
+                <li class="layui-nav-item" data-submenu-layout="m-3">
+                    <a href="javascript:;"><i class="fa fa-shopping-cart padding-right-5"></i><span>任务与订单</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a data-menu-node="m-3-1" data-open="/admin/index/main.html"><i class="fa fa-list padding-right-5"></i><span>订单列表</span></a></dd>
+                        <dd><a data-menu-node="m-3-2" data-open="/admin/index/main.html"><i class="fa fa-tasks padding-right-5"></i><span>匹配任务池</span></a></dd>
+                    </dl>
+                </li>
+                <!-- 财务中心子菜单 -->
+                <li class="layui-nav-item" data-submenu-layout="m-4">
+                    <a href="javascript:;"><i class="fa fa-money padding-right-5"></i><span>资金流向</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a data-menu-node="m-4-1" data-open="/admin/index/main.html"><i class="fa fa-credit-card padding-right-5"></i><span>充值审核</span></a></dd>
+                        <dd><a data-menu-node="m-4-2" data-open="/admin/index/main.html"><i class="fa fa-bank padding-right-5"></i><span>提现审核</span></a></dd>
+                        <dd><a data-menu-node="m-4-3" data-open="/admin/index/main.html"><i class="fa fa-file-text-o padding-right-5"></i><span>流水日志</span></a></dd>
+                    </dl>
+                </li>
+                <!-- 系统配置子菜单 -->
+                <li class="layui-nav-item" data-submenu-layout="m-5">
+                    <a href="javascript:;"><i class="fa fa-cogs padding-right-5"></i><span>系统维护</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a data-menu-node="m-5-1" data-open="/admin/index/main.html"><i class="fa fa-sliders padding-right-5"></i><span>网站基础配置</span></a></dd>
+                        <dd><a data-menu-node="m-5-2" data-open="/admin/index/main.html"><i class="fa fa-shield padding-right-5"></i><span>管理员权限</span></a></dd>
+                        <dd><a data-menu-node="m-5-3" data-open="/admin/index/main.html"><i class="fa fa-history padding-right-5"></i><span>操作日志</span></a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主体内容容器 -->
+    <div class="layui-body" id="main">
+        <!-- 页面碎片异步加载到此处 -->
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+$(function(){
+    // 监听订单通知轮询
+    function checkOrderInfo() {
+        $.get("/admin/index/order_info.html", function(result){
+            if (typeof result === 'string') {
+                try { result = JSON.parse(result); } catch(e){}
+            }
+            if (result && result.code === 1) {
+                $('.deposit').html(result.deposit || 0);
+                $('.order').html(result.order || 0);
+                $('.deposit-test').html(result.deposit_test || 0);
+                if (result.deposit > 0) {
+                    var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+                    if ($("body").find("audio").length <= 0) $("body").append(strAudio);
+                    var audio = document.getElementById("audioPlay");
+                    if (audio) audio.play();
+                }
+            }
+        });
+    }
+    checkOrderInfo();
+    setInterval(checkOrderInfo, 15000);
+});
+</script>
+</body>
+</html>

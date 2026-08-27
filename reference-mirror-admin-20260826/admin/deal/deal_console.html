@@ -1,0 +1,273 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>交易控制<div class="pull-right"></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><form
+  onsubmit="return false;"
+  data-auto="true"
+  method="post"
+  class="layui-form layui-card"
+  autocomplete="off"
+><div class="layui-tab layui-tab-card"><ul class="layui-tab-title"><li class="layui-this">基础设置</li><!--<li>利息宝设置</li>--><!--<li>银行设置</li>--><!--<li>短信宝设置 </li>--></ul><div class="layui-tab-content" style=""><div class="layui-tab-item layui-show"><div class="layui-card-body padding-left-40 layui-col-md8"><label class="layui-form-item margin-top-20 block relative"><span class="color-green margin-right-10">匹配范围</span><!-- <span class="nowrap color-desc">OrderClearTime</span> --><div
+              id="deal_rule"
+              style="position: relative; margin: 10px 0px"
+              class="demo-slider"
+            ></div><div
+              id="test-slider-tips2"
+              style="position: relative; margin: 10px 0px"
+              class="help-block"
+            >
+              匹配范围：40% ~ 90%。
+            </div><input
+              type="hidden"
+              name="deal_min_num"
+              id="min"
+              value="40"
+            /><input
+              type="hidden"
+              name="deal_max_num"
+              id="max"
+              value="90"
+            /></label><!-- <label class="layui-form-item margin-top-20 block relative"><span class="color-green margin-right-10">提交订单延时时间(单位/秒)</span><p>
+                            远程主机分配时间: <input name="deal_zhuji_time" style="width:100px;display: inline-block" required placeholder="" value="" class="layui-input">
+                            等待商家响应时间 <input name="deal_shop_time" style="width:100px;display: inline-block" required placeholder="" value="" class="layui-input"></p><p class="help-block">时间由2部分组成,默认都是5秒,总共10秒</p></label> --><!-- <label class="layui-form-item margin-top-20 block relative"><span class="color-green margin-right-10">app下载地址</span><input name="app_url" required placeholder="请输入app下载地址" value="" class="layui-input"><p class="help-block">app下载地址</p></label><label class="layui-form-item margin-top-20 block relative"><span class="color-green margin-right-10">版本号</span><input name="version" required placeholder="请输入版本" value="" class="layui-input"><p class="help-block">版本号</p></label> --><label class="layui-form-item margin-top-20 block relative"><span class="color-green margin-right-10">提现时间</span><input
+              style="width: 120px; display: inline-block"
+              name="tixian_time_1"
+              required
+              placeholder="提现开始时间"
+              value="00:01"
+              class="layui-input"
+            />
+            -
+            <input
+              style="width: 120px; display: inline-block"
+              name="tixian_time_2"
+              required
+              placeholder="提现结束时间"
+              value="23:59"
+              class="layui-input"
+            /><p class="help-block">
+              如8点到23点,可以输入 8 - 23 也可以输入8:00-23:00
+            </p></label><!-- <label class="layui-form-item margin-top-20 block relative"><span class="color-green margin-right-10">充值时间</span><input style="width: 120px;display: inline-block" name="chongzhi_time_1" required placeholder="提现开始时间" value="" class="layui-input">
+                        -
+                        <input style="width: 120px;display: inline-block" name="chongzhi_time_2" required placeholder="提现结束时间" value="" class="layui-input"><p class="help-block">只支持整点, 如08:00-20:00,请直接输入 8 - 20</p></label> --><label class="layui-form-item margin-top-20 block relative"><span class="color-green margin-right-10">抢单时间</span><input
+              style="width: 120px; display: inline-block"
+              name="order_time_1"
+              required
+              placeholder="抢单开始时间"
+              value="00:01"
+              class="layui-input"
+            />
+            -
+            <input
+              style="width: 120px; display: inline-block"
+              name="order_time_2"
+              required
+              placeholder="抢单结束时间"
+              value="23:59"
+              class="layui-input"
+            /><p class="help-block">
+              如8点到23点,可以输入 8 - 23 也可以输入8:00-23:00
+            </p></label><label class="layui-form-item margin-top-20 block relative"><span class="color-green margin-right-10">客服时间</span><input
+              name="customer_service_time"
+              required
+              placeholder="请输入客服时间"
+              value="00:01-23:59 Daily"
+              class="layui-input"
+            /><p class="help-block">
+              客服服务时间说明，如：客服时间：9:00-18:00 周一至周五
+            </p></label><!--<label class="layui-form-item margin-top-20 block relative"><span class="color-green margin-right-10">商城状态</span><input style="width: 120px;display: inline-block" name="shop_status" required placeholder="商城状态" value="" class="layui-input"><p class="help-block">商城状态:  1开启 0关闭</p></label>--></div></div><div class="layui-tab-item"><div class="layui-card-body padding-40 layui-col-md8"><label class="layui-form-item block relative"><span class="color-green margin-right-10">日利率</span><input
+              name="lxb_bili"
+              required
+              value="0.01"
+              class="layui-input"
+            /><p class="help-block">利息宝日利率, 直接写小数,没有百分号</p></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">转入最小额度</span><input
+              name="lxb_ru_min"
+              required
+              value="1"
+              class="layui-input"
+            /><p class="help-block">利息宝转入额度最低</p></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">转入最大额度</span><input
+              name="lxb_ru_max"
+              required
+              value="1"
+              class="layui-input"
+            /><p class="help-block">利息宝转入额度最高</p></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">转出到余额时间</span><input
+              name="lxb_time"
+              required
+              value="1"
+              class="layui-input"
+            /><p class="help-block">转出到余额,实际到账时间 /小时</p></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">上一级会员收益比例</span><input
+              name="lxb_sy_bili1"
+              required
+              value="0"
+              class="layui-input"
+            /></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">上两级会员收益比例</span><input
+              name="lxb_sy_bili2"
+              required
+              value="0"
+              class="layui-input"
+            /></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">上三级会员收益比例</span><input
+              name="lxb_sy_bili3"
+              required
+              value="0"
+              class="layui-input"
+            /></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">上四级会员收益比例</span><input
+              name="lxb_sy_bili4"
+              required
+              value="0"
+              class="layui-input"
+            /></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">上五级会员收益比例</span><input
+              name="lxb_sy_bili5"
+              required
+              value="0"
+              class="layui-input"
+            /></label></div></div><div class="layui-tab-item"><div class="layui-card-body padding-40 layui-col-md8"><label class="layui-form-item block relative"><span class="color-green margin-right-10">银行设置</span><textarea
+              style="min-height: 130px; line-height: 16px"
+              name="bank"
+              required
+              class="layui-input"
+            ></textarea
+            ><p class="help-block">一行一个</p></label></div></div><div class="layui-tab-item"><div class="layui-card-body padding-40 layui-col-md8"><h3>
+            短信宝申请地址
+            <a target="_blank" href="http://www.smsbao.com/reg?r=11292"
+              >短信宝申请</a
+            ></h3><label class="layui-form-item block relative"><span class="color-green margin-right-10">短信宝账号</span><input
+              name="user"
+              required
+              value="king6616666"
+              class="layui-input"
+            /><p class="help-block">利息宝日利率, 直接写小数,没有百分号</p></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">短信宝密码</span><input
+              name="pass"
+              required
+              value="aaa147258"
+              class="layui-input"
+            /><p class="help-block">密码,无需md5</p></label><label class="layui-form-item block relative"><span class="color-green margin-right-10">模板签名</span><input
+              name="sign"
+              required
+              value="熊猫生活"
+              class="layui-input"
+            /><p class="help-block">模板需要自行申请</p></label></div></div></div><div class="layui-form-item text-center margin-top-20"><button class="layui-btn" type="submit">保存配置</button></div></div></form><script>
+  layui.use("slider", function () {
+    var $ = layui.$,
+      slider = layui.slider,
+      min = "40",
+      max = "90";
+    //默认滑块
+    //开启范围选择
+    slider.render({
+      elem: "#deal_rule",
+      value: [min, max], //初始值
+      range: true, //范围选择
+      change: function (vals) {
+        $("#test-slider-tips2").html(
+          "匹配范围：" + vals[0] + "% ~ " + vals[1] + "%"
+        );
+        $("#min").val(vals[0]);
+        $("#max").val(vals[1]);
+      },
+    });
+  });
+</script></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/deal/deal_console.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

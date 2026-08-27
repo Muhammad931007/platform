@@ -1,0 +1,125 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>全局公告管理<div class="pull-right"><button data-open='/admin/help/add_notice.html' data-title="添加全局公告" class='layui-btn'>添加全局公告</button></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><div class="think-box-shadow"><table class="layui-table margin-top-15" lay-skin="line"><thead><tr><th class='text-left nowrap'>ID</th><th class='text-left nowrap'>语言</th><th class='text-left nowrap'>标题</th><th class='text-left nowrap'>类型</th><th class='text-left nowrap'>发表时间</th><th class='text-left nowrap'>查看内容</th></tr></thead><tbody><tr><td class='text-left nowrap'>1</td><td class='text-left nowrap'><span>英语</span><span></span><span></span><span></span><span></span><span></span></td><td class='text-left nowrap'>Special Reward Announcement</td><td class='text-left nowrap'>彈窗公告</td><td class='text-left nowrap'>2026年04月20日 09:03:10</td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs layui-btn" data-open="/admin/help/edit_notice/1.html" data-value="id#1" style='background:green;'>编辑</a><a class="layui-btn layui-btn-xs layui-btn" style='background:red;' onClick="del_notice(1)">删除</a></td></tr></tbody></table><div class='pagination-container nowrap'><span>共 1 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/help/notice.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/help/notice.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/help/notice.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/help/notice.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/help/notice.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/help/notice.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/help/notice.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/help/notice.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/help/notice.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/help/notice.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/help/notice.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/help/notice.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/help/notice.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/help/notice.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/help/notice.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/help/notice.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/help/notice.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/help/notice.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/help/notice.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/help/notice.html?limit=200&page=1' >200</option></select> 条，共 1 页当前显示第 1 页。</span></div></div><script>
+    function del_notice(id){
+         layer.confirm("确认要删除吗，删除后不能恢复",{ title: "删除确认" },function(index){
+            $.ajax({
+                type: 'POST',
+                url: "/admin/help/del_notice.html",
+                data: {
+                    'id': id,
+                    '_csrf_': "csrf6a8ed967c8764"
+                },
+                success:function (res) {
+                    layer.msg(res.info,{time:2500});
+                    location.reload();
+                }
+            });
+        },function(){});
+    }
+</script></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/help/notice.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

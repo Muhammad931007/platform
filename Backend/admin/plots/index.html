@@ -1,0 +1,366 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>用户联单任务列表<div class="pull-right"></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><div class="think-box-shadow"><fieldset><legend>条件搜索</legend><form
+      class="layui-form layui-form-pane form-search"
+      action="/admin/plots/index.html"
+      onsubmit="return false"
+      method="get"
+      autocomplete="off"
+    ><div class="layui-form-item layui-inline"><label class="layui-form-label">手机号码</label><div class="layui-input-inline"><input
+            name="tel"
+            value=""
+            placeholder="手机号码"
+            class="layui-input"
+          /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">用户名字</label><div class="layui-input-inline"><input
+            name="username"
+            value=""
+            placeholder="用户名字"
+            class="layui-input"
+          /></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">创建时间</label><div class="layui-input-inline"><input
+            data-date-range
+            name="create_at"
+            value=""
+            placeholder="请选择创建时间"
+            class="layui-input"
+          /></div></div><div class="layui-form-item layui-inline"><button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索
+        </button></div></form></fieldset><table class="layui-table margin-top-15" lay-skin="line"><thead><tr><th class="text-left nowrap">Id</th><th class="text-left nowrap">用户账号</th><th class="text-left nowrap">用户名称</th><th class="text-left nowrap">开始单号</th><th class="text-left nowrap">任务数量</th><th class="text-left nowrap">总金额</th><th class="text-left nowrap">订单类型</th><th class="text-left nowrap">状态</th><th class="text-left nowrap">创建时间</th><th class="text-left nowrap">操作</th></tr></thead><tbody><tr><td class="text-left nowrap">1385</td><td class="text-left nowrap">2312312321</td><td class="text-left nowrap">Maya79381</td><td class="text-left nowrap">20</td><td class="text-left nowrap"><span class="color-green">0</span> /
+          <span class="">2</span></td><td class="text-left nowrap">635.50</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月25日 00:52:19</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=1385"
+            >查看</a
+          ><a
+            class="layui-btn layui-btn-sm layui-btn-danger"
+            data-title="取消单数"
+            data-action='/admin/plots/cancel.html?id=1385'
+            data-confirm="确定要【取消】吗？"
+            data-value="id#1385"
+            >取消</a
+          ></td></tr><tr><td class="text-left nowrap">1260</td><td class="text-left nowrap">79107910</td><td class="text-left nowrap">Maya7910</td><td class="text-left nowrap">14</td><td class="text-left nowrap"><span class="color-green">0</span> /
+          <span class="">2</span></td><td class="text-left nowrap">592.90</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月20日 15:11:36</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=1260"
+            >查看</a
+          ><a
+            class="layui-btn layui-btn-sm layui-btn-danger"
+            data-title="取消单数"
+            data-action='/admin/plots/cancel.html?id=1260'
+            data-confirm="确定要【取消】吗？"
+            data-value="id#1260"
+            >取消</a
+          ></td></tr><tr><td class="text-left nowrap">1184</td><td class="text-left nowrap">12457896541</td><td class="text-left nowrap">Maya20223</td><td class="text-left nowrap">14</td><td class="text-left nowrap"><span class="color-green">0</span> /
+          <span class="">2</span></td><td class="text-left nowrap">592.90</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月18日 17:13:06</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=1184"
+            >查看</a
+          ><a
+            class="layui-btn layui-btn-sm layui-btn-danger"
+            data-title="取消单数"
+            data-action='/admin/plots/cancel.html?id=1184'
+            data-confirm="确定要【取消】吗？"
+            data-value="id#1184"
+            >取消</a
+          ></td></tr><tr><td class="text-left nowrap">1165</td><td class="text-left nowrap">3603509565</td><td class="text-left nowrap">Glkarst2</td><td class="text-left nowrap">20</td><td class="text-left nowrap"><span class="color-green">0</span> /
+          <span class="">2</span></td><td class="text-left nowrap">182.70</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月18日 00:56:27</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=1165"
+            >查看</a
+          ><a
+            class="layui-btn layui-btn-sm layui-btn-danger"
+            data-title="取消单数"
+            data-action='/admin/plots/cancel.html?id=1165'
+            data-confirm="确定要【取消】吗？"
+            data-value="id#1165"
+            >取消</a
+          ></td></tr><tr><td class="text-left nowrap">1107</td><td class="text-left nowrap">3055398811</td><td class="text-left nowrap">Natalie2026</td><td class="text-left nowrap">22</td><td class="text-left nowrap"><span class="color-green">0</span> /
+          <span class="">2</span></td><td class="text-left nowrap">304.90</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月16日 17:51:20</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=1107"
+            >查看</a
+          ><a
+            class="layui-btn layui-btn-sm layui-btn-danger"
+            data-title="取消单数"
+            data-action='/admin/plots/cancel.html?id=1107'
+            data-confirm="确定要【取消】吗？"
+            data-value="id#1107"
+            >取消</a
+          ></td></tr><tr><td class="text-left nowrap">1066</td><td class="text-left nowrap">28166</td><td class="text-left nowrap">Maya28166</td><td class="text-left nowrap">14</td><td class="text-left nowrap"><span class="color-green">0</span> /
+          <span class="">2</span></td><td class="text-left nowrap">592.90</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月15日 16:53:47</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=1066"
+            >查看</a
+          ><a
+            class="layui-btn layui-btn-sm layui-btn-danger"
+            data-title="取消单数"
+            data-action='/admin/plots/cancel.html?id=1066'
+            data-confirm="确定要【取消】吗？"
+            data-value="id#1066"
+            >取消</a
+          ></td></tr><tr><td class="text-left nowrap">1044</td><td class="text-left nowrap">15201253651</td><td class="text-left nowrap">Maya39333</td><td class="text-left nowrap">14</td><td class="text-left nowrap"><span class="color-green">0</span> /
+          <span class="">2</span></td><td class="text-left nowrap">592.90</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月14日 18:08:38</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=1044"
+            >查看</a
+          ><a
+            class="layui-btn layui-btn-sm layui-btn-danger"
+            data-title="取消单数"
+            data-action='/admin/plots/cancel.html?id=1044'
+            data-confirm="确定要【取消】吗？"
+            data-value="id#1044"
+            >取消</a
+          ></td></tr><tr><td class="text-left nowrap">832</td><td class="text-left nowrap">2543895606</td><td class="text-left nowrap">Artisha88</td><td class="text-left nowrap">38</td><td class="text-left nowrap"><span class="color-green">2</span> /
+          <span class="">3</span></td><td class="text-left nowrap">19610.00</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月07日 22:23:02</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=832"
+            >查看</a
+          ></td></tr><tr><td class="text-left nowrap">824</td><td class="text-left nowrap">156612611251</td><td class="text-left nowrap">Maya33783</td><td class="text-left nowrap">14</td><td class="text-left nowrap"><span class="color-green">0</span> /
+          <span class="">2</span></td><td class="text-left nowrap">592.90</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月07日 16:56:31</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=824"
+            >查看</a
+          ><a
+            class="layui-btn layui-btn-sm layui-btn-danger"
+            data-title="取消单数"
+            data-action='/admin/plots/cancel.html?id=824'
+            data-confirm="确定要【取消】吗？"
+            data-value="id#824"
+            >取消</a
+          ></td></tr><tr><td class="text-left nowrap">763</td><td class="text-left nowrap">178545666555</td><td class="text-left nowrap">Maya44408</td><td class="text-left nowrap">14</td><td class="text-left nowrap"><span class="color-green">0</span> /
+          <span class="">2</span></td><td class="text-left nowrap">340.90</td><td class="text-left nowrap"><span
+            style="
+              color: #1e9fff;
+              padding: 4px 10px;
+              border: 1px solid #1e9fff;
+              border-radius: 12px;
+              font-size: 12px;
+              display: inline-block;
+            "
+          >
+            普通连单
+          </span></td><td class="text-left nowrap"><span class="color-red">进行中</span
+          ></td><td class="text-left nowrap">2026年08月04日 00:12:40</td><td class="text-left nowrap"><a
+            class="layui-btn layui-btn-sm"
+            data-open="/admin/plots/info.html?id=763"
+            >查看</a
+          ><a
+            class="layui-btn layui-btn-sm layui-btn-danger"
+            data-title="取消单数"
+            data-action='/admin/plots/cancel.html?id=763'
+            data-confirm="确定要【取消】吗？"
+            data-value="id#763"
+            >取消</a
+          ></td></tr></tbody></table><div class='pagination-container nowrap'><span>共 1414 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/plots/index.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/plots/index.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/plots/index.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/plots/index.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/plots/index.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/plots/index.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/plots/index.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/plots/index.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/plots/index.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/plots/index.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/plots/index.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/plots/index.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/plots/index.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/plots/index.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/plots/index.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/plots/index.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/plots/index.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/plots/index.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/plots/index.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/plots/index.html?limit=200&page=1' >200</option></select> 条，共 142 页当前显示第 1 页。</span><ul class="pagination"><li class="disabled"><span>&laquo;</span></li> <li class="active"><span>1</span></li><li><a data-open="/admin/plots/index.html?page=2" onclick="return false" href="/admin/plots/index.html?page=2">2</a></li><li><a data-open="/admin/plots/index.html?page=3" onclick="return false" href="/admin/plots/index.html?page=3">3</a></li><li><a data-open="/admin/plots/index.html?page=4" onclick="return false" href="/admin/plots/index.html?page=4">4</a></li><li><a data-open="/admin/plots/index.html?page=5" onclick="return false" href="/admin/plots/index.html?page=5">5</a></li><li><a data-open="/admin/plots/index.html?page=6" onclick="return false" href="/admin/plots/index.html?page=6">6</a></li><li><a data-open="/admin/plots/index.html?page=7" onclick="return false" href="/admin/plots/index.html?page=7">7</a></li><li><a data-open="/admin/plots/index.html?page=8" onclick="return false" href="/admin/plots/index.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a data-open="/admin/plots/index.html?page=141" onclick="return false" href="/admin/plots/index.html?page=141">141</a></li><li><a data-open="/admin/plots/index.html?page=142" onclick="return false" href="/admin/plots/index.html?page=142">142</a></li> <li><a data-open="/admin/plots/index.html?page=2" onclick="return false" href="/admin/plots/index.html?page=2">&raquo;</a></li></ul></div></div></div><script>
+  form.render();
+</script></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/plots/index.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

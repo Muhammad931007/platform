@@ -1,0 +1,152 @@
+<div class="layui-card layui-bg-gray"><style>    .right-btn {
+        top: 0;
+        right: 0;
+        width: 38px;
+        height: 38px;
+        display: inline-block;
+        position: absolute;
+        text-align: center;
+        line-height: 38px;
+    }
+</style><script>    window.form.render();
+</script><script>    function clearData(){
+        $.msg.confirm('确定要清理吗？', function (index) {
+            //history.back();
+            $.msg.close(index);
+            var chk_value =[];
+            $('input[name="clear"]:checked').each(function(){
+                chk_value.push($(this).val());
+            });
+
+            console.log(chk_value)
+            console.log(JSON.stringify( chk_value ))
+            $.ajax({
+                type: 'POST',
+                url: "/admin/config/clear.html",
+                data: {
+                    'id': 2,
+                    'data':JSON.stringify( chk_value ),
+                    '_csrf_': "csrf6a8ed96a101c0"
+                },
+                success:function (res) {
+                    layer.msg(res.info,{time:2500});
+                    //location.reload();
+                }
+            });
+
+
+
+        },function () {
+            return false;
+        });
+
+
+    }
+</script><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>系统参数配置<div class="pull-right"></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><!-- <div class="think-box-shadow margin-bottom-15"><span class="color-green font-w7 text-middle">数据清理：</span><div class="layui-form layui-card" ><div class="layui-card-body"><div class="layui-form-item" pane=""><label class="layui-form-label">显示选项</label><div class="layui-input-block" id="clear"><input type="checkbox" name="clear" value="1" lay-skin="primary" title="用户" ><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>用户</span><i class="layui-icon layui-icon-ok"></i></div><input type="checkbox" name="clear" value="2" lay-skin="primary" title="交易" ><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>交易</span><i class="layui-icon layui-icon-ok"></i></div><input type="checkbox" name="clear" value="3" lay-skin="primary" title="财务记录" ><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>财务记录</span><i class="layui-icon layui-icon-ok"></i></div><input type="checkbox" name="clear" value="4" lay-skin="primary" title="充值" ><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>充值</span><i class="layui-icon layui-icon-ok"></i></div><input type="checkbox" name="clear" value="5" lay-skin="primary" title="提现" ><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>提现</span><i class="layui-icon layui-icon-ok"></i></div><input type="checkbox" name="clear" value="6" lay-skin="primary" title="银行卡" ><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>银行卡</span><i class="layui-icon layui-icon-ok"></i></div><input type="checkbox" name="clear" value="7" lay-skin="primary" title="地址" ><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>地址</span><i class="layui-icon layui-icon-ok"></i></div><input type="checkbox" name="clear" value="8" lay-skin="primary" title="利息宝" ><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>利息宝</span><i class="layui-icon layui-icon-ok"></i></div></div></div></div></div><a class="layui-btn layui-btn-sm" onclick="clearData()" >确定清理</a></div> --><div class="think-box-shadow margin-bottom-15"><span class="color-green font-w7 text-middle">系统参数配置：</span><a class="layui-btn layui-btn-sm" data-modal="/admin/config/config.html">修改基础配置</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-modal="/admin/config/google_auth.html">谷歌验证码</a></div><!-- <div class="think-box-shadow margin-bottom-15"><span class="color-green font-w7 text-middle">文件存储引擎：</span><a data-modal="/admin/config/file.html?type=local" class="layui-btn layui-btn-sm layui-btn-primary">本地服务器存储</a><a data-modal="/admin/config/file.html?type=qiniu" class="layui-btn layui-btn-sm layui-btn-primary">七牛云对象存储</a><a data-modal="/admin/config/file.html?type=oss" class="layui-btn layui-btn-sm">阿里云OSS存储</a></div> --><div class="think-box-shadow padding-40"><!--<div class="layui-form-item"><span class="color-green font-w7">体验金(元)</span><div class="layui-inline"><label class="layui-form-label" style="width:auto;"></label><div class="layui-input-inline" style="width:100px;"><input readonly required placeholder="体验金" value="0" class="layui-input"></div></div><span class="color-green font-w7">体验订单数</span><div class="layui-inline"><label class="layui-form-label" style="width:auto;"></label><div class="layui-input-inline" style="width:100px;"><input readonly required placeholder="体验订单数" value="0" class="layui-input"></div></div><span class="help-block">体验金，新注册用户可领取.<span style="color:red;font-weight: bold;"></span></span></div>--><!--<div class="layui-form-item"><span class="color-green font-w7">签到积分</span><div class="layui-inline"><label class="layui-form-label" style="width:auto;"></label><div class="layui-input-inline" style="width:100px;"><input readonly required placeholder="签到积分" value="10" class="layui-input"></div></div><span class="help-block">每日签到积分.<span style="color:red;font-weight: bold;"></span></span></div>--><div class="layui-form-item"><span class="color-green font-w7">上级佣金比例</span><div class="layui-inline" ><label class="layui-form-label" style="width:auto;">一级：</label><div class="layui-input-inline" style="width:100px;"><input readonly value="0.20" class="layui-input layui-bg-gray"></div></div><!-- <div class="layui-inline" ><label class="layui-form-label " style="width:auto;"> 二级： </label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"></div></div><div class="layui-inline" ><label class="layui-form-label " style="width:auto;">三级：</label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"></div></div><div class="layui-inline" ><label class="layui-form-label " style="width:auto;">四级：</label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"></div></div><div class="layui-inline"  ><label class="layui-form-label " style="width:auto;">五级：</label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"></div></div> --><!-- <p class="help-block">设置5层上级的佣金比例。</p> --></div><!--<div class="layui-form-item"><span class="color-green font-w7">上级积分</span><div class="layui-inline" ><label class="layui-form-label" style="width:auto;">一级：</label><div class="layui-input-inline" style="width:100px;"><input readonly value="50" class="layui-input layui-bg-gray"></div></div><div class="layui-inline" ><label class="layui-form-label " style="width:auto;"> 二级： </label><div class="layui-input-inline" style="width:100px;"><input readonly value="20" class="layui-input layui-bg-gray"></div></div><div class="layui-inline" ><label class="layui-form-label " style="width:auto;">三级：</label><div class="layui-input-inline" style="width:100px;"><input readonly value="10" class="layui-input layui-bg-gray"></div></div><p class="help-block">设置3层上级积分。<span style="color:red;font-weight: bold;">修改后，第二天生效。</span></p></div>--><!--<div class="layui-form-item"><span class="color-green font-w7">订单奖励</span><div class="layui-inline" ><label class="layui-form-label " style="width:auto;"> 每满： </label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"></div><label class="layui-form-label " style="width:auto;text-align: left;">单，</label></div><div class="layui-inline" ><label class="layui-form-label " style="width:auto;">赠送：</label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"></div><label class="layui-form-label " style="width:auto;text-align: left;">元</label></div><p class="help-block">设置订单奖励：每满多少单，奖励多少元。<span style="color:red;font-weight: bold;"></span></p></div>--><!--<div class="layui-form-item"><span class="color-green font-w7">直推奖励</span><div class="layui-inline" ><label class="layui-form-label " style="width:auto;"> 每满： </label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"></div><label class="layui-form-label " style="width:auto;text-align: left;">个有效用户，</label></div><div class="layui-inline" ><label class="layui-form-label " style="width:auto;">赠送：</label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"></div><label class="layui-form-label " style="width:auto;text-align: left;">元</label></div><p class="help-block">设置直推有效用户奖励：每推荐有效用户满多少人，奖励多少元。<span style="color:red;font-weight: bold;"></span></p></div>--><!-- <div class="layui-form-item"><span class="color-green font-w7">自动配单间隔时间(分钟)</span><div class="layui-inline" ><label class="layui-form-label " style="width:auto;"></label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"><a data-copy="0" class="fa fa-copy right-btn"></a></div></div><span class="help-block">自动配单间隔时间,单位：分钟，<span style="color:red;font-weight: bold;">修改后，第二天生效。</span></span></div>--><!--<div class="layui-form-item"><span class="color-green font-w7">首充赠送金额</span><div class="layui-inline" ><label class="layui-form-label " style="width:auto;"></label><div class="layui-input-inline" style="width:100px;"><input readonly value="0" class="layui-input layui-bg-gray"><a data-copy="0" class="fa fa-copy right-btn"></a></div></div><span class="help-block">首次充值成功，额外赠送金额</span></div>--><!--   <div class="layui-form-item"><span class="color-green font-w7">新用户注册赠送金额</span><label class="relative block"><input readonly value="10" class="layui-input layui-bg-gray"><a data-copy="10" class="fa fa-copy right-btn"></a></label><p class="help-block">新用户注册赠送金额</p></div><div class="layui-form-item"><span class="color-green font-w7">分享注册奖励积分</span><label class="relative block"><input readonly value="0" class="layui-input layui-bg-gray"><a data-copy="0" class="fa fa-copy right-btn"></a></label><p class="help-block">分享注册完成奖励的积分</p></div><div class="layui-form-item"><span class="color-green font-w7">完成配单积分比例</span><label class="relative block"><input readonly value="0" class="layui-input layui-bg-gray"><a data-copy="0" class="fa fa-copy right-btn"></a></label><p class="help-block">完成配单，按照返利的比例计算积分,如：0.5-表示按返利的金额的0.5倍取整计算 1-表示按返利的金额取整计算 2-表示按返利金额的2倍取整计算。<span style="color:red;font-weight: bold;">修改后，第二天生效。</span></p></div>    --><div class="layui-form-item"><span class="color-green font-w7">新用户注册赠送金额</span><label class="relative block"><input readonly value="10" class="layui-input layui-bg-gray"><a data-copy="10" class="fa fa-copy right-btn"></a></label><p class="help-block">新用户注册赠送金额</p></div><div class="layui-form-item"><span class="color-green font-w7">用户信用分低于下面的值禁止提现</span><label class="relative block"><input readonly value="80" class="layui-input layui-bg-gray"><a data-copy="80" class="fa fa-copy right-btn"></a></label><p class="help-block">默认0 表示信用分不影响提现</p></div><div class="layui-form-item"><span class="color-green font-w7">提现余额要保留的金额</span><label class="relative block"><input readonly value="80" class="layui-input layui-bg-gray"><a data-copy="80" class="fa fa-copy right-btn"></a></label><p class="help-block">提现后账户余额至少保留该金额，默认60，填0表示不限制</p></div><div class="layui-form-item"><span class="color-green font-w7">注册用户的默认信用值</span><label class="relative block"><input readonly value="100" class="layui-input layui-bg-gray"><a data-copy="100" class="fa fa-copy right-btn"></a></label><p class="help-block">默认100</p></div><div class="layui-form-item"><span class="color-green font-w7">网站名称 Website</span><label class="relative block"><input readonly value="erpresearch" class="layui-input layui-bg-gray"><a data-copy="erpresearch" class="fa fa-copy right-btn"></a></label><p class="help-block">网站名称及网站图标，将显示在浏览器的标签上</p></div><div class="layui-form-item"><span class="color-green font-w7">管理程序名称 Name</span><label class="relative block"><input readonly placeholder="请输入程序名称" value="erpresearch" class="layui-input layui-bg-gray"><a data-copy="erpresearch" class="fa fa-copy right-btn"></a></label><p class="help-block">管理程序名称，将显示在后台左上角标题</p></div><!-- <div class="layui-form-item"><span class="color-green font-w7">管理程序版本 Version</span><label class="relative block"><input readonly value="V001" class="layui-input layui-bg-gray"><a data-copy="V001" class="fa fa-copy right-btn"></a></label><p class="help-block">管理程序版本，将显示在后台左上角标题</p></div> --><!-- <div class="layui-form-item"><span class="color-green font-w7">网站备案号 Miitbeian</span><label class="relative block"><input readonly value="暂无" class="layui-input layui-bg-gray"><a data-copy="暂无" class="fa fa-copy right-btn"></a></label><p class="help-block">网站备案号，可以在<a target="_blank" href="http://beian.miit.gov.cn">备案管理中心</a>查询获取，将显示在登录页面下面</p></div> --><!-- <div class="layui-form-item"><span class="color-green font-w7">网站版权信息 Copyright</span><label class="relative block"><input readonly value="©2023 customlytics All Rights Reserved" class="layui-input layui-bg-gray"><a data-copy="©2023 customlytics All Rights Reserved" class="fa fa-copy right-btn"></a></label><p class="help-block">网站版权信息，在后台登录页面显示版本信息并链接到备案到信息备案管理系统</p></div> --></div></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/config/info.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

@@ -1,0 +1,134 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>会员等级<div class="pull-right"><!--<button data-modal='/admin/users/add_users.html' data-title="添加等级" class='layui-btn'>添加等级</button>--></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><div class="think-box-shadow"><table class="layui-table margin-top-15" lay-filter="tab" lay-skin="line"><thead><tr><th class='text-left nowrap'>ID</th><th  class='text-left nowrap'>名称</th><th  class='text-left nowrap'>图标</th><th class='text-left nowrap'>邀请人数</th><th  class='text-left nowrap'>普通佣金<br>比例(%)</th><th class='text-left nowrap'>联单佣金<br>比例(%)</th><th class='text-left nowrap'>抢单最小余额</th><!-- <th  class='text-left nowrap'>门槛显示</th> --><th  class='text-left nowrap'>接单次数</th><th  class='text-left nowrap'>提现次数</th><th  class='text-left nowrap'>提现最小金额</th><th  class='text-left nowrap'>提现最大金额</th><th  class='text-left nowrap'>提现手续费</th><th  class='text-left nowrap'>操作</th></tr></thead><tbody><tr><td class='text-left nowrap'>1</td><td class='text-left nowrap'>VIP1</td><td class='text-left nowrap'><img src="https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/d50851eb39cffc3f/19f044ad151c2f8b.png" data-tips-image=""  alt="" style="width: 40px;height:40px"></td><td class='text-left nowrap'>0</td><td class='text-left nowrap'>0.5000</td><td class='text-left nowrap'>5.0000</td><td class='text-left nowrap'>50.00</td><!-- <td class='text-left nowrap'>0.00</td> --><td class='text-left nowrap'>40</td><td class='text-left nowrap'>5</td><td class='text-left nowrap'>10.00</td><td class='text-left nowrap'>9999.00</td><td class='text-left nowrap'>0</td><td class='text-left nowrap'><a  class="layui-btn layui-btn-sm" data-title="会员等级" data-modal='/admin/users/edit_users_level.html?id=1'>编辑</a><a class="layui-btn layui-btn-warm layui-btn-sm" data-action="/admin/users/level_forbid.html" data-value="id#1;status#0" data-csrf="csrf6a8ed9625edcd">禁 用</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-title="会员描述" data-open='/admin/level_lang/index.html?level_id=1'>会员描述</a></td></tr><tr><td class='text-left nowrap'>2</td><td class='text-left nowrap'>VIP2</td><td class='text-left nowrap'><img src="https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/ebc4de4d8e9cb8a5/b91249afb95c5d36.png" data-tips-image=""  alt="" style="width: 40px;height:40px"></td><td class='text-left nowrap'>0</td><td class='text-left nowrap'>1.0000</td><td class='text-left nowrap'>10.0000</td><td class='text-left nowrap'>50.00</td><!-- <td class='text-left nowrap'>0.00</td> --><td class='text-left nowrap'>45</td><td class='text-left nowrap'>4</td><td class='text-left nowrap'>10.00</td><td class='text-left nowrap'>9999.00</td><td class='text-left nowrap'>0</td><td class='text-left nowrap'><a  class="layui-btn layui-btn-sm" data-title="会员等级" data-modal='/admin/users/edit_users_level.html?id=2'>编辑</a><a class="layui-btn layui-btn-warm layui-btn-sm" data-action="/admin/users/level_forbid.html" data-value="id#2;status#0" data-csrf="csrf6a8ed9625f0e0">禁 用</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-title="会员描述" data-open='/admin/level_lang/index.html?level_id=2'>会员描述</a></td></tr><tr><td class='text-left nowrap'>3</td><td class='text-left nowrap'>VIP3</td><td class='text-left nowrap'><img src="https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/7b4ef086781850a6/778ccab9624d663e.png" data-tips-image=""  alt="" style="width: 40px;height:40px"></td><td class='text-left nowrap'>0</td><td class='text-left nowrap'>1.5000</td><td class='text-left nowrap'>15.0000</td><td class='text-left nowrap'>50.00</td><!-- <td class='text-left nowrap'>0.00</td> --><td class='text-left nowrap'>50</td><td class='text-left nowrap'>4</td><td class='text-left nowrap'>10.00</td><td class='text-left nowrap'>9999.00</td><td class='text-left nowrap'>0</td><td class='text-left nowrap'><a  class="layui-btn layui-btn-sm" data-title="会员等级" data-modal='/admin/users/edit_users_level.html?id=3'>编辑</a><a class="layui-btn layui-btn-warm layui-btn-sm" data-action="/admin/users/level_forbid.html" data-value="id#3;status#0" data-csrf="csrf6a8ed9625f118">禁 用</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-title="会员描述" data-open='/admin/level_lang/index.html?level_id=3'>会员描述</a></td></tr><tr><td class='text-left nowrap'>4</td><td class='text-left nowrap'>VIP4</td><td class='text-left nowrap'><img src="https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/05951582cd208365/9dce43d2a2b072ff.png" data-tips-image=""  alt="" style="width: 40px;height:40px"></td><td class='text-left nowrap'>0</td><td class='text-left nowrap'>2.0000</td><td class='text-left nowrap'>20.0000</td><td class='text-left nowrap'>50.00</td><!-- <td class='text-left nowrap'>0.00</td> --><td class='text-left nowrap'>55</td><td class='text-left nowrap'>10</td><td class='text-left nowrap'>10.00</td><td class='text-left nowrap'>99999.00</td><td class='text-left nowrap'>0</td><td class='text-left nowrap'><a  class="layui-btn layui-btn-sm" data-title="会员等级" data-modal='/admin/users/edit_users_level.html?id=4'>编辑</a><a class="layui-btn layui-btn-warm layui-btn-sm" data-action="/admin/users/level_forbid.html" data-value="id#4;status#0" data-csrf="csrf6a8ed9625f156">禁 用</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-title="会员描述" data-open='/admin/level_lang/index.html?level_id=4'>会员描述</a></td></tr><tr><td class='text-left nowrap'>5</td><td class='text-left nowrap'>VIP5</td><td class='text-left nowrap'><img src="https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/5c6d4f6cc73606ac/793615037ae25600.png" data-tips-image=""  alt="" style="width: 40px;height:40px"></td><td class='text-left nowrap'>0</td><td class='text-left nowrap'>2.5000</td><td class='text-left nowrap'>25.0000</td><td class='text-left nowrap'>50.00</td><!-- <td class='text-left nowrap'>0.00</td> --><td class='text-left nowrap'>60</td><td class='text-left nowrap'>10</td><td class='text-left nowrap'>10.00</td><td class='text-left nowrap'>999999.00</td><td class='text-left nowrap'>0</td><td class='text-left nowrap'><a  class="layui-btn layui-btn-sm" data-title="会员等级" data-modal='/admin/users/edit_users_level.html?id=5'>编辑</a><a class="layui-btn layui-btn-warm layui-btn-sm" data-action="/admin/users/level_forbid.html" data-value="id#5;status#0" data-csrf="csrf6a8ed9625f176">禁 用</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-title="会员描述" data-open='/admin/level_lang/index.html?level_id=5'>会员描述</a></td></tr><tr><td class='text-left nowrap'>6</td><td class='text-left nowrap'>VIP5</td><td class='text-left nowrap'><img src="https://pub-f83e37bae9b949e58842d2a37ee3a701.r2.dev/3db9c1082b0d8f83/f188194c0831f071.png" data-tips-image=""  alt="" style="width: 40px;height:40px"></td><td class='text-left nowrap'>0</td><td class='text-left nowrap'>1.2000</td><td class='text-left nowrap'>12.0000</td><td class='text-left nowrap'>50.00</td><!-- <td class='text-left nowrap'>0.00</td> --><td class='text-left nowrap'>55</td><td class='text-left nowrap'>10</td><td class='text-left nowrap'>50.00</td><td class='text-left nowrap'>999999.00</td><td class='text-left nowrap'>0</td><td class='text-left nowrap'><a  class="layui-btn layui-btn-sm" data-title="会员等级" data-modal='/admin/users/edit_users_level.html?id=6'>编辑</a><a class="layui-btn layui-btn layui-btn-sm" data-action="/admin/users/level_resume.html" data-value="id#6;status#1" data-csrf="csrf6a8ed9625f1a5">启 用</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-title="会员描述" data-open='/admin/level_lang/index.html?level_id=6'>会员描述</a></td></tr></tbody></table><script>        function del_user(id){
+            layer.confirm("确认要删除吗，删除后不能恢复",{ title: "删除确认" },function(index){
+                $.ajax({
+                    type: 'POST',
+                    url: "/admin/users/delete_level.html",
+                    data: {
+                        'id': id,
+                        '_csrf_': "csrf6a8ed9625f1bc"
+                    },
+                    success:function (res) {
+                        layer.msg(res.info,{time:2500});
+                        location.reload();
+                    }
+                });
+            },function(){});
+        }
+    </script><!--<script>        var table = layui.table;
+        //转换静态表格
+        var limit = Number('');
+        if(limit==0) limit=20;
+        table.init('tab', {
+            cellMinWidth:120,
+            skin: 'line,row',
+            size: 'lg',
+            limit: limit
+        });
+    </script>--><div class='pagination-container nowrap'><span>共 6 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/users/level.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/users/level.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/users/level.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/users/level.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/users/level.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/users/level.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/users/level.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/users/level.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/users/level.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/users/level.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/users/level.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/users/level.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/users/level.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/users/level.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/users/level.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/users/level.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/users/level.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/users/level.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/users/level.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/users/level.html?limit=200&page=1' >200</option></select> 条，共 1 页当前显示第 1 页。</span></div></div></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/users/level.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

@@ -1,0 +1,117 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>系统操作日志<div class="pull-right"><button data-load='/admin/oplog/clear.html' data-confirm="确定要消除所有日志吗？" class='layui-btn layui-btn-sm layui-btn-primary'>清理日志</button><button data-action='/admin/oplog/remove.html' data-rule="id#{key}" data-csrf="csrf6a8ed96ab5231" data-confirm="确定要删除日志吗？" class='layui-btn layui-btn-sm layui-btn-primary'>删除日志</button></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><style>    .layui-table-cell {
+        font-size:14px;
+        padding:0 5px;
+        height:auto;
+        overflow:visible;
+        text-overflow:inherit;
+        white-space:normal;
+        word-break: break-all;
+    }
+</style><div class="think-box-shadow"><fieldset><legend>条件搜索</legend><form class="layui-form layui-form-pane form-search" action="/admin/oplog/index.html" onsubmit="return false" method="get" autocomplete="off"><div class="layui-form-item layui-inline"><label class="layui-form-label">操作账号</label><div class="layui-input-inline"><input name="username" value="" placeholder="请输入操作账号" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">操作节点</label><div class="layui-input-inline"><input name="node" value="" placeholder="请输入操作节点" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">操作行为</label><div class="layui-input-inline"><input name="action" value="" placeholder="请输入操作行为" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">操作描述</label><div class="layui-input-inline"><input name="content" value="" placeholder="请输入操作内容" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">位置地址</label><div class="layui-input-inline"><input name="geoip" value="" placeholder="请输入位置地址" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">操作时间</label><div class="layui-input-inline"><input data-date-range name="create_at" value="" placeholder="请选择操作时间" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">用户id</label><div class="layui-input-inline"><input name="userid" value="" placeholder="请选择用户id" class="layui-input"></div></div><div class="layui-form-item layui-inline"><button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索</button></div></form></fieldset><script>form.render()</script><table class="layui-table margin-top-10" lay-skin="line"><thead><tr><th class='list-table-check-td think-checkbox'><input data-auto-none data-check-target='.list-check-box' type='checkbox'></th><th class='text-left nowrap'>操作权限</th><th class='text-left nowrap'>操作行为</th><th class='text-left nowrap'>操作人</th><th class='text-left nowrap'>用户id</th><th class='text-left nowrap'>操作数据</th><!-- <th class='text-left nowrap'>地理位置</th> --><th class='text-left nowrap'>操作时间</th><th></th></tr></thead><tbody><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5551' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/login/index</span></td><td class='text-left nowrap'><p class="color-text">系统管理</p><p class="color-desc">用户登录系统成功</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">0</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text"></p></td><!-- <td class='text-left nowrap'><p class="color-text">2405:3800:8b6:a6ff:1912:cd13:c9b:f5b7</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：12:14:21</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5551" data-csrf="csrf6a8ed96ab55d6">删 除</a></td></tr><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5550' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/login/index</span></td><td class='text-left nowrap'><p class="color-text">系统管理</p><p class="color-desc">用户登录系统成功</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">0</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text"></p></td><!-- <td class='text-left nowrap'><p class="color-text">2405:3800:8b6:a6ff:1912:cd13:c9b:f5b7</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：12:11:44</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5550" data-csrf="csrf6a8ed96ab5628">删 除</a></td></tr><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5549' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/login/index</span></td><td class='text-left nowrap'><p class="color-text">系统管理</p><p class="color-desc">用户登录系统成功</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">0</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text"></p></td><!-- <td class='text-left nowrap'><p class="color-text">2405:3800:8b6:a6ff:1912:cd13:c9b:f5b7</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：12:04:33</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5549" data-csrf="csrf6a8ed96ab56a3">删 除</a></td></tr><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5548' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/login/index</span></td><td class='text-left nowrap'><p class="color-text">系统管理</p><p class="color-desc">用户登录系统成功</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">0</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text"></p></td><!-- <td class='text-left nowrap'><p class="color-text">2405:3800:8b6:a6ff:1912:cd13:c9b:f5b7</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：11:22:53</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5548" data-csrf="csrf6a8ed96ab56f9">删 除</a></td></tr><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5547' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/users/reset_deal_cnt</span></td><td class='text-left nowrap'><p class="color-text">重置单数</p><p class="color-desc">重置会员抢单单数</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">4191</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text"></p></td><!-- <td class='text-left nowrap'><p class="color-text">103.240.243.125</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：03:34:10</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5547" data-csrf="csrf6a8ed96ab5747">删 除</a></td></tr><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5546' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/users/edit_users</span></td><td class='text-left nowrap'><p class="color-text">会员管理</p><p class="color-desc">修改会员成功</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">4146</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text">{&quot;tel&quot;:&quot;2146019192&quot;,&quot;score&quot;:&quot;100&quot;,&quot;username&quot;:&quot;Ioakim&quot;,&quot;parent_id&quot;:2486,&quot;pwd&quot;:&quot;03725dec9567cd71e8a21b9fdd9c0f53a64c5d92&quot;,&quot;salt&quot;:67936,&quot;token&quot;:&quot;&quot;}</p></td><!-- <td class='text-left nowrap'><p class="color-text">103.240.243.125</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：02:59:01</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5546" data-csrf="csrf6a8ed96ab5852">删 除</a></td></tr><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5545' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/users/reset_deal_cnt</span></td><td class='text-left nowrap'><p class="color-text">重置单数</p><p class="color-desc">重置会员抢单单数</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">4190</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text"></p></td><!-- <td class='text-left nowrap'><p class="color-text">103.240.243.125</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：02:32:05</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5545" data-csrf="csrf6a8ed96ab589d">删 除</a></td></tr><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5544' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/login/index</span></td><td class='text-left nowrap'><p class="color-text">系统管理</p><p class="color-desc">用户登录系统成功</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">0</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text"></p></td><!-- <td class='text-left nowrap'><p class="color-text">2405:3800:9cd:177e:bd17:9036:1ce6:89c1</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：01:26:55</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5544" data-csrf="csrf6a8ed96ab58e1">删 除</a></td></tr><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5543' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/users/reset_deal_cnt</span></td><td class='text-left nowrap'><p class="color-text">重置单数</p><p class="color-desc">重置会员抢单单数</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">4174</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text"></p></td><!-- <td class='text-left nowrap'><p class="color-text">103.240.243.125</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：00:18:53</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5543" data-csrf="csrf6a8ed96ab5921">删 除</a></td></tr><tr data-dbclick><td class='list-table-check-td think-checkbox'><input class="list-check-box" value='5542' type='checkbox'></td><td class="text-left nowrap"><span class="font-w7">admin</span><br><span class="color-desc">admin/users/reset_deal_cnt</span></td><td class='text-left nowrap'><p class="color-text">重置单数</p><p class="color-desc">重置会员抢单单数</p></td><td class='text-left nowrap'><p class="color-text">admin</p></td><td class='text-left nowrap'><p class="color-text">4140</p></td><td class='text-left layui-table-cell' style="width:500px;"><p class="color-text"></p></td><!-- <td class='text-left nowrap'><p class="color-text">103.240.243.125</p><p class="color-desc">-</p></td> --><td class='text-left nowrap'>                日期：2026年08月26日<br><span class="color-desc">时间：00:02:38</span></td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm layui-btn-danger" data-confirm="确定要删除该日志吗？" data-action="/admin/oplog/remove.html" data-value="id#5542" data-csrf="csrf6a8ed96ab5961">删 除</a></td></tr></tbody></table><div class='pagination-container nowrap'><span>共 5551 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/oplog/index.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/oplog/index.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/oplog/index.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/oplog/index.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/oplog/index.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/oplog/index.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/oplog/index.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/oplog/index.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/oplog/index.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/oplog/index.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/oplog/index.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/oplog/index.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/oplog/index.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/oplog/index.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/oplog/index.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/oplog/index.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/oplog/index.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/oplog/index.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/oplog/index.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/oplog/index.html?limit=200&page=1' >200</option></select> 条，共 556 页当前显示第 1 页。</span><ul class="pagination"><li class="disabled"><span>&laquo;</span></li> <li class="active"><span>1</span></li><li><a data-open="/admin/oplog/index.html?page=2" onclick="return false" href="/admin/oplog/index.html?page=2">2</a></li><li><a data-open="/admin/oplog/index.html?page=3" onclick="return false" href="/admin/oplog/index.html?page=3">3</a></li><li><a data-open="/admin/oplog/index.html?page=4" onclick="return false" href="/admin/oplog/index.html?page=4">4</a></li><li><a data-open="/admin/oplog/index.html?page=5" onclick="return false" href="/admin/oplog/index.html?page=5">5</a></li><li><a data-open="/admin/oplog/index.html?page=6" onclick="return false" href="/admin/oplog/index.html?page=6">6</a></li><li><a data-open="/admin/oplog/index.html?page=7" onclick="return false" href="/admin/oplog/index.html?page=7">7</a></li><li><a data-open="/admin/oplog/index.html?page=8" onclick="return false" href="/admin/oplog/index.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a data-open="/admin/oplog/index.html?page=555" onclick="return false" href="/admin/oplog/index.html?page=555">555</a></li><li><a data-open="/admin/oplog/index.html?page=556" onclick="return false" href="/admin/oplog/index.html?page=556">556</a></li> <li><a data-open="/admin/oplog/index.html?page=2" onclick="return false" href="/admin/oplog/index.html?page=2">&raquo;</a></li></ul></div></div></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/oplog/index.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

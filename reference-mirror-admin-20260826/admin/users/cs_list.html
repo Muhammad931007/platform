@@ -1,0 +1,119 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>客服列表<div class="pull-right"><button data-modal='/admin/users/add_cs.html' data-title="添加客服" class='layui-btn'>添加客服</button></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><div class="think-box-shadow"><fieldset><legend>条件搜索</legend><form class="layui-form layui-form-pane form-search" action="/admin/users/cs_list.html" onsubmit="return false" method="get" autocomplete="off"><!-- <div class="layui-form-item layui-inline"><label class="layui-form-label">用户名称</label><div class="layui-input-inline"><input name="username" value="" placeholder="请输入用户名称" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">手机号码</label><div class="layui-input-inline"><input name="tel" value="" placeholder="请输入手机号码" class="layui-input"></div></div>--><div class="layui-form-item layui-inline"><label class="layui-form-label">创建时间</label><div class="layui-input-inline"><input data-date-range name="addtime" value="" placeholder="请选择创建时间" class="layui-input"></div></div><div class="layui-form-item layui-inline"><button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索</button></div></form></fieldset><script>form.render()</script><table class="layui-table margin-top-15" lay-filter="tab" lay-skin="line"><thead><tr><th lay-data="{field:'id',width:80}" class='text-left nowrap'>ID</th><th lay-data="{field:'type',width:120}" class='text-left nowrap'>类型</th><th lay-data="{field:'url',width:500}" class='text-left wrap'>链接</th><th lay-data="{field:'username',width:200}" class='text-left wrap'>客服名称</th><th lay-data="{field:'addtime'}" class='text-left nowrap'>添加时间</th><th lay-data="{field:'edit',fixed: 'right'}" class='text-left nowrap'>操作</th></tr></thead><tbody><tr><td class='text-left nowrap'>20</td><td class='text-left nowrap'>Chat<!--                --><!--                <span>Chat</span>--><!--                --><!--                <span></span>--><!--                --><!--                <span></span>--><!--                --><!--                <span></span>--><!--                --></td><td class='text-left wrap'>https://+12133544591</td><td class='text-left wrap'>Message To: +12133544591</td><td class='text-left nowrap'>2026年04月04日 12:43:10</td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm" data-title="编辑菜单" data-modal='/admin/users/edit_cs.html?id=20'>编 辑</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-csrf="csrf6a8ed9658cc7a" data-action="/admin/users/edit_cs_status/2/20.html" data-value="id#20;status#2">禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm" data-title="删除" data-confirm="是否要删除客服【20】，删除后不可恢复" data-action='/admin/users/remove_cs.html' data-value="id#20">删 除</a></td></tr><tr><td class='text-left nowrap'>23</td><td class='text-left nowrap'>Telegram<!--                --><!--                <span></span>--><!--                --><!--                <span>Telegram</span>--><!--                --><!--                <span></span>--><!--                --><!--                <span></span>--><!--                --></td><td class='text-left wrap'>https://t.me/ERPResearch86</td><td class='text-left wrap'>Telegram Customer Service 1</td><td class='text-left nowrap'>2026年04月20日 09:15:08</td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm" data-title="编辑菜单" data-modal='/admin/users/edit_cs.html?id=23'>编 辑</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-csrf="csrf6a8ed9658ceb2" data-action="/admin/users/edit_cs_status/2/23.html" data-value="id#23;status#2">禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm" data-title="删除" data-confirm="是否要删除客服【23】，删除后不可恢复" data-action='/admin/users/remove_cs.html' data-value="id#23">删 除</a></td></tr><tr><td class='text-left nowrap'>24</td><td class='text-left nowrap'>WhatsApp<!--                --><!--                <span></span>--><!--                --><!--                <span></span>--><!--                --><!--                <span>WhatsApp</span>--><!--                --><!--                <span></span>--><!--                --></td><td class='text-left wrap'>https://wa.me/+13418002284</td><td class='text-left wrap'>WhatsApp Customer Service</td><td class='text-left nowrap'>2026年06月15日 13:24:23</td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm" data-title="编辑菜单" data-modal='/admin/users/edit_cs.html?id=24'>编 辑</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-csrf="csrf6a8ed9658cefa" data-action="/admin/users/edit_cs_status/2/24.html" data-value="id#24;status#2">禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm" data-title="删除" data-confirm="是否要删除客服【24】，删除后不可恢复" data-action='/admin/users/remove_cs.html' data-value="id#24">删 除</a></td></tr><tr><td class='text-left nowrap'>25</td><td class='text-left nowrap'>Chat<!--                --><!--                <span>Chat</span>--><!--                --><!--                <span></span>--><!--                --><!--                <span></span>--><!--                --><!--                <span></span>--><!--                --></td><td class='text-left wrap'>https://signal.me/#eu/lIFat45ClGgE-lhbnglkUTCUaGlxOgG1_cLNYnP9fkSsyY147wlJRpROVMklIV-B</td><td class='text-left wrap'>Signal To:12133544591</td><td class='text-left nowrap'>2026年08月05日 19:04:40</td><td class='text-left nowrap'><a data-dbclick class="layui-btn layui-btn-sm" data-title="编辑菜单" data-modal='/admin/users/edit_cs.html?id=25'>编 辑</a><a class="layui-btn layui-btn-sm layui-btn-danger" data-csrf="csrf6a8ed9658cf36" data-action="/admin/users/edit_cs_status/2/25.html" data-value="id#25;status#2">禁用</a><a class="layui-btn layui-btn-sm layui-btn-warm" data-title="删除" data-confirm="是否要删除客服【25】，删除后不可恢复" data-action='/admin/users/remove_cs.html' data-value="id#25">删 除</a></td></tr></tbody></table><script>
+        var table = layui.table;
+        //转换静态表格
+        var limit = Number('');
+        if(limit==0) limit=20;
+        table.init('tab', {
+                cellMinWidth:120,
+                skin: 'line,row',
+                size: 'lg',
+                limit: limit
+            }); 
+    </script><div class='pagination-container nowrap'><span>共 4 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/users/cs_list.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/users/cs_list.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/users/cs_list.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/users/cs_list.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/users/cs_list.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/users/cs_list.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/users/cs_list.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/users/cs_list.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/users/cs_list.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/users/cs_list.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/users/cs_list.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/users/cs_list.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/users/cs_list.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/users/cs_list.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/users/cs_list.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/users/cs_list.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/users/cs_list.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/users/cs_list.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/users/cs_list.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/users/cs_list.html?limit=200&page=1' >200</option></select> 条，共 1 页当前显示第 1 页。</span></div></div></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/users/cs_list.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

@@ -1,0 +1,227 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>登录历史<div class="pull-right"><button class="layui-btn layui-btn-primary" type="button" onclick="$.form.reload()"><i class="layui-icon">&#xe669;</i> 刷新数据</button></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><div class="think-box-shadow"><!-- 搜索表单 --><form class="layui-form layui-form-pane form-search" action="/admin/users/login_history.html" onsubmit="return false"><div class="layui-form-item layui-inline"><label class="layui-form-label">用户名</label><div class="layui-input-inline"><input name="username" value="" placeholder="请输入用户名" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">手机号</label><div class="layui-input-inline"><input name="tel" value="" placeholder="请输入手机号" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">登录IP</label><div class="layui-input-inline"><input name="ip" value="" placeholder="请输入登录IP" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">登录状态</label><div class="layui-input-inline"><select name="login_status"><option value="">全部</option><option value="1" >成功</option><option value="2" >失败</option></select></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">设备类型</label><div class="layui-input-inline"><select name="device_type"><option value="">全部</option><option value="mobile" >手机</option><option value="desktop" >电脑</option><option value="tablet" >平板</option></select></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">登录时间</label><div class="layui-input-inline"><input name="login_time" value="" placeholder="请选择登录时间" class="layui-input" readonly></div></div><div class="layui-form-item layui-inline"><button class="layui-btn layui-btn-primary" type="submit"><i class="layui-icon">&#xe615;</i> 搜 索</button><button class="layui-btn layui-btn-danger" type="button" data-action="batch_delete"><i class="layui-icon">&#xe640;</i> 批量删除</button><button class="layui-btn layui-btn-warm" type="button" data-action="clear_history"><i class="layui-icon">&#xe640;</i> 清空历史</button></div></form><!-- 数据表格 --><table class="layui-table margin-top-15" lay-filter="tab" lay-skin="line"><thead><tr><th class='text-left nowrap'><input lay-filter="check_all" type="checkbox" lay-skin="primary"></th><th class='text-left nowrap'>用户信息</th><th class='text-left nowrap'>登录时间</th><th class='text-left nowrap'>登录IP</th><th class='text-left nowrap'>登录位置</th><th class='text-left nowrap'>设备信息</th><th class='text-left nowrap'>状态</th><th class='text-left nowrap'>操作</th></tr></thead><tbody><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5121"></td><td class='text-left nowrap'>
+                        用户ID：3850<br>
+                        用户名：AzariahB<br>
+                        手机号：9432407717</td><td class='text-left nowrap'>2026年08月26日 08:08:41</td><td class='text-left nowrap'>2600:1005:b270:bb90:d867:7ed2:75d1:9577</td><td class='text-left nowrap'>美国 喬治亞州 亚特兰大</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Safari 604.1<br>
+                        系统：iOS 18.7</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5121'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=3850'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5121">删除</a></td></tr><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5120"></td><td class='text-left nowrap'>
+                        用户ID：3981<br>
+                        用户名：jowanna088<br>
+                        手机号：7704309725</td><td class='text-left nowrap'>2026年08月26日 08:05:49</td><td class='text-left nowrap'>35.33.208.56</td><td class='text-left nowrap'>美国 喬治亞州 亚特兰大</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Safari 604.1<br>
+                        系统：iOS 18.7</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5120'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=3981'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5120">删除</a></td></tr><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5119"></td><td class='text-left nowrap'>
+                        用户ID：3953<br>
+                        用户名：Weisster101<br>
+                        手机号：3475457980</td><td class='text-left nowrap'>2026年08月26日 04:46:47</td><td class='text-left nowrap'>2a09:bac2:3a3a:d2d::150:9b</td><td class='text-left nowrap'>以色列 特拉维夫区 特拉維夫-雅法</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Safari 604.1<br>
+                        系统：iOS 18.7</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5119'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=3953'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5119">删除</a></td></tr><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5118"></td><td class='text-left nowrap'>
+                        用户ID：3736<br>
+                        用户名：KiyoSaint<br>
+                        手机号：7179089478</td><td class='text-left nowrap'>2026年08月26日 04:19:01</td><td class='text-left nowrap'>174.247.80.92</td><td class='text-left nowrap'>美国 宾夕法尼亚州 費城</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Safari 604.1<br>
+                        系统：iOS 18.7</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5118'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=3736'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5118">删除</a></td></tr><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5117"></td><td class='text-left nowrap'>
+                        用户ID：3803<br>
+                        用户名：Rosheda30<br>
+                        手机号：5613811499</td><td class='text-left nowrap'>2026年08月26日 02:14:28</td><td class='text-left nowrap'>2601:581:4300:5dc0:fccc:9167:e0d2:5b18</td><td class='text-left nowrap'>美国 佛罗里达州 邁阿密</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Safari 604.1<br>
+                        系统：macOS 10.15.7</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5117'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=3803'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5117">删除</a></td></tr><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5116"></td><td class='text-left nowrap'>
+                        用户ID：3911<br>
+                        用户名：aNmslim504<br>
+                        手机号：5045081664</td><td class='text-left nowrap'>2026年08月26日 02:01:11</td><td class='text-left nowrap'>2607:fb91:4e85:2cbf:52d3:7ee4:fd59:f4e5</td><td class='text-left nowrap'>美国 亚拉巴马州 莫比尔</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Chrome 151.0.0.0<br>
+                        系统：Android 10</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5116'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=3911'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5116">删除</a></td></tr><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5115"></td><td class='text-left nowrap'>
+                        用户ID：4070<br>
+                        用户名：Sylvester25<br>
+                        手机号：15408199304</td><td class='text-left nowrap'>2026年08月25日 23:15:58</td><td class='text-left nowrap'>98.118.248.141</td><td class='text-left nowrap'>美国 弗吉尼亚州 弗雷德里克斯堡</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Safari 604.1<br>
+                        系统：iOS 18.7</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5115'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=4070'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5115">删除</a></td></tr><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5114"></td><td class='text-left nowrap'>
+                        用户ID：4146<br>
+                        用户名：Ioakim<br>
+                        手机号：2146019192</td><td class='text-left nowrap'>2026年08月25日 23:05:05</td><td class='text-left nowrap'>2607:fb91:4080:6c37:79a4:7c9e:55bb:ead0</td><td class='text-left nowrap'>美国 德克萨斯州 沃思堡</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Safari 604.1<br>
+                        系统：iOS 18.7</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5114'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=4146'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5114">删除</a></td></tr><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5113"></td><td class='text-left nowrap'>
+                        用户ID：4191<br>
+                        用户名：Kiara.94<br>
+                        手机号：6823828067</td><td class='text-left nowrap'>2026年08月25日 23:04:30</td><td class='text-left nowrap'>2607:fb92:2c85:7a38:94a8:78fe:148c:6d79</td><td class='text-left nowrap'>美国 田纳西州 孟菲斯</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Safari 604.1<br>
+                        系统：iOS 26.4.1</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5113'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=4191'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5113">删除</a></td></tr><tr><td class='text-left nowrap'><input lay-filter="check_one" type="checkbox" lay-skin="primary" value="5112"></td><td class='text-left nowrap'>
+                        用户ID：3889<br>
+                        用户名：Don7221<br>
+                        手机号：382620223</td><td class='text-left nowrap'>2026年08月25日 22:31:58</td><td class='text-left nowrap'>2600:382:dd02:3b1a:7536:962d:b858:7963</td><td class='text-left nowrap'>美国 密歇根州 底特律</td><td class='text-left nowrap'>
+                        设备：mobile<br>
+                        浏览器：Chrome 151.0.0.0<br>
+                        系统：Android 10</td><td class='text-left nowrap'><span class="layui-badge layui-bg-green">成功</span></td><td class='text-left nowrap'><a class="layui-btn layui-btn-xs" data-title="查看详情" data-modal='/admin/users/login_history_detail.html?id=5112'>详情</a><a class="layui-btn layui-btn-xs" href='/admin/users/login_statistics.html?uid=3889'>统计</a><a class="layui-btn layui-btn-danger layui-btn-xs" data-confirm="确定要删除这条记录吗？" data-action='/admin/users/delete_login_history.html' data-value="id#5112">删除</a></td></tr></tbody></table><div class='pagination-container nowrap'><span>共 5121 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/users/login_history.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/users/login_history.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/users/login_history.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/users/login_history.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/users/login_history.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/users/login_history.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/users/login_history.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/users/login_history.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/users/login_history.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/users/login_history.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/users/login_history.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/users/login_history.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/users/login_history.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/users/login_history.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/users/login_history.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/users/login_history.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/users/login_history.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/users/login_history.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/users/login_history.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/users/login_history.html?limit=200&page=1' >200</option></select> 条，共 513 页当前显示第 1 页。</span><ul class="pagination"><li class="disabled"><span>&laquo;</span></li> <li class="active"><span>1</span></li><li><a data-open="/admin/users/login_history.html?page=2" onclick="return false" href="/admin/users/login_history.html?page=2">2</a></li><li><a data-open="/admin/users/login_history.html?page=3" onclick="return false" href="/admin/users/login_history.html?page=3">3</a></li><li><a data-open="/admin/users/login_history.html?page=4" onclick="return false" href="/admin/users/login_history.html?page=4">4</a></li><li><a data-open="/admin/users/login_history.html?page=5" onclick="return false" href="/admin/users/login_history.html?page=5">5</a></li><li><a data-open="/admin/users/login_history.html?page=6" onclick="return false" href="/admin/users/login_history.html?page=6">6</a></li><li><a data-open="/admin/users/login_history.html?page=7" onclick="return false" href="/admin/users/login_history.html?page=7">7</a></li><li><a data-open="/admin/users/login_history.html?page=8" onclick="return false" href="/admin/users/login_history.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a data-open="/admin/users/login_history.html?page=512" onclick="return false" href="/admin/users/login_history.html?page=512">512</a></li><li><a data-open="/admin/users/login_history.html?page=513" onclick="return false" href="/admin/users/login_history.html?page=513">513</a></li> <li><a data-open="/admin/users/login_history.html?page=2" onclick="return false" href="/admin/users/login_history.html?page=2">&raquo;</a></li></ul></div></div><script>
+layui.use(['form', 'laydate'], function(){
+    var form = layui.form;
+    var laydate = layui.laydate;
+    
+    // 时间选择器
+    laydate.render({
+        elem: '[name="login_time"]',
+        type: 'datetime',
+        range: ' - ',
+        format: 'yyyy-MM-dd HH:mm:ss'
+    });
+    
+    // 全选
+    form.on('checkbox(check_all)', function(data){
+        var checked = data.elem.checked;
+        $('input[lay-filter="check_one"]').prop('checked', checked);
+        form.render('checkbox');
+    });
+    
+    // 批量删除
+    $('[data-action="batch_delete"]').on('click', function(){
+        var ids = [];
+        $('input[lay-filter="check_one"]:checked').each(function(){
+            ids.push($(this).val());
+        });
+        
+        if(ids.length === 0){
+            layer.msg('请选择要删除的记录！');
+            return;
+        }
+        
+        layer.confirm('确定要删除选中的记录吗？', function(index){
+            $.form.load('/admin/users/batch_delete_login_history.html', {ids: ids.join(',')}, 'post');
+            layer.close(index);
+        });
+    });
+    
+    // 清空历史
+    $('[data-action="clear_history"]').on('click', function(){
+        layer.prompt({
+            title: '清空登录历史',
+            formType: 0,
+            value: '30',
+            content: '请输入要清空多少天前的记录：'
+        }, function(value, index){
+            if(!/^\d+$/.test(value) || parseInt(value) < 1){
+                layer.msg('请输入有效的天数！');
+                return;
+            }
+            
+            layer.confirm('确定要清空' + value + '天前的登录历史记录吗？', function(confirmIndex){
+                $.form.load('/admin/users/clear_login_history.html', {days: value}, 'post');
+                layer.close(confirmIndex);
+                layer.close(index);
+            });
+        });
+    });
+});
+</script></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/users/login_history.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>

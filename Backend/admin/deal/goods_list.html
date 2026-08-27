@@ -1,0 +1,130 @@
+<div class="layui-card layui-bg-gray"><style>        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style><!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">--><!--<ul class="layui-tab-title">--><!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>--><!--<li lay-id="/admin/deal/order_list">用户基本管理</li>--><!--<li lay-id="222">权限分配</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">全部历史商品管理文字长一点试试</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--<li lay-id="222">订单管理</li>--><!--</ul>--><!--</div>--><div class="layui-card-header layui-anim layui-anim-fadein notselect"><span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>商品管理<div class="pull-right"><button data-modal='/admin/deal/add_batchgoods.html' data-title="导入" class='layui-btn'>导入商品</button><button data-open='/admin/deal/add_goods.html' data-title="添加公告" class='layui-btn'>添加商品</button></div></div><div class="layui-card-body layui-anim layui-anim-upbit"><div class="think-box-shadow"><fieldset><legend>条件搜索</legend><form class="layui-form layui-form-pane form-search" action="/admin/deal/goods_list.html" onsubmit="return false" method="get" autocomplete="off"><div class="layui-form-item layui-inline"><label class="layui-form-label">商品ID</label><div class="layui-input-inline"><input name="id" value="" placeholder="请输入商品ID" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">商品名称</label><div class="layui-input-inline"><input name="title" value="" placeholder="请输入商品名称" class="layui-input"></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">分类</label><div class="layui-input-inline"><select name="cid" id="selectList"><option value="">所有分类</option><option value="4">类目4</option><option value="3">类目3</option><option value="1">类目1</option><option value="2">类目2</option></select></div></div><div class="layui-form-item layui-inline"><label class="layui-form-label">商品价格</label><div class="layui-input-inline" style="width:100px;"><input type="number" name="goods_min" value=""  placeholder="" autocomplete="off" class="layui-input"></div><div class="layui-form-mid margin-top-5" style="padding:0!important;">-</div><div class="layui-input-inline" style="width:100px;"><input type="number" name="goods_max" value="" placeholder="" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item layui-inline"><button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索</button></div></form><script>
+        var test = "0";
+        $("#selectList").find("option[value="+test+"]").prop("selected",true);
+
+        form.render()
+    </script></fieldset><table class="layui-table margin-top-15" lay-skin="line"><thead><tr><th class='text-left nowrap'>商品ID</th><th class='text-left nowrap'>商品名称</th><th class='text-left nowrap'>商品价格</th><th class='text-left nowrap'>店铺名称</th><th class='text-left nowrap'>添加时间</th><th class='text-left nowrap'>状态</th></tr></thead><tbody><tr><td class='text-left nowrap'>1</td><td class='text-left wrap'>Digital Camera (black)</td><td class='text-left nowrap'>¥1.00</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 18:11:17</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/1.html" data-value="id#1" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(1)">删除</a></td></tr><tr><td class='text-left nowrap'>2</td><td class='text-left wrap'>Black and white a Lil' Bougie decorative ironing patch (7.62 cm)</td><td class='text-left nowrap'>¥4.20</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 16:38:34</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/2.html" data-value="id#2" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(2)">删除</a></td></tr><tr><td class='text-left nowrap'>3</td><td class='text-left wrap'>Double nose ring for single pierced nose ring, ladies twist nose ring ring ring, silver spiral nose ring girl, nose pierced jewelry, stainless steel, no gem,</td><td class='text-left nowrap'>¥5.09</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 16:24:34</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/3.html" data-value="id#3" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(3)">删除</a></td></tr><tr><td class='text-left nowrap'>4</td><td class='text-left wrap'>Dengduoduo [3-piece package ] toughened glass lens protective film for iPhone 12pro 6.1 inch, Ultra HD, 9h hardness, scratch-resistant, case-friendly, easy to install [ night photo no effect ]</td><td class='text-left nowrap'>¥5.09</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 16:51:10</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/4.html" data-value="id#4" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(4)">删除</a></td></tr><tr><td class='text-left nowrap'>5</td><td class='text-left wrap'>Dengduoduo camera lens protective film for Samsung Galaxy S24, tempered glass camera protective film lens cover on the back, ultra-high definition, 9h hardness, scratch-proof, case-friendly, easy to install [ no effect ]</td><td class='text-left nowrap'>¥5.09</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 16:52:10</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/5.html" data-value="id#5" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(5)">删除</a></td></tr><tr><td class='text-left nowrap'>6</td><td class='text-left wrap'>Trenro women's bohemian beaded multi-layered hand-woven bracelet jewelry</td><td class='text-left nowrap'>¥6.20</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 16:22:59</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/6.html" data-value="id#6" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(6)">删除</a></td></tr><tr><td class='text-left nowrap'>7</td><td class='text-left wrap'>USB C to Aux audio encryption dog cable, C to 3.5 mm headphone jack adapter for iPhone 15pro Max/15pro/15plus, Samsung Galaxy S23/S22/S21 Ultra, iPad Pro, Pixel</td><td class='text-left nowrap'>¥6.20</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 16:42:35</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/7.html" data-value="id#7" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(7)">删除</a></td></tr><tr><td class='text-left nowrap'>8</td><td class='text-left wrap'>JMT NGFF NVME m 2m2plus 2230 to 2280 adapter cards 2230,2242,2260,2280 extended transmission, with long size variations for M. 2 u. 2 m 3m 3 SSD (1 piece)</td><td class='text-left nowrap'>¥6.20</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 16:48:31</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/8.html" data-value="id#8" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(8)">删除</a></td></tr><tr><td class='text-left nowrap'>9</td><td class='text-left wrap'>Peutier 4-piece SSD gasket adapter, thickened gasket (0.27 to 0.35 inch) SSD gasket solid state drive thickened gasket solid state drive slot for laptops, Black</td><td class='text-left nowrap'>¥6.20</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 16:48:34</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/9.html" data-value="id#9" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(9)">删除</a></td></tr><tr><td class='text-left nowrap'>10</td><td class='text-left wrap'>Dengduoduo [3-piece package ] toughened glass lens protective film for iPhone 146.1 inches and iPhone 14plus 6.7 inches, Ultra HD, 9h hardness, scratch-resistant, case-friendly, easy to install [ no night Shots ]</td><td class='text-left nowrap'>¥6.20</td><td class='text-left nowrap'></td><td class='text-left nowrap'>2024年12月27日 16:50:13</td><td class='text-left nowrap'><a class="layui-btn layui-btn-sm layui-btn" data-open="/admin/deal/edit_goods/10.html" data-value="id#10" style='background:green;'>编辑</a><a class="layui-btn layui-btn-sm layui-btn" style='background:red;' onClick="del_goods(10)">删除</a></td></tr></tbody></table><div class='pagination-container nowrap'><span>共 44540 条记录，每页显示 <select onchange='location.href=this.options[this.selectedIndex].value' data-auto-none><option data-num='10' value='/admin.html#/admin/deal/goods_list.html?limit=10&page=1' selected>10</option><option data-num='20' value='/admin.html#/admin/deal/goods_list.html?limit=20&page=1' >20</option><option data-num='30' value='/admin.html#/admin/deal/goods_list.html?limit=30&page=1' >30</option><option data-num='40' value='/admin.html#/admin/deal/goods_list.html?limit=40&page=1' >40</option><option data-num='50' value='/admin.html#/admin/deal/goods_list.html?limit=50&page=1' >50</option><option data-num='60' value='/admin.html#/admin/deal/goods_list.html?limit=60&page=1' >60</option><option data-num='70' value='/admin.html#/admin/deal/goods_list.html?limit=70&page=1' >70</option><option data-num='80' value='/admin.html#/admin/deal/goods_list.html?limit=80&page=1' >80</option><option data-num='90' value='/admin.html#/admin/deal/goods_list.html?limit=90&page=1' >90</option><option data-num='100' value='/admin.html#/admin/deal/goods_list.html?limit=100&page=1' >100</option><option data-num='110' value='/admin.html#/admin/deal/goods_list.html?limit=110&page=1' >110</option><option data-num='120' value='/admin.html#/admin/deal/goods_list.html?limit=120&page=1' >120</option><option data-num='130' value='/admin.html#/admin/deal/goods_list.html?limit=130&page=1' >130</option><option data-num='140' value='/admin.html#/admin/deal/goods_list.html?limit=140&page=1' >140</option><option data-num='150' value='/admin.html#/admin/deal/goods_list.html?limit=150&page=1' >150</option><option data-num='160' value='/admin.html#/admin/deal/goods_list.html?limit=160&page=1' >160</option><option data-num='170' value='/admin.html#/admin/deal/goods_list.html?limit=170&page=1' >170</option><option data-num='180' value='/admin.html#/admin/deal/goods_list.html?limit=180&page=1' >180</option><option data-num='190' value='/admin.html#/admin/deal/goods_list.html?limit=190&page=1' >190</option><option data-num='200' value='/admin.html#/admin/deal/goods_list.html?limit=200&page=1' >200</option></select> 条，共 4454 页当前显示第 1 页。</span><ul class="pagination"><li class="disabled"><span>&laquo;</span></li> <li class="active"><span>1</span></li><li><a data-open="/admin/deal/goods_list.html?page=2" onclick="return false" href="/admin/deal/goods_list.html?page=2">2</a></li><li><a data-open="/admin/deal/goods_list.html?page=3" onclick="return false" href="/admin/deal/goods_list.html?page=3">3</a></li><li><a data-open="/admin/deal/goods_list.html?page=4" onclick="return false" href="/admin/deal/goods_list.html?page=4">4</a></li><li><a data-open="/admin/deal/goods_list.html?page=5" onclick="return false" href="/admin/deal/goods_list.html?page=5">5</a></li><li><a data-open="/admin/deal/goods_list.html?page=6" onclick="return false" href="/admin/deal/goods_list.html?page=6">6</a></li><li><a data-open="/admin/deal/goods_list.html?page=7" onclick="return false" href="/admin/deal/goods_list.html?page=7">7</a></li><li><a data-open="/admin/deal/goods_list.html?page=8" onclick="return false" href="/admin/deal/goods_list.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a data-open="/admin/deal/goods_list.html?page=4453" onclick="return false" href="/admin/deal/goods_list.html?page=4453">4453</a></li><li><a data-open="/admin/deal/goods_list.html?page=4454" onclick="return false" href="/admin/deal/goods_list.html?page=4454">4454</a></li> <li><a data-open="/admin/deal/goods_list.html?page=2" onclick="return false" href="/admin/deal/goods_list.html?page=2">&raquo;</a></li></ul></div></div><script>
+    function del_goods(id){
+         layer.confirm("确认要删除吗，删除后不能恢复",{ title: "删除确认" },function(index){
+            $.ajax({
+                type: 'POST',
+                url: "/admin/deal/del_goods.html",
+                data: {
+                    'id': id,
+                    '_csrf_': "csrf6a8ed966f2932"
+                },
+                success:function (res) {
+                    layer.msg(res.info,{time:2500});
+                    location.reload();
+                }
+            });
+        },function(){});
+    }
+</script></div></div><script>//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+
+//    if(window.clearAllInterval){
+//      window.clearAllInterval();
+//    }
+
+//     window.intervalIds = [];
+
+//     //origianl interval function
+//     const originalIntervalFn = window.setInterval;
+
+//     //overriding the origianl
+//     window.setInterval = function(fn, delay){
+//         const id = originalIntervalFn(fn, delay);
+//         //storing the id of each interval
+
+//         //剔除 其他所有 的定时器
+//         if(delay === 14999){
+//             intervalIds.push(id);
+//         }
+
+//         return id;
+//     }
+
+    //clear all interval
+    // window.clearAllInterval = function(){
+    //  while(intervalIds.length){
+    //     clearInterval(intervalIds.pop());
+    //  }
+    // }
+
+    // $(function(){
+    //     $.get("/admin/index/order_info.html", function(result){
+    //         // console.log(1,result)
+    //         // result = JSON.parse(result);
+    //         $('.recharge').html(result.recharge);
+    //         $('.deposit').html(result.deposit);
+    //         $('.order').html(result.order);
+    //         $('.deposit-test').html(result.deposit_test);
+    //         if(result.deposit > 0) {
+    //             var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //             if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                 $( "body" ).append( strAudio );
+    //             var audio = document.getElementById( "audioPlay" );
+    //             //浏览器支持 audion
+    //             audio.play();
+    //         }
+    //     });
+    //     setInterval(function (){
+    //         $.get("/admin/index/order_info.html", function(result){
+                
+    //             console.log(2,result)
+    //             //result = JSON.parse(result);
+    //             $('.recharge').html(result.recharge)
+    //             $('.deposit').html(result.deposit);
+    //             $('.order').html(result.order);
+    //             $('.deposit-test').html(result.deposit_test);
+    //             if(result.deposit > 0) {
+    //                 console.log('1111')
+    //                 var strAudio = "<audio id='audioPlay' src='/public/634.wav' hidden='true'>";
+    //                 if ( $( "body" ).find( "audio" ).length <= 0 )
+    //                     $( "body" ).append( strAudio );
+    //                 var audio = document.getElementById( "audioPlay" );
+    //                 //浏览器支持 audion
+    //                 audio.play();
+    //             }
+
+    //         });
+    //     } , 14999)
+
+    // })
+
+    const currul = "/admin/deal/goods_list.html";
+
+    if(currul !== '/admin/users/index.html' ){
+        if(window.timer){
+            console.log(currul,2)
+            clearInterval(window.timer)
+            window.timer = null
+        }
+        // if(window.timer10){
+        //     clearTimeout(window.timer10)
+        //     window.timer10 = null
+        // }
+    }
+
+</script>
