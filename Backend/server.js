@@ -31,6 +31,43 @@ function md5(value) {
   return crypto.createHash('md5').update(String(value)).digest('hex');
 }
 
+function escapeHtml(value) {
+  return String(value == null ? '' : value)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function localLoginPage() {
+  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>管理员登录</title><style>
+  *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:Arial,"Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#eef4ff,#f7f9fc);color:#1f2937}.card{width:390px;padding:36px;border-radius:14px;background:#fff;box-shadow:0 14px 45px #1d4ed81f}.brand{font-size:24px;font-weight:700;text-align:center;margin-bottom:8px}.sub{text-align:center;color:#6b7280;margin-bottom:28px}.field{margin:14px 0}label{display:block;font-size:13px;color:#4b5563;margin-bottom:7px}input{width:100%;height:42px;border:1px solid #d1d5db;border-radius:7px;padding:0 12px;font-size:15px}button{width:100%;height:44px;margin-top:12px;border:0;border-radius:7px;background:#2563eb;color:#fff;font-size:16px;cursor:pointer}button:hover{background:#1d4ed8}.hint{text-align:center;color:#9ca3af;font-size:12px;margin-top:18px}.error{min-height:18px;color:#dc2626;font-size:13px;margin-top:10px;text-align:center}</style></head><body><main class="card"><div class="brand">后台管理系统</div><div class="sub">管理员登录</div><form id="login-form"><div class="field"><label for="username">用户名</label><input id="username" name="username" autocomplete="username" required></div><div class="field"><label for="password">密码</label><input id="password" name="password" type="password" autocomplete="current-password" required></div><div class="field"><label for="verify">验证码（本地测试可填写任意 4 位）</label><input id="verify" name="verify" value="GZPG" maxlength="8"></div><input type="hidden" name="skey" value="${escapeHtml(LOCAL_ADMIN_SKEY)}"><div id="error" class="error"></div><button type="submit">登录</button></form><div class="hint">本地环境 · UTF-8</div></main><script>
+  document.getElementById('login-form').addEventListener('submit',async function(e){e.preventDefault();const error=document.getElementById('error');error.textContent='';const body=new URLSearchParams(new FormData(this));const response=await fetch('/admin/login/index.html',{method:'POST',body,credentials:'same-origin'});const data=await response.json();if(data.code===1){location.href=data.url||'/admin.html';}else{error.textContent=data.msg||'登录失败';}});
+  </script></body></html>`;
+}
+
+function localMemberRow(user) {
+  const id = escapeHtml(user.id || 1);
+  const username = escapeHtml(user.username || 'testuser');
+  const invite = escapeHtml(user.invitecode || '--');
+  const phone = escapeHtml(user.tel || '--');
+  const email = escapeHtml(user.email || '--');
+  const balance = escapeHtml(Number(user.balance || 0).toFixed(2));
+  const status = Number(user.status) === 0 ? '冻结' : '正常';
+  const action = (label, url) => `<a href="javascript:void(0)" data-modal="${url}" class="local-action">${label}</a>`;
+  return `<tr class="local-fixture-row"><td>${id}</td><td><div>ID: ${id}<br>邀请码: ${invite}<br>手机: ${phone}<br>用户名: <strong>${username}</strong><br>邮箱: ${email}</div></td><td>上级: --<br>上级邀请码: --</td><td>会员等级: VIP1<br>注册时间: 本地测试<br>注册IP: 127.0.0.1<br>注册位置: Local<br>信誉分: 100<br>最后上线IP: 127.0.0.1<br>最后上线位置: Local<br>最后上线时间: 刚刚</td><td>已完成: 0<br>总任务量: 0<br>已接单: 0<br>已重置: 0<br>已签到: 否</td><td>总资产: ${balance}<br>资产加利润: ${balance}<br>余额: ${balance}<br>充值: 0.00<br>提现: 0.00<br>收益: 0.00<br>连单金额: 0.00</td><td>在线<br>会员状态: ${status}<br>冻结: 否<br>普通账号<br>历史订单完成量: 0</td><td>${action('基础资料','/admin/users/edit_users/'+id+'.html')} ${action('加扣款','/admin/users/add_money/'+id+'.html')} ${action('钱包','/admin/users/wallet/'+id+'.html')} ${action('重置任务','/admin/users/reset_deal_cnt.html?id='+id)} ${action('重置佣金','/admin/users/reset_deal_reward.html?id='+id)} ${action('添加连单','/admin/users/add_deal/'+id+'.html')} ${action('普通方式','/admin/users/normal/'+id+'.html')} ${action('账变信息','/admin/users/account_log.html?id='+id)} ${action('连单列表','/admin/users/deal_list.html?id='+id)} ${action('改单数','/admin/users/change_deal_cnt/'+id+'.html')} ${action('查看团队','/admin/users/team.html?id='+id)} ${action('登录历史','/admin/users/login_history.html?id='+id)} ${action('禁用','/admin/users/edit_users_status/'+id+'/0.html')} ${action('禁止提现','/admin/users/withdraw_forbid/'+id+'.html')} ${action('发送通知','/admin/users/notice/'+id+'.html')} ${action('配置奖励金','/admin/users/reward_bonus/'+id+'.html')}</td></tr>`;
+}
+
+function localMemberPage(db) {
+  const filePath = path.join(PUBLIC_DIR, 'admin', 'users', 'index.html');
+  let html = fs.readFileSync(filePath, 'utf8');
+  const rows = (db.users || []).map(localMemberRow).join('');
+  html = html.replace(/<tbody>/i, `<tbody>${rows}`);
+  return html;
+}
+
+function isLoginPagePath(pathname) {
+  return pathname === '/admin/login/index.html' || pathname === '/admin/login/index.htm' || pathname === '/admin/login.html';
+}
+
 function sendJson(res, payload, status = 200) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(JSON.stringify(payload));
@@ -213,6 +250,14 @@ const server = http.createServer((req, res) => {
       return res.end();
     }
 
+    // Serve a small, guaranteed UTF-8 login document locally. The captured
+    // production page contains legacy/double-encoded text which can render as
+    // question marks on some machines.
+    if (isLoginPagePath(pathname) && req.method === 'GET') {
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      return res.end(localLoginPage());
+    }
+
     // Do not expose the admin shell or its data pages without a local session.
     // Static assets remain public so the login page can render its visual form.
     const isLoginPage = pathname === '/admin/login/index.html' || pathname === '/admin/login/index.htm' || pathname === '/admin/login.html';
@@ -234,6 +279,13 @@ const server = http.createServer((req, res) => {
     const hasStaticAdminFile = pathname.startsWith('/admin/') && fs.existsSync(adminFilePath) && fs.statSync(adminFilePath).isFile();
     const adminActionResult = handleAdminAction(req, res, pathname, parsedUrl.searchParams, bodyData, db, hasStaticAdminFile);
     if (adminActionResult !== false) return adminActionResult;
+
+    // Put the bundled local fixture at the top of the member table so every
+    // member action can be exercised from a fresh portable install.
+    if (pathname === '/admin/users/index.html' && req.method === 'GET') {
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      return res.end(localMemberPage(db));
+    }
 
     // 4. Default Static / Template Routing
     if (pathname === '/' || pathname === '/index.html') pathname = '/admin.html';

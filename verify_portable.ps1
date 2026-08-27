@@ -45,10 +45,11 @@ try {
   $clientInfo = (Invoke-WebRequest -Uri 'http://127.0.0.1:3000/myapi/infomation/index' -UseBasicParsing).Content | ConvertFrom-Json
   $uploadInfo = (Invoke-WebRequest -Uri 'http://127.0.0.1:3000/myapi/file_upload/check' -UseBasicParsing).Content | ConvertFrom-Json
   $expiredSession = (Invoke-WebRequest -Uri 'http://127.0.0.1:3000/myapi/My/getMyInfo' -UseBasicParsing).Content | ConvertFrom-Json
-  $adminLogin = (Invoke-WebRequest -Uri 'http://127.0.0.1:8080/admin/login/index.html' -Method Post -ContentType 'application/json' -Body '{"username":"admin","password":"portable-healthcheck-only"}' -UseBasicParsing).Content | ConvertFrom-Json
-  $adminPage = Invoke-WebRequest -Uri 'http://127.0.0.1:8080/admin/users/index.html' -UseBasicParsing
-  $adminAction = (Invoke-WebRequest -Uri 'http://127.0.0.1:8080/admin/deal/deposit_success.html' -Method Post -ContentType 'application/json' -Body '{"id":"REC-20260826-001"}' -UseBasicParsing).Content | ConvertFrom-Json
-  $modalPage = Invoke-WebRequest -Uri 'http://127.0.0.1:8080/admin/users/add_users.html' -UseBasicParsing
+  $adminSession = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+  $adminLogin = (Invoke-WebRequest -Uri 'http://127.0.0.1:8080/admin/login/index.html' -Method Post -ContentType 'application/json' -Body '{"username":"admin","password":"portable-healthcheck-only"}' -WebSession $adminSession -UseBasicParsing).Content | ConvertFrom-Json
+  $adminPage = Invoke-WebRequest -Uri 'http://127.0.0.1:8080/admin/users/index.html' -WebSession $adminSession -UseBasicParsing
+  $adminAction = (Invoke-WebRequest -Uri 'http://127.0.0.1:8080/admin/deal/deposit_success.html' -Method Post -ContentType 'application/json' -Body '{"id":"REC-20260826-001"}' -WebSession $adminSession -UseBasicParsing).Content | ConvertFrom-Json
+  $modalPage = Invoke-WebRequest -Uri 'http://127.0.0.1:8080/admin/users/add_users.html' -WebSession $adminSession -UseBasicParsing
   $actionRoutes = @(
     '/admin/auth/forbid.html', '/admin/auth/remove.html', '/admin/deal/deposit_success.html',
     '/admin/deal/deposit_fail.html', '/admin/deal/do_deposit2.html', '/admin/deal/do_deposit3.html',
@@ -68,7 +69,7 @@ try {
   )
   $actionResults = foreach ($route in $actionRoutes) {
     try {
-      $result = (Invoke-WebRequest -Uri ('http://127.0.0.1:8080' + $route) -Method Post -ContentType 'application/json' -Body '{"id":"1","status":"2"}' -UseBasicParsing).Content | ConvertFrom-Json
+      $result = (Invoke-WebRequest -Uri ('http://127.0.0.1:8080' + $route) -Method Post -ContentType 'application/json' -Body '{"id":"1","status":"2"}' -WebSession $adminSession -UseBasicParsing).Content | ConvertFrom-Json
       [bool]($result.code -eq 1)
     } catch { $false }
   }
@@ -79,7 +80,7 @@ try {
   }
   $modalRoutes = $modalRoutes | ForEach-Object { ($_ -split '\?')[0] } | Sort-Object -Unique
   $modalResults = foreach ($route in $modalRoutes) {
-    try { (Invoke-WebRequest -Uri ('http://127.0.0.1:8080' + $route) -UseBasicParsing).StatusCode -eq 200 } catch { $false }
+    try { (Invoke-WebRequest -Uri ('http://127.0.0.1:8080' + $route) -WebSession $adminSession -UseBasicParsing).StatusCode -eq 200 } catch { $false }
   }
   $embeddedActionRoutes = foreach ($file in $capturedFiles) {
     $html = Get-Content -LiteralPath $file.FullName -Raw
@@ -87,7 +88,7 @@ try {
   }
   $embeddedActionRoutes = $embeddedActionRoutes | ForEach-Object { ($_ -split '\?')[0] } | Sort-Object -Unique
   $embeddedActionResults = foreach ($route in $embeddedActionRoutes) {
-    try { ((Invoke-WebRequest -Uri ('http://127.0.0.1:8080' + $route) -Method Post -ContentType 'application/json' -Body '{"id":"1","status":"2"}' -UseBasicParsing).Content | ConvertFrom-Json).code -eq 1 } catch { $false }
+    try { ((Invoke-WebRequest -Uri ('http://127.0.0.1:8080' + $route) -Method Post -ContentType 'application/json' -Body '{"id":"1","status":"2"}' -WebSession $adminSession -UseBasicParsing).Content | ConvertFrom-Json).code -eq 1 } catch { $false }
   }
 
   # The compiled client uses code:0 for success; admin actions use code:1.
