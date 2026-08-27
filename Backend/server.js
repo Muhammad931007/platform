@@ -373,6 +373,7 @@ const server = http.createServer((req, res) => {
       if (pathname === '/admin.html') {
         let html = fs.readFileSync(filePath, 'utf8');
         html = html.replace('data-load="/admin/login/out.html"', 'href="/admin/login/out.html" data-load="/admin/login/out.html"');
+        html = html.replace('</body>', `<script>(function(){document.addEventListener('click',function(e){var el=e.target.closest&&e.target.closest('[data-modal]');if(el){setTimeout(function(){if(!document.querySelector('.layui-layer')){var u=el.getAttribute('data-modal');if(window.layer&&layer.open)layer.open({type:2,title:el.getAttribute('data-title')||el.textContent.trim(),area:['800px','580px'],content:u});}},120);}var nav=e.target.closest&&e.target.closest('[data-open]');if(nav&&nav.getAttribute('data-open')&&nav.getAttribute('data-open')!=='#'){setTimeout(function(){var u=nav.getAttribute('data-open');if(location.hash.indexOf(u)<0&&document.querySelector('.layui-body')){fetch(u,{credentials:'same-origin'}).then(function(r){return r.text()}).then(function(t){document.querySelector('.layui-body').innerHTML=t;});}},180);}});})();</script></body>`);
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         return res.end(html);
       }
