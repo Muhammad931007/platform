@@ -39,9 +39,13 @@ function escapeHtml(value) {
 
 function localLoginPage() {
   return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>管理员登录</title><style>
-  *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:Arial,"Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#eef4ff,#f7f9fc);color:#1f2937}.card{width:390px;padding:36px;border-radius:14px;background:#fff;box-shadow:0 14px 45px #1d4ed81f}.brand{font-size:24px;font-weight:700;text-align:center;margin-bottom:8px}.sub{text-align:center;color:#6b7280;margin-bottom:28px}.field{margin:14px 0}label{display:block;font-size:13px;color:#4b5563;margin-bottom:7px}input{width:100%;height:42px;border:1px solid #d1d5db;border-radius:7px;padding:0 12px;font-size:15px}button{width:100%;height:44px;margin-top:12px;border:0;border-radius:7px;background:#2563eb;color:#fff;font-size:16px;cursor:pointer}button:hover{background:#1d4ed8}.hint{text-align:center;color:#9ca3af;font-size:12px;margin-top:18px}.error{min-height:18px;color:#dc2626;font-size:13px;margin-top:10px;text-align:center}</style></head><body><main class="card"><div class="brand">后台管理系统</div><div class="sub">管理员登录</div><form id="login-form"><div class="field"><label for="username">用户名</label><input id="username" name="username" autocomplete="username" required></div><div class="field"><label for="password">密码</label><input id="password" name="password" type="password" autocomplete="current-password" required></div><div class="field"><label for="verify">验证码（本地测试可填写任意 4 位）</label><input id="verify" name="verify" value="GZPG" maxlength="8"></div><input type="hidden" name="skey" value="${escapeHtml(LOCAL_ADMIN_SKEY)}"><div id="error" class="error"></div><button type="submit">登录</button></form><div class="hint">本地环境 · UTF-8</div></main><script>
+  *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:Arial,"Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#eef4ff,#f7f9fc);color:#1f2937}.card{width:390px;padding:36px;border-radius:14px;background:#fff;box-shadow:0 14px 45px #1d4ed81f}.brand{font-size:24px;font-weight:700;text-align:center;margin-bottom:8px}.sub{text-align:center;color:#6b7280;margin-bottom:28px}.field{margin:14px 0}label{display:block;font-size:13px;color:#4b5563;margin-bottom:7px}input{width:100%;height:42px;border:1px solid #d1d5db;border-radius:7px;padding:0 12px;font-size:15px}button{width:100%;height:44px;margin-top:12px;border:0;border-radius:7px;background:#2563eb;color:#fff;font-size:16px;cursor:pointer}button:hover{background:#1d4ed8}.captcha{height:42px;vertical-align:middle;margin-left:8px;cursor:pointer;border-radius:5px}.hint{text-align:center;color:#9ca3af;font-size:12px;margin-top:18px}.error{min-height:18px;color:#dc2626;font-size:13px;margin-top:10px;text-align:center}</style></head><body><main class="card"><div class="brand">后台管理系统</div><div class="sub">管理员登录</div><form id="login-form"><div class="field"><label for="username">用户名</label><input id="username" name="username" autocomplete="username" required></div><div class="field"><label for="password">密码</label><input id="password" name="password" type="password" autocomplete="current-password" required></div><div class="field"><label for="verify">验证码</label><div style="display:flex;align-items:center"><input id="verify" name="verify" value="GZPG" maxlength="8"><img class="captcha" src="/admin/login/captcha.svg" alt="验证码 GZPG" title="点击刷新"></div></div><input type="hidden" name="skey" value="${escapeHtml(LOCAL_ADMIN_SKEY)}"><div id="error" class="error"></div><button type="submit">登录</button></form><div class="hint">本地环境 · UTF-8</div></main><script>
   document.getElementById('login-form').addEventListener('submit',async function(e){e.preventDefault();const error=document.getElementById('error');error.textContent='';const body=new URLSearchParams(new FormData(this));const response=await fetch('/admin/login/index.html',{method:'POST',body,credentials:'same-origin'});const data=await response.json();if(data.code===1){location.href=data.url||'/admin.html';}else{error.textContent=data.msg||'登录失败';}});
   </script></body></html>`;
+}
+
+function localCaptchaSvg() {
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="112" height="42" viewBox="0 0 112 42"><rect width="112" height="42" rx="5" fill="#eef2ff"/><path d="M4 30L106 10M6 8l96 25" stroke="#c7d2fe"/><text x="56" y="29" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" letter-spacing="5" fill="#3730a3">GZPG</text></svg>`;
 }
 
 function localMemberRow(user) {
@@ -257,6 +261,10 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
       return res.end(localLoginPage());
     }
+    if (pathname === '/admin/login/captcha.svg' && req.method === 'GET') {
+      res.writeHead(200, { 'Content-Type': 'image/svg+xml; charset=utf-8', 'Cache-Control': 'no-store' });
+      return res.end(localCaptchaSvg());
+    }
 
     // Do not expose the admin shell or its data pages without a local session.
     // Static assets remain public so the login page can render its visual form.
@@ -296,6 +304,12 @@ const server = http.createServer((req, res) => {
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
       const ext = path.extname(filePath).toLowerCase();
       const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+      if (pathname === '/admin.html') {
+        let html = fs.readFileSync(filePath, 'utf8');
+        html = html.replace('data-load="/admin/login/out.html"', 'href="/admin/login/out.html" data-load="/admin/login/out.html"');
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        return res.end(html);
+      }
       res.writeHead(200, { 'Content-Type': contentType });
       fs.createReadStream(filePath).pipe(res);
     } else {
