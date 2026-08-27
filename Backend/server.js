@@ -142,6 +142,22 @@ function handleAdminAction(req, res, pathname, query, body, db, hasStaticFile) {
             user.balance = (Number(user.balance || 0) + amount).toFixed(2); changed++;
           }
         }
+        const recordId = String(body.id || query.get('id') || '');
+        const records = [...(db.orders || []), ...(db.recharges || []), ...(db.withdraws || [])];
+        const record = records.find(item => String(item.id) === recordId);
+        if (record) {
+          if (body.product || body.goods_name) { record.goods_name = body.product || body.goods_name; changed++; }
+          if (body.price || body.goods_price) { record.goods_price = body.price || body.goods_price; changed++; }
+          if (body.commission !== undefined && body.commission !== '') { record.commission = body.commission; changed++; }
+          if (body.address) { record.address = body.address; changed++; }
+          if (body.status !== undefined && body.status !== '') { record.status = Number(body.status); changed++; }
+        }
+        if (/config\/|menu\//.test(pathname) && (body.site_name || body.notice)) {
+          db.config = db.config || {};
+          if (body.site_name) db.config.site_name = body.site_name;
+          if (body.notice) db.config.notice = body.notice;
+          changed++;
+        }
         if (changed) writeDb(db);
         return sendJson(res, { code: 1, msg: 'Action completed in the local replica', data: { changed, ids } });
       }
@@ -182,7 +198,7 @@ function handleAdminAction(req, res, pathname, query, body, db, hasStaticFile) {
     const safeTitle = title.replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
     const id = escapeHtml(query.get('id') || query.get('uid') || '');
     const isOperational = /edit_users|adjust|add_money|wallet|edit_users_bk|set_deal_cnt|reward_bonus|deal|goods|plots|account|config|auth|menu|checkin|user/i.test(pathname);
-    const fields = isOperational ? `<div class="layui-form-item"><label class="layui-form-label">用户名 / 名称</label><div class="layui-input-block"><input class="layui-input" name="username" placeholder="用户名或名称"></div></div><div class="layui-form-item"><label class="layui-form-label">金额 / 价格</label><div class="layui-input-block"><input class="layui-input" name="amount" type="number" step="0.01" placeholder="输入金额，可正可负"></div></div><div class="layui-form-item"><label class="layui-form-label">状态</label><div class="layui-input-block"><select class="layui-input" name="status"><option value="1">启用 / 通过</option><option value="0">停用 / 待审核</option></select></div></div><div class="layui-form-item"><label class="layui-form-label">备注</label><div class="layui-input-block"><input class="layui-input" name="remark" placeholder="填写操作说明"></div></div>` : `<div class="layui-form-item"><label class="layui-form-label">备注</label><div class="layui-input-block"><input class="layui-input" name="remark" placeholder="填写备注"></div></div>`;
+    const fields = isOperational ? `<div class="layui-form-item"><label class="layui-form-label">用户名 / 名称</label><div class="layui-input-block"><input class="layui-input" name="username" placeholder="用户名或名称"><input class="layui-input" name="product" placeholder="商品名称" style="margin-top:8px"></div></div><div class="layui-form-item"><label class="layui-form-label">金额 / 价格</label><div class="layui-input-block"><input class="layui-input" name="amount" type="number" step="0.01" placeholder="金额，可正可负"><input class="layui-input" name="price" type="number" step="0.01" placeholder="商品价格" style="margin-top:8px"><input class="layui-input" name="commission" type="number" step="0.01" placeholder="佣金" style="margin-top:8px"></div></div><div class="layui-form-item"><label class="layui-form-label">地址</label><div class="layui-input-block"><input class="layui-input" name="address" placeholder="钱包 / 提现地址"></div></div><div class="layui-form-item"><label class="layui-form-label">状态</label><div class="layui-input-block"><select class="layui-input" name="status"><option value="1">启用 / 通过 / 完成</option><option value="0">停用 / 待审核 / 待处理</option></select></div></div><div class="layui-form-item"><label class="layui-form-label">备注</label><div class="layui-input-block"><input class="layui-input" name="remark" placeholder="填写操作说明"></div></div>` : `<div class="layui-form-item"><label class="layui-form-label">备注</label><div class="layui-input-block"><input class="layui-input" name="remark" placeholder="填写备注"></div></div>`;
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     return res.end(`<!doctype html><html><head><meta charset="utf-8"><title>${safeTitle}</title><link rel="stylesheet" href="/static/plugs/layui/css/layui.css"></head><body class="layui-padding-3"><div class="layui-card"><div class="layui-card-header">${safeTitle}</div><div class="layui-card-body"><form class="layui-form" method="post" action="${pathname}"><input type="hidden" name="id" value="${id}">${fields}<div class="layui-form-item"><div class="layui-input-block"><button class="layui-btn" type="submit">保存</button></div></div></form></div></div></body></html>`);
   }
