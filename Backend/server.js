@@ -62,7 +62,7 @@ function localMemberRow(user) {
   return `<tr class="local-fixture-row"><td>${id}</td><td><div>ID: ${id}<br>邀请码: ${invite}<br>手机: ${phone}<br>用户名: <strong>${username}</strong><br>邮箱: ${email}</div></td><td>上级: --<br>上级邀请码: --</td><td>会员等级: VIP1<br>注册时间: 本地测试<br>注册IP: 127.0.0.1<br>注册位置: Local<br>信誉分: 100<br>最后上线IP: 127.0.0.1<br>最后上线位置: Local<br>最后上线时间: 刚刚</td><td>已完成: 0<br>总任务量: 0<br>已接单: 0<br>已重置: 0<br>已签到: 否</td><td>总资产: ${balance}<br>资产加利润: ${balance}<br>余额: ${balance}<br>充值: 0.00<br>提现: 0.00<br>收益: 0.00<br>连单金额: 0.00</td><td>在线<br>会员状态: ${status}<br>冻结: 否<br>普通账号<br>历史订单完成量: 0</td><td>${action('基础资料','/admin/users/edit_users.html?id='+id)} ${action('加扣款','/admin/users/adjust.html?id='+id)} ${action('钱包','/admin/users/edit_users_bk.html?uid='+id)} ${action('重置任务','/admin/users/reset_deal_cnt.html?id='+id,'open')} ${action('重置佣金','/admin/users/reset_deal_reward.html?id='+id,'open')} ${action('添加连单','/admin/plots/add.html?uid='+id,'open')} ${action('普通方式','/admin/plots/add_old.html?uid='+id,'open')} ${action('账变信息','/admin/users/caiwu.html?id='+id,'open')} ${action('连单列表','/admin/plots/liandan_list.html?uid='+id,'open')} ${action('改单数','/admin/users/set_deal_cnt.html?id='+id)} ${action('查看团队','/admin/users/myteams.html?uid='+id,'open')} ${action('登录历史','/admin/users/login_history.html?uid='+id,'open')} ${action('禁用','/admin/users/edit_users_status/2/'+id+'.html','open')} ${action('禁止提现','/admin/users/edit_withdral_message.html?id='+id)} ${action('发送通知','/admin/users/send_notice.html?id='+id,'open')} ${action('配置奖励金','/admin/users/set_reward_bonus.html?id='+id)}</td></tr>`;
 }
 
-function localMemberPage(db) {
+function localMemberPage(db, query) {
   const filePath = path.join(PUBLIC_DIR, 'admin', 'users', 'index.html');
   let html = fs.readFileSync(filePath, 'utf8');
   // The captured table has seven columns; remove any legacy leading ID cell
@@ -70,6 +70,9 @@ function localMemberPage(db) {
   const rows = (db.users || []).map(localMemberRow).join('').replace(/(<tr class="local-fixture-row">)<td>[^<]*<\/td>/g, '$1');
   html = html.replace(/<head([^>]*)>/i, `<head$1><style>.local-fixture-row>td{vertical-align:top!important;padding:10px 8px!important;line-height:1.8;white-space:normal}.local-fixture-row>td:nth-child(1){min-width:190px}.local-fixture-row>td:nth-child(2){min-width:150px}.local-fixture-row>td:nth-child(7){width:400px;min-width:400px}.local-fixture-row .local-action{display:inline-block!important;margin:5px 4px 0 0!important;line-height:28px!important;padding:0 8px!important}</style>`);
   html = html.replace(/<tbody>/i, `<tbody>${rows}`);
+  const page = Math.max(1, Number(query && query.get('page')) || 1);
+  html = html.replace(/当前显示第\s*1\s*页/g, `当前显示第 ${page} 页`);
+  html = html.replace(/第\s*1\s*页/g, `第 ${page} 页`);
   return html;
 }
 
@@ -349,7 +352,7 @@ const server = http.createServer((req, res) => {
     // member action can be exercised from a fresh portable install.
     if (pathname === '/admin/users/index.html' && req.method === 'GET') {
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
-      return res.end(localMemberPage(db));
+      return res.end(localMemberPage(db, parsedUrl.searchParams));
     }
 
     const panel = pathname.startsWith('/admin/') && req.method === 'GET' ? localDataPanel(pathname, db) : '';
