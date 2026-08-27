@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { readDocument, writeDocument } = require('./sqlite_store');
 
 // Keep all local state beside the server so the Visual folder can be moved as
 // one unit without rewriting source files.
@@ -107,15 +108,11 @@ function initDb() {
 
 function readDb() {
   initDb();
-  return JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
+  return readDocument();
 }
 
 function writeDb(data) {
-  const serialized = JSON.stringify(data, null, 2) + '\n';
-  const tempPath = DB_PATH + '.tmp';
-  fs.writeFileSync(tempPath, serialized, 'utf8');
-  if (fs.existsSync(DB_PATH)) fs.copyFileSync(DB_PATH, DB_BACKUP_PATH);
-  fs.renameSync(tempPath, DB_PATH);
+  writeDocument(data);
 }
 
 function ensureDbShape(db) {
